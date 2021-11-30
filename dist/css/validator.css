@@ -1,0 +1,2645 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Colors Used
+    Blue - #4dc6ee
+    */
+
+table{
+      border:none;
+      padding:0;
+}
+
+table tr,td{
+   
+    padding:0;
+}
+
+table #head{
+    font-weight:bold;
+    
+}
+
+    
+body{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+line-height:18px;
+color:#333;
+overflow-x:hidden;
+margin:0;
+padding:0;
+background-color:#222;
+}
+
+
+
+
+a{
+color:#333;
+text-decoration:none;	
+}
+
+
+
+img{
+border:0;	
+}
+	
+li{
+list-style:none;
+border-solid:1px #efefef;
+}
+
+ul{
+	
+}
+
+
+
+hr{
+	color:#CCC;
+	width:100%;
+	margin:10px 0 10px 0;
+}
+
+
+
+
+/* Heading tag styles */
+
+
+h1{
+color:#333;
+padding-bottom:10px;
+margin:0px 0 0px 0;	
+font-size:22px;
+font-weight:500;
+
+}
+
+h3{
+font-size:15px;
+color:#333;
+font-weight:400;
+
+}
+
+/* Form Field Styles */
+
+form{
+	float:left;
+}
+
+select{
+border:solid 1px #999;
+padding:2px;	
+}
+
+select option{
+	height:auto;
+	padding:3px;
+	border-bottom:solid 1px #efefef;
+}
+
+
+textarea{
+border:solid 1px #999;
+margin-bottom:10px;
+}
+
+#input_large{
+	width:500px;
+	height:25px;
+	padding:10px;
+	border:solid 1px #CCC;
+	box-shadow:2px 2px 3px #CCC;
+}
+
+#submit_large{
+	margin:20px 0 20px 0;
+	background:url(../images/small_bg.png) 0 -50px;
+	background-repeat:repeat-x;
+	min-width:150px;
+	padding:10px;
+	color:#FFF;
+}
+
+#submit_large:hover{
+	opacity:0.7;
+filter:alpha(opacity=70);
+}
+
+
+
+/* ***************************************/
+
+
+.container{
+    width:75%;    
+    height:auto;
+    padding:50px 5% 0 5%;
+    margin:0px auto 0 auto;
+  
+
+}
+
+ #inner-container{
+     width:75%;
+     height:auto;   
+     height:auto;
+     padding:20px 5% 0 5%;
+     margin:0 auto 20px auto;
+     background:#FFF;
+     
+ }
+
+.home_container{
+    width:600px;    
+    height:30px;
+    margin:-40px 0 40px 0;
+   background:url("../content/images/bar_bg.jpg") top center repeat;
+    border-radius:2px;
+}
+
+
+
+.left-panel{
+    float:left;
+    width:50px;
+    height:100%;
+    position:fixed;
+    top:40px;
+    left:0px;
+    background-color:#000;
+    color:#FFF;
+}
+
+.left-panel ul{
+ margin:10px 0 0 0;
+ padding:0;
+   
+}
+
+
+.left-panel ul #dashboard{
+    
+     width:40px;
+     height:40px;
+     background:url(../content/icons/menu_icons.png) -45px 0px;
+     margin:0px 0 20px 0px;
+        
+}
+
+
+.left-panel ul #access{
+    
+     width:40px;
+     height:40px;
+     background:url(../content/icons/menu_icons.png) -42px -38px;
+     margin:0px 0 20px 0px;
+        
+}
+
+
+.left-panel ul #analytics{
+    
+     width:40px;
+     height:40px;
+     background:url(../content/icons/menu_icons.png) -45px -75px;
+     margin:0px 0 20px 0px;
+        
+}
+
+.left-panel ul #validation{
+    
+     width:40px;
+     height:40px;
+     background:url(../content/icons/menu_icons.png) -42px -110px;
+     margin:0px 0 20px 0px;
+        
+}
+
+.left-panel ul #operations{
+    
+     width:40px;
+     height:38px;
+     background:url(../content/icons/menu_icons.png) -42px -156px;
+     margin:0px 0 20px 0px;
+        
+}
+
+.left-panel ul #settings{
+    
+     width:40px;
+     height:40px;
+     background:url(../content/icons/menu_icons.png) -42px -187px;
+     margin:0px 0 20px 0px;
+        
+}
+
+
+/********** Main Menu - First Level Drop Down  *********/
+
+.left-panel ul li #dropdown{
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 140px;
+    z-index: 1;
+    padding:0 0 0 10px;
+    margin:0 0 0 40px;
+}
+
+.left-panel ul li #dropdown ul{
+    padding:0;
+    margin:0;
+    width:140px;
+}
+    
+
+.left-panel ul li #dropdown li{
+    height:20px;
+    width:120px;
+    padding:10px;
+    border-bottom:solid 1px #666;
+}
+
+
+.left-panel ul li:hover #dropdown{
+    display: block;
+}
+
+
+.left-panel ul li #dropdown a{
+    color:#FFF;
+}
+
+
+/*********** End . First Level Dropdown **********/
+
+
+/********** Second Level DropDown *********/
+
+.left-panel ul li #dropdown ul li #drop{
+    display: none;
+    position: absolute;
+    top:0;
+    background-color: #333;
+    width: 140px;
+    z-index: 1;
+    border-radius:2px;
+    margin:0 0 0 120px;
+   
+}
+
+.left-panel ul li #dropdown ul li:hover #drop{
+    display: block;
+
+}
+/********** End . Second Level DropDown *********/
+
+
+/*********** Header Styles **********/
+.top_menu_container{
+    float:left;
+    width:930px;
+    margin:0px auto 0px auto;
+    background:url("../content/images/bar_bg.jpg") top center repeat;
+    border-radius:2px;
+    height:25px;
+    padding:5px;
+}
+
+.header{
+    position:fixed;
+    top:0px;
+    left:0px;
+    background-color:#000;
+    height:40px;
+    width:96%;
+    padding:0% 2% 2px 2%;
+}
+
+  .header #userinfo{
+        float:right;
+        font-size:11px;
+        color:#FFF;
+        padding:4px;
+        width:175px;
+        height:16px;
+        margin:0px 5px 0 0;
+        
+        border-radius:2px;
+        
+    }
+    
+    .header #userinfo a{color:#FFF;}
+
+
+
+.header #logo{
+   float:left;
+   margin:5px 0px 0 -27px;
+  }
+
+
+/* Login Button */
+
+.header #login{
+	float:right;
+	margin:-32px 0px 0 0 ;	
+	width:auto;
+	min-width:25px;
+	height:20px;
+	padding:3px 15px 0 15px;
+	border-radius:0px;
+	font-size:12px;
+}
+
+.header #settings_dropdown{
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 160px;
+    z-index: 1;
+}
+
+
+.header #settings{
+	float:left;
+	margin:-32px 0px 0 0 ;	
+	width:auto;
+	min-width:25px;
+	height:20px;
+	padding:3px 15px 0 15px;
+	border-radius:0px;
+	font-size:12px;
+        color:#FFF;
+}
+
+.header #settings a{
+    color:#FFF;
+}
+
+.header #settings:hover #settings_dropdown{
+        display:block;
+        color:#0fa7e1;
+    }
+    
+    
+.header #login a{
+	color:#FFF;
+
+            
+}
+
+
+.header #login:hover{
+	
+	
+}
+
+.header #login:hover a {
+	color:#666;
+}
+
+
+
+/*Main  ******************/
+
+
+
+#menu {
+    float:right;
+    width:700px;
+    height:20px;
+    margin:0px -12px 0px 0;
+  
+}
+
+#menu ul{
+ float:right;
+ margin:0px 0 0 0;
+ padding:0;
+}
+
+#menu ul li {
+    float:right;
+    list-style:none;
+    margin:0 20px 0 0px;
+}
+
+#menu ul li #dropdown a{
+    color:#FFF;
+}
+
+#menu ul li #dropdown{
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 180px;
+    z-index: 1;
+    border-radius:2px;
+}
+
+
+#menu ul li:hover #dropdown {
+    display: block;
+}
+
+#menu ul li #dropdown ul{
+    float:left;
+    margin:0px 0 0 0px;
+    padding:0;
+}
+
+#menu ul li #dropdown li{
+    list-style:none;
+    float:left;
+    width:160px;
+    height:20px;
+    padding:10px;
+    border-bottom:solid 1px #CCC;
+    
+}
+
+#menu ul li #dropdown li:last-child{
+    border:none;
+}
+
+
+#menu ul li #dropdown ul li #drop{
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 180px;
+    z-index: 1;
+}
+
+#menu ul li #dropdown ul li #drop li a{
+ color:#FFF;   
+}
+
+
+#menu ul li #dropdown ul li:hover #drop{
+    display: block;
+    margin:-28px 0 0 150px;
+}
+
+
+/* END . Main Navigation *************************/
+
+
+.homepage {
+    margin:150px auto 0 auto;
+    width:600px;
+    height:auto;
+    min-height:100px;
+   
+}
+
+.homepage #logo{
+    float: left;
+    margin:0 0 0 0px;
+}
+
+.homepage #icons{
+    float:left;
+    
+}
+
+.homepage #icons ul{
+    float:left;
+    margin:30px 0 -5px 0;
+    padding:0;
+}
+
+
+.homepage #icons li{
+    list-style:none;
+    float:left;
+    width:140px;
+    height:80px;
+    margin:0 13px 0 0;
+    background-color:#333;
+    
+}
+
+
+.homepage #icons li:last-child{
+     margin:0;   
+}
+
+.homepage #icons #dashboard{
+    border-top:solid 10px #f4043c;
+}
+
+
+
+.homepage #icons #validation{
+    border-top:solid 10px #40a31a;
+}
+
+
+.homepage #icons #analytics{
+    border-top:solid 10px #0fa7e1;
+}
+
+
+.homepage #icons #access{
+    border-top:solid 10px #ffd200;
+}
+
+
+
+
+.homepage #dashboard_icon{
+    
+     width:100px;
+     height:80px;
+     background:#333 url(../content/images/home_icons.png) -120px 10px;
+     margin:0px 0 0 20px;
+    
+}
+
+
+
+.homepage #icons #validation_icon{
+     width:100px;
+     height:80px;
+     overflow:hidden;
+     background:#333 url(../content/images/home_icons.png) -105px 95px;
+     margin:0px 0 0 20px;
+    
+}
+
+
+.homepage #icons #analytics_icon{
+     width:100px;
+     height:80px;
+     background:#333 url(../content/images/home_icons.png) -120px 200px;
+     margin:0px 0 0 20px;
+    
+}
+
+
+.homepage #icons #access_icon{
+     width:100px;
+     height:80px;
+     background:#333 url(../content/images/home_icons.png) -110px 302px;
+     margin:0px 0 0 20px;
+    
+}
+
+
+.homepage #icon_titles li{
+    background:none;
+    text-align:center;
+    height:10px;
+    color:#FFF;
+}
+
+.homepage #icon_titles{
+      float:left;
+  
+    
+}
+
+
+.homepage #map{
+    width:600px;
+    height:300px;
+    float:left;
+    margin:30px 0 0 0 ;
+    background-color:#0fa7e1;
+    background:#333 url(../content/maps/map_city_walk.jpg);
+}
+
+/********** First Level Drop Down  *********/
+
+.homepage #icons li #dropdown{
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 140px;
+    z-index: 1;
+    border-radius:2px;
+}
+
+.homepage #icons li #dropdown ul{
+    padding:0;
+    margin:0;
+    width:140px;
+}
+    
+
+.homepage #icons li #dropdown li{
+    height:20px;
+    width:120px;
+    padding:10px;
+    border-bottom:solid 1px #666;
+}
+
+
+.homepage #icons li:hover #dropdown{
+    display: block;
+}
+
+
+.homepage #icons li #dropdown a{
+    color:#FFF;
+}
+
+
+
+
+/********** Second Level DropDown *********/
+
+.homepage #icons li #dropdown ul li #drop{
+    display: none;
+    position: absolute;
+    top:0;
+    background-color: #333;
+    width: 140px;
+    z-index: 1;
+    border-radius:2px;
+    margin:0 0 0 120px;
+   
+}
+
+.homepage #icons li #dropdown ul li:hover #drop{
+    display: block;
+
+}
+
+
+.homepage #system_info{
+    float:left;
+    margin:20px 0 0 0;
+    color:#FFF;
+    text-align:center;
+    width:100%;
+}
+
+/********** End . Second Level DropDown *********/
+
+
+/********** Begin *********/
+
+
+#login_box{
+	width:380px;
+        height:250px;
+        min-height:250px;
+        height:auto;
+	padding:20px;
+	margin:50px auto 0px 100px;
+	background-color:#333;
+        color:#FFF;
+        float:left;
+      
+}
+
+#login_box a { 
+color:#888;
+}
+
+#login_box strong {
+	font-weight:400;
+	margin:0 0 20px 0;
+}
+
+#login_box input[type='text'],input[type='password']{
+	width:340px;
+	margin:5px 0 10px 0;
+	height:25px;
+	box-shadow:2px 2px 3px #efefef;
+}
+
+#login_button{
+    float:left;
+    width:340px;
+     height:35px;
+     padding:12px;
+     color:#FFF; 
+     background-color:#0fa7e1;
+     border-radius:2px;
+     box-shadow: none;
+}
+
+
+
+
+
+.logout_button{
+	background-image:url(../images/small_bg.png) 0 -50px;
+	background-repeat:repeat-x;
+	width:200px;
+	height:20px;
+	padding:5px 4px 5px 4px;
+	border-radius:2px;
+	font-size:12px;
+	color:#FFF;
+	background-color:#333;
+        margin:-2px auto 0 auto;
+        text-align:center;
+}
+
+.logout_button a{ color:#FFF;}
+
+
+#login_box #ajax_login_button{
+	width:auto;
+	min-width:30px;
+	height:25px;
+	padding:8px 15px 8px 15px;
+	border-radius:2px;
+	font-size:12px;
+	color:#333;
+	background-color:#EEE;
+	cursor:pointer;
+}
+
+
+#login_box #forgot_password{
+	float:right;
+	margin:-20px 0 0 20px;
+	font-size:12px;
+}
+
+
+#login_box #title h1{
+	float:left;
+	font-size:18px;
+	font-weight:400;
+	text-transform:uppercase;
+        color:#FFF;
+        width:100%;
+}
+
+#login_box #text{
+	width:100%;
+	color:#888;
+	font-size:12px;
+	float:left;
+	border-top:solid 1px #EEE;
+	margin:30px 0 0 0;
+	padding:10px 0 0 0;
+}
+
+#login_box #text a{
+color:#BE191B;
+
+}
+
+
+/*******Login Styles . End ******************/
+
+.center-panel{
+    float:left;
+    width:80%;
+    min-width:940px;
+   margin:0 0 20px 0;
+}
+
+
+
+/***********  users **********/
+.users{
+    float:left;
+    width:100%;
+}
+
+.users #title_bar{
+    float:left;
+    height:50px;
+    width:100%;
+    }
+
+.users #add_users{
+  float:left;  
+  height:auto;
+  width:100%;
+  padding:5px;
+  margin:20px 0 20px 0;
+}
+
+.users #add_users h3{
+    color:#333;
+    padding:10px;
+    margin:0;
+}
+
+.users #add_users form{
+    float:left;
+    height:300px;
+    width:100%;
+    
+}
+
+
+.users #add_users form{
+    float:left;
+    height:300px;
+    width:100%;
+    
+}
+.users #add_users #add_user_button{
+    float:left;
+    background-color:#333;
+    color:#FFF;
+    padding:10px
+    
+}
+
+.users #add_users #buttons{
+    float:right;
+  
+}
+
+
+form label{
+    float:left;
+}
+
+form #row{
+    float:left;
+    margin:10px 0 0 0;
+    border-top:solid 2px #efefef;
+    padding:10px 0 0 0;
+    width:100%;
+   height:auto;
+   min-height:20px;
+}
+
+.users #add_users form input{
+    float:left;
+}
+
+.users #add_users form #column{
+    float:left;
+    width:32%;
+    margin:0 0 10px 10px;
+}
+
+.users #add_users form #row{
+    float:left;
+    width:100%;
+    margin:10px 0 0 10px;
+}
+
+.users #add_users h5{
+    color:#333; 
+}
+
+.users #add_users input{
+    float:left;
+}
+.users #sub_menu{
+    float:right;
+    margin:-50px 0 0 0;
+    width:400px;
+}
+
+.users #sub_menu ul{
+   float:right;
+   list-style:none;
+}
+
+.users #sub_menu li{
+    float:left;
+    list-style:none;
+    margin:0 0 0 20px;
+}
+
+.users #users_list{
+    float:left;
+     height:auto;
+     width:100%;
+}
+
+.users #users_list ul{
+    float:left;
+    list-style:none;
+    width:100%;
+    margin:0 0 0 0px;
+    padding:0px;
+}
+
+.users #users_list li{
+    list-style:none;
+    width:100%;
+    padding:1%;
+    margin:0 0 10px 0;
+    min-height:35px;
+    border-bottom:solid 1px #EEE;
+}
+
+.users #users_list li:last-child{
+    border:0;
+}
+
+.users #users_list li #user{
+    float:left;
+    margin:-2px 0 0 0;
+}
+.users #users_list li #edit_user{
+    float:right;
+    padding:0 0px 0 10px;
+     margin:-2px 0 0 0;
+     
+}
+
+.users #users_list li #edit_user:hover{
+    border-top:solid 2px #4dc2ff;
+}
+
+.users #users_list li #disable,#enable{
+    float:right;
+    padding:0 10px 0 10px;
+     margin:-2px 0 0 0;
+}
+
+
+
+/* end. Users */
+
+
+#content {
+	margin:10px 0 0 0;
+}
+
+
+
+/************* Register ********************/
+
+
+#titleInfo{
+	background-color:#EEE;
+	border:solid 1px #CCC;
+	padding:8px 15px 8px 15px;
+	font-size:12px;
+	min-width:200px;
+}
+
+#emailInfo{
+	background-color:#EEE;
+	border:solid 1px #CCC;
+padding:5px 10px 5px 10px;
+	font-size:12px;
+	min-width:200px;
+}
+
+#pwdInfo{
+	background-color:#EEE;
+	border:solid 1px #CCC;
+        padding:5px 10px 5px 10px;
+	font-size:12px;
+	min-width:200px;
+}
+
+/* Password strength indicators */
+
+#complexity, #results{
+	width: 200px;
+	height: 25px;
+	color: #000;
+	font-size: 14px;
+	text-align: center;
+	border-radius:5px;
+	margin:10px 0 0 0;
+	padding:10px;
+	color:#333;
+}
+
+
+.default{background-color: #efefef;}
+.weak{background-color: #FF5353;}
+.strong{background-color: #FAD054;}
+.stronger{background-color: #93C9F4; }
+.strongest{background-color: #B6FF6C;}
+/*8************ Register . end ********************/
+
+
+/** Reports **/
+
+
+.report_form{
+    float:left;
+    width:96%;
+    height:auto;
+    padding:15px 2% 15px 2%;
+    margin:-20px 0 0 0;    
+    background:#333;
+    color:#333;
+}
+
+.report_form input{
+border:solid 1px #eee;
+padding:3px;	
+color:#333;
+margin:5px 10px 0 0;
+height:22px;
+width:150px;
+float:left;
+}
+
+.report_form select{
+    float:left;
+    float:left;
+    margin:0px 10px 0 0;
+    padding:3px 3px 3px 3px;
+    width:150px;
+    height:30px;
+    border:solid 1px #eee;
+}
+
+.report_form #date_range_option{
+    width:100%;
+    background-color:#efefef;
+    display:none;
+}
+
+.report_form #day_option{
+    width:100%;
+    display:none;
+}
+
+.report_form #month_option{
+    width:100%;
+    display:none;
+}
+
+.report_form #month_option ul{
+    margin:0;
+    padding:0;
+    float:left;
+}
+
+.report_form #month_option ul li{
+   list-style: none;
+   float:right;
+   margin:0 22px 0 0;
+   background-color:#0fa7e1;
+   padding:4px;
+   border-radius:2px;
+   color:#FFF;
+}
+
+.report_form label{
+    color:#FFF;
+    padding:0px 0 10px 0;
+    width:170px;
+    float:left;
+}
+ 
+  
+#page-functions{
+    float:right;
+    height:36px;
+    margin:-45px 10px 0 0px;   
+   background-color:#222;
+    border-radius:2px;
+    padding:4px;
+}
+
+ #page-functions ul{
+  margin:0 0 0 -10px;
+  padding:0;
+
+  }
+
+#page-functions ul li{
+   float:left;
+   list-style:none;
+   margin:-2px 10px 0 10px;
+   height:34px;
+   width:34px;
+   }
+
+ #page-functions ul li:hover{
+       cursor:pointer;
+   }
+   
+ #page-functions #excel_report_button{
+     float:left;
+     width:30px;
+     height:30px;
+     background:url(../content/icons/menu_icons.png) -70px -10px;
+     margin:0px 10px 10px 0px;
+        } 
+   
+#page-functions #pdf_print_button{
+     float:left;
+     width:30px;
+     height:30px;
+     background:url(../content/icons/menu_icons.png) -80px -34px;
+     margin:-10px 10px 10px 0px;
+   } 
+      
+   
+ #page-functions  .add{       
+     background:url(../content/icons/icon.png) -24px -268px;      
+}
+
+ #page-functions  .add:hover{       
+     background:url(../content/icons/icon.png) -96px -340px;      
+}
+
+   
+
+ #page-functions  .search{     
+     background:url(../content/icons/icon.png) -24px -150px;
+          
+}
+
+ #page-functions  .search:hover{     
+     background:url(../content/icons/icon.png) -92px -150px;
+          
+}
+
+ #page-functions  .filter{   
+     background:url(../content/icons/icon.png) -24px -112px;       
+}
+
+#page-functions  .filter:hover{   
+     background:url(../content/icons/icon.png) -92px -112px;       
+}
+
+#page-functions #excel_report:hover{
+    color:#00bff3;
+}
+   
+   
+   #action_buttons{
+       float:left;       
+       height:auto;      
+   }
+   
+   
+   #action_buttons a{
+       margin:0 20px 0 0px;
+   }
+   
+   #action_buttons a:hover{
+       color:#000;       
+   }
+   
+.report_button,#add_member_button,#quick_search_button{
+    float:left;
+    height:24px;
+    padding:4px 4px 2px 4px;
+    width:100px;
+    background-color: #4dc6ee;
+    color:#FFF;
+    margin:0px 0 0 0px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.report_button:hover{
+    background-color:#0fa7e1;
+    color:#FFF; 
+    
+}
+
+
+.push_button {
+	float:left;
+	width:120px;
+	height:28px;
+	text-align:center;
+	color:#FFF;
+	text-decoration:none;
+	line-height:32px;
+	font-family:'Oswald', Helvetica;
+	margin:5px 8px 0 0;
+        cursor:pointer;
+}
+.push_button:before {
+	background:#f0f0f0;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#D0D0D0), to(#f0f0f0));
+	
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	
+	-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
+	-moz-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
+	box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF;
+	
+	float:left;
+	content: "";
+	left: -6px; right: -6px;
+	top: -6px; bottom: -10px;
+	z-index: -1;
+}
+
+.push_button:active {
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset;
+	top:5px;
+}
+.push_button:active:before{
+	top: -11px;
+	bottom: -5px;
+	content: "";
+}
+
+.red {
+	text-shadow:-1px -1px 0 #A84155;
+	background: #D25068;
+	border:1px solid #D25068;
+	
+	background-image:-webkit-linear-gradient(top, #F66C7B, #D25068);
+	background-image:-moz-linear-gradient(top, #F66C7B, #D25068);
+	background-image:-ms-linear-gradient(top, #F66C7B, #D25068);
+	background-image:-o-linear-gradient(top, #F66C7B, #D25068);
+	background-image:linear-gradient(to bottom, #F66C7B, #D25068);
+	
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+	
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #AD4257, 0 4px 2px rgba(0, 0, 0, .5);
+	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #AD4257, 0 4px 2px rgba(0, 0, 0, .5);
+	box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #AD4257, 0 4px 2px rgba(0, 0, 0, .5);
+}
+
+.red:hover {
+	background: #F66C7B;
+	background-image:-webkit-linear-gradient(top, #D25068, #F66C7B);
+	background-image:-moz-linear-gradient(top, #D25068, #F66C7B);
+	background-image:-ms-linear-gradient(top, #D25068, #F66C7B);
+	background-image:-o-linear-gradient(top, #D25068, #F66C7B);
+	background-image:linear-gradient(top, #D25068, #F66C7B);
+}
+
+.blue {
+	text-shadow:-1px -1px 0 #2C7982;
+	background: #3EACBA;
+	border:1px solid #379AA4;
+	background-image:-webkit-linear-gradient(top, #4dc6ee, #37acd2);
+	background-image:-moz-linear-gradient(top, #4dc6ee, #37acd2);
+	background-image:-ms-linear-gradient(top, #4dc6ee, #37acd2);
+	background-image:-o-linear-gradient(top, #4dc6ee, #37acd2);
+	background-image:linear-gradient(top, #4dc6ee, #37acd2);
+	
+	-webkit-border-radius:1px;
+	-moz-border-radius:1px;
+	border-radius:1px;
+	
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
+	-moz-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
+	box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset, 0 4px 0 #338A94, 0 4px 2px rgba(0, 0, 0, .5);
+}
+
+.blue:hover {
+	background: #48C6D4;
+	background-image:-webkit-linear-gradient(top, #37acd2, #4dc6ee);
+	background-image:-moz-linear-gradient(top, #37acd2, #4dc6ee);
+	background-image:-ms-linear-gradient(top, #37acd2, #4dc6ee);
+	background-image:-o-linear-gradient(top, #37acd2, #4dc6ee);
+	background-image:linear-gradient(top, #37acd2, #4dc6ee);
+}
+
+
+
+.push_button_small {
+	float:left;
+	width:auto;
+	height:28px;
+	text-align:center;
+	color:#FFF;
+	text-decoration:none;
+	line-height:32px;
+	font-family:'Oswald', Helvetica;
+	margin:5px 10px 0 0;
+        cursor:pointer;
+}
+.push_button_small:before {
+	background:#f0f0f0;
+	background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#D0D0D0), to(#f0f0f0));
+	
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	
+	-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
+	-moz-box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF; 
+	box-shadow:0 1px 2px rgba(0, 0, 0, .5) inset, 0 1px 0 #FFF;
+	
+	float:left;
+	content: "";
+	left: -6px; right: -6px;
+	top: -6px; bottom: -10px;
+	z-index: -1;
+}
+
+.push_button_small:active {
+	-webkit-box-shadow:0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(255, 255, 255, .1) inset;
+	top:5px;
+}
+
+
+.push_button_small:active:before{
+	top: -11px;
+	bottom: -5px;
+	content: "";
+}
+
+
+#labels{
+    float:left;
+    width:100%;
+    height:15px;
+    color:#333;
+    font-size:11px;
+    }
+    #labels #from{
+        float:left;
+        margin:0 0px 0 0;
+    }    
+    #labels #to{
+        float:left;
+        margin:0 0px 0 0;
+    } 
+    #labels #hour{
+        float:left;
+        margin:0 0px 0 3px;
+    }
+  
+    
+    
+    #datepicker_from, #datepicker_to{
+    float:left;
+    border-radius:0px;
+    margin:0 10px 0 0;
+}
+
+/* PAGE TITLE */ 
+
+.page-title{
+    float:left;
+    width:100%;
+    height:40px;
+    padding:7px 5px 20px 5px;
+    margin:40px 0 20px 0;
+    color:#FFF;
+    background-color:#333;
+}
+
+.page-title h3{
+    margin:-35px 0 0 0;
+    padding:0 0 0px 0;
+    font-size:18px;
+    float:left;
+    color:#FFF;
+}
+
+.page-title #icon{
+    float:left;
+    width:50px;
+     height:40px;
+     background:url(../content/icons/menu_icons.png) 0px -80px;
+     margin:-10px 10px 10px 0px;
+        
+    
+}
+
+/* END. page-title */ 
+
+
+
+.page-content{
+    float:left;
+    width:100%;
+    hieght:auto;
+    margin:0px 0 40px 0;
+    color:#FFF;
+    overflow:hidden; 
+    
+}
+
+.page-content a{color:#FFF;}
+
+.page-content #export_to_excel_button{
+    float:left;
+    height:25px;
+    padding:4px;
+    width:150px;
+    background-color: #4dc6ee;
+    color:#FFF;
+    margin:6px 0 0 10px;
+    text-align:center;
+    
+}
+
+.page-content #totals_row{
+    background-color:#4dc6ee;
+    color:#fff;
+    font-weight:bold;
+}
+
+.page-content table{list-style:none;
+                     float:left;
+                     margin:0px;
+                     padding:0px;
+                     width:100%;
+                     border:none;
+                  
+}
+
+.page-content tr{
+width:100%;
+height:25px;
+}
+
+.page-content thead tr{
+    background-color:#000;
+ 
+}
+
+.page-content thead tr th{
+ padding:10px;
+ font-size:14px;
+ color:#FFF;
+}
+
+
+.page-content tr:nth-child(even) {background: #444}
+.page-content tr:nth-child(odd) {background: #555}
+
+
+
+
+.page-content tr:hover{
+    cursor:pointer;
+    }
+
+.page-content tr:first-child{
+  text-align:left;
+  
+}
+
+
+.page-content td{
+    width:auto;
+    padding:8px .8% 8px .8%;
+    width:12%;
+    text-align: left;
+    vertical-align:top;
+    border:0;
+  
+}
+
+.page-content tr td:first-child{
+    text-align:left;
+
+}
+
+.page-content tr:first-child{
+ 
+
+}
+
+
+
+.page-content #sub_header{
+    float:left;
+    width:100%;
+    height:30px;    
+    padding:10px 0% 10px 0%;
+    border-bottom:solid 2px #efefef;
+    font-size: 14px;
+    margin:10px 0 10px 0;
+    font-weight:bold;
+    
+}
+
+.page-content #sub_header img{
+ float:left;
+ height:24px;
+ width:24px;
+ margin:-5px 10px 0 0px;
+ background-color:#00bff3;
+ border-radius:50px;
+}
+
+
+.page-content #carpark_title{
+    float:left;
+    width:200px;
+   }
+  
+.page-content #report_date{
+  float:right; 
+  width:200px;
+  text-align:right;
+}
+
+ .page-content #current_date{
+      
+ }
+ 
+ .page-content #total{
+ font-weight:600;
+ background-color:#efefef;
+ color:#333;
+ }
+ 
+  .page-content #facility_total{
+ font-weight:600;
+ background-color:#666;
+ color:#FFF;
+ }
+ 
+
+ .page-content .toppanel{
+     float:left;
+     width:100%;
+     height:auto;
+     min-height:300px;
+     margin:20px 0 20px 0;
+  
+ }
+ 
+
+   /* END . PAGE-CONTENT STYLES */
+   
+   /* add data / update data form elements styles */
+   
+#add-data,#add_customer{
+  float:left;  
+  height:auto;
+  width:98%;
+  padding:0 1% 10px 1%;
+  background-color:#FFF;
+  margin:-18px 0 40px 0;
+  color:#333;
+}  
+
+#add-data h3{
+    margin:10px 0 20px 0;
+    padding:0 0 10px 0;
+    border-bottom:solid 1px #CCC;
+}   
+
+.update-button-style{
+     float:left;
+     height:15px;
+     padding:12px;
+     color:#FFF; 
+     background-color:#0fa7e1;
+     border-radius:2px;
+     
+ }
+
+
+ #add-data #update-data,#add-button,#update-data-button,#add_data_button,#add_validator_button{
+     float:left;
+     height:15px;
+     padding:12px;
+     color:#FFF; 
+     background-color:#0fa7e1;
+     border-radius:2px;
+     
+ }
+ 
+  #add-data #update-data:hover,#add-button:hover{
+  cursor:pointer;
+  background-color:#4dc2ff; 
+  color:#333;
+  }
+  
+  #update-data:active{ 
+  box-shadow:1px 1px 1px 3px #999;
+  transform: translateY(2px);
+  }
+  
+  #add-data ul{
+      margin:0;
+      padding:0;
+  }
+  
+    #add-data ul li{
+        padding:3px 0 3px 0;
+    }
+  
+ #close-panel{
+      float:right;
+      color:#666;
+      font-size:25px;    
+      margin:2px 0px 10px 0 ;
+      background-color: #FFF;
+      cursor:pointer;  
+  }
+   #close-panel:hover{
+       color:#222;
+   }
+  #add_customer  #close-panel{
+      float:right;
+      color:#666;
+      font-size:25px;    
+      margin:2px 0px 10px 0 ;
+      background-color: #FFF;
+      cursor:pointer;  
+  }
+   
+   
+  
+   #add-data #close-panel:hover{
+       color:#222;
+       font-zie:24px;
+       cursor:pointer;
+   }
+ 
+  #add-data #update-data-form{
+      float:left;
+      width:100%;
+  }
+ 
+  #add-data #row{
+      width:100%;
+      float:left;
+      height:auto;
+      padding:10px 0 0 0;
+            
+    
+  }
+  #add-data input{
+      margin:0 0 15px 0;
+      padding:5px;
+      height:20px;
+      min-width:30%;
+  }
+
+  #add-data #column{
+    float:left;
+    width:48%;
+    margin:0 2% 0 0;
+   
+}
+
+#add-data form{
+    width:100%;
+    float:left;
+}
+  
+   /* END . add data / update data form elements styles */
+
+.report_header{
+    float:left;
+    width:100%;
+    margin:0 0 20px 0;
+    height:60px;
+}
+
+.report_header #left{
+    float:left;
+    width:150px;
+    height:60px;
+}
+
+.report_header #right{
+    float:right;
+    width:150px;
+    height:80px;
+}
+
+.report_footer{
+    float:left;
+    width:100%;
+    margin:20px 0 20px 0;
+    border-top:solid 1px #333;
+    padding:10px 0 0 0;
+}
+
+
+.report_footer img{
+    float:left;
+    height:60px;
+    width:160px;
+}
+/*End  report **/
+
+
+
+
+
+/********* Members ***************/
+
+.search-bar{
+    width:98%;
+    padding:0 1% 0 1%;
+    height:25px;
+}
+
+
+
+#quick_search{
+    float:left;
+    height:50px;
+    width:98%;
+    padding:20px 1% 10px 1%;
+    margin:-20px 0 10px 0;
+    background-color:#FFF;
+  
+}
+
+#quick_search input{
+    float:left;
+    margin:0px 10px 0 10px;
+    height:25px;
+}
+
+
+
+
+
+
+
+/* ***alarms ***/
+.alarms{
+    float:left;
+    width:100%;
+    height:auto;
+}
+
+.alarms ul{
+    float:left;
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+.alarms ul li{
+    float:left;
+    list-style:none;
+    width:940px;
+    height:30px;
+    padding:10px 0 10px 0;
+    border-bottom:solid 1px #EEE;
+}
+
+.alarms ul li #message{
+    float:left;
+    width:300px;
+}
+
+.alarms ul li #alarm_id{
+    float:left;
+    width:20px;
+}
+
+
+.alarms ul li #status{
+    float:right;
+    width:30px;
+    height:30px;
+    padding:0 5px 0 0;
+    text-align:center;
+    border-radius:2px;
+}
+
+
+
+.alarms ul li:first-child #status{background-color:#FFF;}
+
+.alarms ul li #actions{
+    float:left;
+    width:200px;
+}
+
+.alarms ul li #priority{
+    float:left;
+    width:200px;
+}
+.alarms ul li img{
+    width:24px;
+    height:24px;
+    margin:2px 0 0px 6px;
+}
+
+.alarms ul li .active{  
+  
+}
+
+.alarms ul li .inactive {
+    opacity:.2;
+}
+
+.alarms ul li #email{
+    float:left;
+    width:40px;
+    height:30px;
+    margin:0 10px 0 0;
+    border-radius:2px;
+}
+
+.alarms ul li #sms{
+    float:left;
+    width:40px;
+    height:30px;
+    margin:0 10px 0 0;
+    border-radius:2px;
+}
+
+.alarms ul li #dash{
+    float:left;
+    width:40px;
+    height:30px;
+    margin:0 10px 0 0;
+    border-radius:2px;
+}
+
+
+/* END ***alarms ***/
+
+.terminals{
+    float:left;
+    width:100%;
+}
+
+.terminals ul {
+    margin:0;
+    padding:0;
+}
+
+.terminals ul li{
+    min-height:20px;
+    padding:5px 1% 5px 1%;
+    height:auto;
+    width:100%;
+    border-bottom:solid 1px #EEE;
+}
+
+.terminals li #actions{
+    float:right;
+    margin:0;
+    padding:0;
+    width:30%;
+    height:20px;
+         color:#FFF;
+}
+
+.terminals li select {
+    padding:5px;
+    min-width:250px;
+    height:30px;
+}
+
+
+.terminals li textarea{
+    padding:5px;
+    min-width:240px;
+    height:60px;
+}
+
+
+.terminals li #actions #chipcoin,#barrier,#space,#close_barrier{ 
+        width:100px;
+        height:20px;
+        color:#FFF;
+        margin:0 20px 10px 0;
+       font-weight:bold;
+        float:right;
+    }
+    
+    #close_barrier{ 
+        width:100px;
+        height:20px;
+        color:#333;
+        margin:0 20px 10px 0;
+       font-weight:bold;
+        float:right;
+    }
+
+    .terminals li .device_operation{
+        float:left;
+        width:0;
+        height:0;
+        display:none;
+     
+    }
+    
+    .terminals li .show_device_operation{
+        float:left;
+        width:99%;
+        height:auto;
+        background-color:#999;
+        padding:15px 1% 15px 1%;
+        border:solid 1px #CCC;
+        margin:0 0 10px 0;
+        
+    }
+
+    .terminals #chip_coin_container,#barrier_open{
+        float:left;
+     
+    }
+    
+     .terminals #chip_coin_container input{
+        float:left;
+        margin:10px;
+    }
+    
+    .terminals .barrier_open_button{
+        float:left;
+        height:20px;
+        padding:6px 4px 1px 4px;
+        width:100px;
+        background-color: #4dc6ee;
+        color:#FFF;
+        margin:0px 0 0 10px;
+        text-align:center;
+    }
+    
+     .terminals .general_button{
+        float:left;
+        height:20px;
+        padding:6px 4px 1px 4px;
+        width:100px;
+        background-color: #4dc6ee;
+        color:#FFF;
+        margin:0px 0 0 10px;
+        text-align:center;
+    }
+    
+/*8************ Footer ********************/
+
+footer{
+	background:#222;
+	float:left;
+	margin:20px 0 0px 0;
+	padding:.5%;
+	width:100%;
+        position:fixed;
+        bottom:0;
+        left:0;
+        height:30px;
+        font-size:10px;
+}
+
+.copyright{
+	float:left;
+	width:100%;
+	margin:10px 0 10px 0;
+	padding:10px 0 0 0;
+	border-top:solid 1px #CCC;
+	color:#666;
+}
+
+/************* Footer  styles . end *************/
+
+
+
+.validator_stats {
+    float: left;
+    width: 740px;
+    height: 470px;
+    background-color:#444;
+    margin:0 0 0 10px;
+    padding:0 0 10px 0;
+    color:#FFF;
+    border-radius:3px;
+}
+
+    .validator_stats h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin:5px 0 10px 5px;
+        
+    }
+
+.validator_stats .live_stats table {
+    float: left;
+    width: 730px;
+}
+
+.validator_stats #row_head{
+    float:left;
+    width:730px;
+    height:18px;
+    background-color:#4dc6ee;
+    margin:-17px 0 10px 0;
+    padding:5px;
+    border-radius:3px 3px 0px 0px;
+    font-size:12px;
+}
+
+
+.validator_stats #chip{
+    float:left;
+    width:100px;
+    height:20px;
+}
+
+.validator_stats #entry{
+    float:left;
+    width:200px;
+    height:20px;
+   
+}
+
+
+.validator_stats #val_count {
+    float:left;
+    width:100px;
+    height:20px;
+   
+}
+
+.validator_stats #row{
+    float:left;
+    width:730px;
+    height:20px;
+    background-color:#333;
+    margin:0 0 10px 0;
+    padding:5px;
+}
+
+
+.validator_stats .section_header {
+    float: left;
+    width: 100%;
+    border-bottom: solid 1px #666;
+    margin: 0 0 10px 0;
+}
+
+    .validator_stats .section_header #chipcoin_lookup {
+        float:right;
+        font-weight:bold;
+        margin:-30px 10px 0 0;
+    }
+
+
+
+.validation_button {
+    float: left;
+  
+}
+
+.validation_button li {
+    float: left;
+    list-style:none;
+    height:20px;
+    padding:9px;
+    width:210px;
+    background-color:#efefef;
+    color:#333;
+    margin:10px 0 0px 10px;
+    text-align:center;
+    border-radius:4px;
+    
+}
+
+
+.validation_button .active:hover{
+   background-color: #4dc6ee;
+   color: #FFF;
+   cursor:pointer;
+ }
+
+
+.validator_stats .message_box {
+    float: left;
+    width:100%;
+    height: auto;
+    background-color:#efefef;
+    margin:0 0 20px 0;
+    border-radius:3px;
+}
+
+    .validator_stats .message_box h3 {
+        color: #333;
+        font-size:14px;
+        padding:5px 5px 10px 5px;
+    }
+
+    .validator_stats .message_box #row_head {
+        background-color: #ccc;
+    }
+
+    .validator_stats .message_box #row {
+        background-color:#FFF;
+        color:#333;
+       
+    }
+
+    /******************* Containers *****************************/
+    
+    .half_box{
+        float:left;
+        width:50%;
+        height:auto;
+    }
+    
+    .row{
+        float:left;
+        width:100%;
+        height:30px;
+        margin:0 0 0px 0;
+    }
+    
+    
+ .counter_container{
+   float:left;
+   width:250px;
+   height:auto;
+   margin:20px 20px 20px 0; 
+   }
+    
+     .counter_container #title{
+   width:100%;
+   height:20px;
+  font-weight:600;
+   float:left;
+   }
+    
+   .counter_container #row{
+   width:100%;
+   height:20px;
+   border-bottom:solid 1px #333;
+   float:left;
+   }
+    
+   .counter_container #counter_name{
+   width:150px;
+   height:20px;
+   float:left;
+   text-align:left;
+   } 
+   .counter_container #count{
+   width:50px;
+   height:20px;
+   float:left;
+   text-align:center;
+   } 
+   
+   .transactions{
+   float:left;
+   width:100%;
+   height:auto;
+   margin:20px 0 0 0;
+   }
+   
+  
+   
+   .transactions #row{
+   float:left;
+   width:100%;
+   height:100px;
+   border-bottom:solid 1px #efefef;
+   margin:0 0 10px 0;
+   }
+   
+   
+   .transactions #row:hover{
+     background-color:#4dc6ee;
+    color:#FFF;
+    cursor:pointer;
+   }
+   
+  
+    .transactions #row #title{
+   float:left;
+   width:98%;
+   padding:5px 15 5px 1%;
+   height:25px;
+   background-color:#efefef;
+   margin:0 0 10px 0;
+   }
+   
+    .transactions #row:hover #title{
+   color:#333;
+   }
+     
+   
+   
+   .transactions #row #block{
+   float:left;
+   width:25%;
+   height:100px;
+   }
+   
+    
+    #update_member_button:hover{
+        cursor:pointer;
+    }
+   
+   #update_member_button{
+       background-color:#333;
+       color:#FFF;
+       padding:5px;
+       
+   }
+   
+   
+   #test_panel{
+       float:left;
+       height:100px;
+       background-color:#FFF;
+       width:100%;
+       color:#FFF;
+   }
+   
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal #header{
+    float:left;
+    width:96%;
+    height:30px;
+    padding:2%;
+    background-color:#efefef;
+    color:#333;  
+    margin:0px 0 20px 0;
+}
+
+
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto; /* 15% from the top and centered */
+    padding:10px 20px 10px 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height:85%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#current{
+    float:right;
+    font-size:20px;
+    color:#FFF;
+    
+}
+
+#total_row{
+    background-color:#37acd2;
+    font-weight:bold;
+    font-size:16px;
+  
+}
+
+.shift_report{
+    float:left;
+    width:95%;
+    height:auto;
+}
+
+.shift_report #sub_header{
+    float:left;
+    width:100%;
+    height:auto;
+    padding:0px 0 10px 0;   
+    color:#333;  
+    font-size:18px;
+    margin:10px 0 20px 0;
+    border-bottom:solid 1px #999;
+}
+
+
+.shift_report table{
+   min-width:500px;
+   width:45%;
+   float:left;
+   border:0;
+}
+
+.shift_report table tr{
+    height:25px;
+}
+
+.shift_report table tr td{
+    padding:10px;
+    }
+    
+ #shift_detail_content{        
+        background:#FFF;
+        height:80%;
+        width:80%;
+        position:absolute;
+        top:100px;
+        left:10%;
+        overflow: auto;
+}   
+    
+ .functions{
+ float:right;
+ background-color:#EFEFEF;
+ width:100px;
+ height:30px;
+ margin:-30px 0 0 0;
+        
+  }
+  
+  #occupancy td{
+      padding:10px;
+  }
+  
+  #occupancy{
+      font-size:20px;
+      
+  }
+  
+  
+  .bar_graphs{
+      float:left;
+      height:40%;
+      width:100%;
+      margin:20px 0 10px 0;
+  }
+  
+  .bar_graphs .bar{
+      float:left; 
+      min-height: 50px;
+  }
+  
+.bar_graph_value{
+        position:relative;
+        top:-20px;
+        text-align:center;
+        width:100%;
+        padding:2px;
+        font-weight:bold;
+    }
+  
+.bars{
+        float:left;
+        height:auto;
+        width:70%;
+        margin:30px 0 0 0; 
+	position: relative;
+        bottom:0;
+}  
+
+.bar_spacer{
+   display: inline-block;
+   margin: 0 0 0 1px;
+   vertical-align: bottom;
+   position: relative;	
+
+}
+
+
+.bar{
+	display: inline-block;
+	margin: 0 0 0 1px;
+	vertical-align: bottom;
+	position: relative;	
+	background: #2be;
+       
+}
+
+.bar2 {
+	display: inline-block;
+	margin: 0 0 0 1px;
+	vertical-align: bottom;
+	position: relative;	
+	background:#FAD054;
+        
+}
+
+ .bar_labels{
+  width:100%;
+  height:20px;
+  float:left; 
+  color:#FFF;
+  margin:3px 0 20px 0;
+ }
+ 
+ 
+ .bar_labels #label_value{
+         float:left; 
+         background-color:#333;
+         text-align:center;
+         font-size:14px;         
+  }
+  
+  .highlights{
+      float:left;
+      width:100%;
+      margin:20px 0 10px 0;
+      height:auto;
+      min-height:100px;
+  }
+  
+    .highlights ul{
+        float:left;
+        list-style:none;
+        maring:0;
+        padding:0;
+        width:100%;
+        
+    }
+  
+  .highlights li {
+      float:left;
+      background-color:#CCC;
+      color:#000;
+      height:100px;
+      width:30%;
+      margin:0 5% 0 0;
+  }
+  
+    .highlights li:last-child 
+    {
+     margin:0;   
+    }
+    
+    /* VALIDATOR */
+    
+    .monitor{
+    float:left;
+        width:60%;
+        height:auto;
+        min-height:500px;
+        margin:5% 0 0 2%;        
+        border-radius:4px;
+        padding:5px;
+        color:#FFF;
+        font-weight:normal;
+    }
+    .monitor td{
+        color:#FFF;
+        font-weight:normal;
+        font-size:12px;
+    }
+    
+    .monitor h3{
+        float:left;
+        margin:0 0 10px 0;
+        padding:0 0 10px 0;
+        width:100%;
+        color:#FFF;
+    }
+    
+   /* VALIDATOR - TERMINAL  BARCODE */
+   
+    .validator{
+        float:left;
+        width:30%;
+        height:auto;
+        min-height:500px;
+        margin:5% 0 0 2%;
+        background-color:#46c1e5;
+        border-radius:4px;
+       }
+       
+       .validator label{
+           margin:0% 10% 0% 15%;
+           height:20px;
+           float:left;
+       }
+       
+       
+       
+       
+           .validator form{
+               width:100%;
+           }
+      
+     .validator input[type=submit] {
+           margin:2% 10% 10% 15%;
+           height:40px;
+           width:64%;
+           background-color:#EFEFEF;
+           color:#333;
+           padding:0px;
+           border-radius:4px;
+           text-align:center;
+           font-weight:bold;
+           font-size:14px;
+       }
+       
+       .validator .content_container{
+           width:100%;
+           height:auto;
+           float:left;
+           
+       }
+       
+       .validator .text_box{           
+           margin:0% 10% 00% 15%;
+           height:40px;
+           width:64%;
+           background-color:#FFF;
+           color:#333;
+           padding:10px;
+           border-radius:4px;
+           text-align:center;
+       }
+    
+       .validator .counter{           
+       margin:10% 0% 10% 30%;
+  height: 200px;
+  width: 200px;
+  background-color: #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  padding:2%;
+  text-align:center;
+
+       }
+
+
+
+    .login h2{  color: #333;}
+    
+    .login {
+     
+        width:280px;
+        height:400px;
+        margin:100px auto 0 auto;
+        border:solid 1px #999;
+        background-color:#efefef;
+        padding:30px 0 0 30px;
+        box-shadow:0 0 2px 0px #efefef;
+        border-radius:6px 6px 6px 6px;
+    }
+    
+    .login label{
+        float:left;
+        font-size:10px;
+        color:#efefef;
+    }
+    .login input[type=text],input[type=password]
+    {
+        width:250px;
+        padding:5px;
+        margin:0 0px 10px 0;
+        padding:5px;
+        box-shadow:0 0 2px 0px #efefef;
+        height:35px;
+    }
+    
+    .login input[type=submit]
+    {
+        width:250px;
+        height:40px;
+        padding:5px;
+        margin:10px 0 0 0;
+         box-shadow:0 0 2px 0px #efefef;
+    }
+    
+    .login input[type=text],input[type=password]:focus{
+      color:#164f96;
+    }
+    
+    .login #user_icon{
+        float:left;
+        height:30px;
+        width:30px;
+        background:url(../content/icons/icons.png)0 0 no-repeat;
+        background-color:#333;
+        margin:17px 0 0 -107px;
+        border-radius:3px 0px 0 3px;
+    }
+    
+    .login #password{
+        float:left;
+        height:30px;
+        width:30px;
+        background:url(../content/icons/icons.png)-27px 0px no-repeat;
+        background-color:#333;
+        margin:17px 0 0 -103px;
+        border-radius:3px 0px 0 3px;
+    }
+    
+    #sub_menu{
+        float:right;
+        height:40px;
+    }
+    
+    /* END . VALIDATOR */
