@@ -292,7 +292,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid Email:"+data);
                 response["result"]=false;
-                response["reason"] = CONSTRAINT;
+                response["reason"] = "Invalid Email Id";
             }
             break;
         case 6:
@@ -324,7 +324,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid IP:"+data);
                 response["result"]=false;
-                response["reason"] = CONSTRAINT;
+                response["reason"] = "Invalid Ip Address";
             }
             break;
 

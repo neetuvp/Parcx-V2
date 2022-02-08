@@ -1,7 +1,7 @@
 <?php
 session_start();
 $inactive=time()-$_SESSION["last_login_timestamp"];  
-if($inactive>=60*5)    
+if($inactive>=60*15)    
     {
     if($_SESSION["dashboard"]==0)
         {

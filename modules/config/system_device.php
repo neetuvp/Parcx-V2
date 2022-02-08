@@ -38,6 +38,9 @@ include('../../includes/sidebar.php');
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card card-body">
+                            <div id="alert-div" class="alert bg-danger d-none">
+                                                                      
+                            </div> 
                             <div class="row">
                                 <div class="col form-group mb-4">
                                     <label for="">Device Category</label>
@@ -686,6 +689,7 @@ include('../../includes/sidebar.php');
             if ($target == "form")
             {
                 $("#form").trigger('reset');
+                $("#alert-div").addClass("d-none");    
                 $("#add-edit-button").val("Submit");
                 $("#device_category").change();
             }
@@ -1040,12 +1044,16 @@ include('../../includes/sidebar.php');
                 data["user_id"] = $("#user_id").val();
                 data["task"] = "6";
                 var jsondata = JSON.stringify(data);
-                console.log(jsondata);
+                //console.log(jsondata);
                 $.post("../ajax/settings.php", jsondata, function (result) {
                     if (result == "Successfull")
                         location.reload();
                     else
-                        alert(result);
+                    {    //alert(result);
+                        $("#alert-div").removeClass("d-none");    
+                        $("#alert-div").html(result);    
+                        
+                    }        
                 });
             }
         });
@@ -1082,6 +1090,7 @@ include('../../includes/sidebar.php');
     /*=====edit======*/
     $(document).on("click", ".device-edit", function ()
     {
+        $("#alert-div").addClass("d-none");    
         id = $(this).parent('td').parent('tr').data('id');
         device_name=$(this).parent('td').siblings(":eq( 0 )").text();
         var data = {};

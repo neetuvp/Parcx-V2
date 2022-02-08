@@ -303,10 +303,45 @@ Php::Value insertUpdateDevice(Php::Value json) {
             return msg;
         }
 
+        validation_response = validation.DataValidation(ToString(json["backout_blacklist_delay"]),1,11,1,0);
+        if(validation_response["result"]==false)
+        {
+            msg = "Backout Blacklist : "+ ToString(validation_response["reason"]);
+            return msg;
+        }
+
         validation_response = validation.DataValidation(ToString(json["server_handshake_interval"]),1,11,1,0);
         if(validation_response["result"]==false)
         {
             msg = "Server Handshake : "+ ToString(validation_response["reason"]);
+            return msg;
+        }
+
+        validation_response = validation.DataValidation(ToString(json["screensaver_timeout"]),1,11,1,0);
+        if(validation_response["result"]==false)
+        {
+            msg = "Screensaver Timeout : "+ ToString(validation_response["reason"]);
+            return msg;
+        }
+
+        validation_response = validation.DataValidation(ToString(json["backout_blacklist_delay"]),1,11,1,0);
+        if(validation_response["result"]==false)
+        {
+            msg = "Backout Blacklist Display : "+ ToString(validation_response["reason"]);
+            return msg;
+        }
+
+        validation_response = validation.DataValidation(ToString(json["output_pulse_length"]),1,11,1,0);
+        if(validation_response["result"]==false)
+        {
+            msg = "Output Pulse Width : "+ ToString(validation_response["reason"]);
+            return msg;
+        }
+
+        validation_response = validation.DataValidation(ToString(json["mobile_qrcode_time_limit"]),1,11,1,0);
+        if(validation_response["result"]==false)
+        {
+            msg = "Mobile QR Code Validity Limit : "+ ToString(validation_response["reason"]);
             return msg;
         }
  
@@ -351,79 +386,79 @@ Php::Value insertUpdateDevice(Php::Value json) {
             prep_stmt->setString(8, ToString(json["device_category_name"]));
             prep_stmt->setString(9, device_ip);
             prep_stmt->setInt(10, camera_id);
-            prep_stmt->setString(11, ToString(json["customer_receipt_mandatory"]));
-            prep_stmt->setString(12, ToString(json["shift_receipt_mandatory"]));
-            prep_stmt->setString(13, ToString(json["physical_cash_count"]));
-            prep_stmt->setString(14, ToString(json["synch_whitelist"]));
-            prep_stmt->setString(15, ToString(json["issue_lost"]));
+            prep_stmt->setInt(11, json["customer_receipt_mandatory"]);
+            prep_stmt->setInt(12, json["shift_receipt_mandatory"]);
+            prep_stmt->setInt(13, json["physical_cash_count"]);
+            prep_stmt->setInt(14, json["synch_whitelist"]);
+            prep_stmt->setInt(15, json["issue_lost"]);
             prep_stmt->setInt(16, camera_index);
-            prep_stmt->setString(17, ToString(json["anpr_enabled"]));
-            prep_stmt->setString(18, ToString(json["wiegand_enabled"]));
-            prep_stmt->setString(19, ToString(json["access_enabled"]));
-            prep_stmt->setString(20, ToString(json["reservation_enabled"]));
-            prep_stmt->setString(21, ToString(json["review_mode"]));
-            prep_stmt->setString(22, ToString(json["device_function"]));
-            prep_stmt->setString(23, ToString(json["barrier_open_time_limit"]));
-            prep_stmt->setString(24, ToString(json["backout_blacklist_delay"]));
-            prep_stmt->setString(25, ToString(json["display_anpr_image"]));
-            prep_stmt->setString(26, ToString(json["barrier_open_status_type"]));
-            prep_stmt->setString(27, ToString(json["bms_status_enabled"]));
-            prep_stmt->setString(28, ToString(json["barrier_status_monitoring"]));
-            prep_stmt->setString(29, ToString(json["wiegand2_enabled"]));
-            prep_stmt->setString(30, ToString(json["server_handshake_interval"]));
-            prep_stmt->setString(31, ToString(json["plate_capturing_wait_delay"]));
-            prep_stmt->setString(32, ToString(json["quick_barrier_close"]));
-            prep_stmt->setString(33, ToString(json["payment_enabled_exit"]));
+            prep_stmt->setInt(17, json["anpr_enabled"]);
+            prep_stmt->setInt(18, json["wiegand_enabled"]);
+            prep_stmt->setInt(19, json["access_enabled"]);
+            prep_stmt->setInt(20, json["reservation_enabled"]);
+            prep_stmt->setInt(21, json["review_mode"]);
+            prep_stmt->setInt(22, json["device_function"]);
+            prep_stmt->setInt(23, json["barrier_open_time_limit"]);
+            prep_stmt->setInt(24, json["backout_blacklist_delay"]);
+            prep_stmt->setInt(25, json["display_anpr_image"]);
+            prep_stmt->setInt(26, json["barrier_open_status_type"]);
+            prep_stmt->setInt(27, json["bms_status_enabled"]);
+            prep_stmt->setInt(28, json["barrier_status_monitoring"]);
+            prep_stmt->setInt(29, json["wiegand2_enabled"]);
+            prep_stmt->setInt(30, json["server_handshake_interval"]);
+            prep_stmt->setInt(31, json["plate_capturing_wait_delay"]);
+            prep_stmt->setInt(32, json["quick_barrier_close"]);
+            prep_stmt->setInt(33, json["payment_enabled_exit"]);
             prep_stmt->setString(34, res->getString("rate_plan"));
             prep_stmt->setString(35, res->getString("reservation_rate_plan"));
-            prep_stmt->setString(36, res->getString("rate_type"));
+            prep_stmt->setInt(36, res->getInt("rate_type"));
 
             prep_stmt->setString(37, ToString(json["anpr_image_path"]));
-            prep_stmt->setString(38, ToString(json["cropped_picture_required"]));
-            prep_stmt->setString(39, ToString(json["anpr_com_port"]));
-            prep_stmt->setString(40, ToString(json["anpr_mismatch_check"]));
-            prep_stmt->setString(41, ToString(json["plate_captured_interval"]));
-            prep_stmt->setString(42, ToString(json["allow_manual_open_close"]));
-            prep_stmt->setString(43, ToString(json["activate_product_sale"]));
-            prep_stmt->setString(44, ToString(json["activate_subscription"]));
-            prep_stmt->setString(45, ToString(json["print_entry_ticket"]));
-            prep_stmt->setString(46, ToString(json["lost_including_parkingfee"]));
-            prep_stmt->setString(47, ToString(json["float_amount_required"]));
-            prep_stmt->setString(48, ToString(json["full_max_exit_grace_enabled"]));
-            prep_stmt->setString(49, ToString(json["receipt_printer_type"]));
-            prep_stmt->setString(50, ToString(json["entry_printer_type"]));
+            prep_stmt->setInt(38, json["cropped_picture_required"]);
+            prep_stmt->setInt(39, json["anpr_com_port"]);
+            prep_stmt->setInt(40, json["anpr_mismatch_check"]);
+            prep_stmt->setInt(41, json["plate_captured_interval"]);
+            prep_stmt->setInt(42, json["allow_manual_open_close"]);
+            prep_stmt->setInt(43, json["activate_product_sale"]);
+            prep_stmt->setInt(44, json["activate_subscription"]);
+            prep_stmt->setInt(45, json["print_entry_ticket"]);
+            prep_stmt->setInt(46, json["lost_including_parkingfee"]);
+            prep_stmt->setInt(47, json["float_amount_required"]);
+            prep_stmt->setInt(48, json["full_max_exit_grace_enabled"]);
+            prep_stmt->setInt(49, json["receipt_printer_type"]);
+            prep_stmt->setInt(50, json["entry_printer_type"]);
             prep_stmt->setString(51, ToString(json["entry_printer_port_name"]));
             prep_stmt->setString(52, ToString(json["receipt_printer_port_name"]));
-            prep_stmt->setString(53, ToString(json["print_operator_logo"]));
+            prep_stmt->setInt(53, json["print_operator_logo"]);
             prep_stmt->setString(54, ToString(json["receipt_primary_language"]));
             prep_stmt->setString(55, ToString(json["receipt_secondary_language"]));
             prep_stmt->setString(56, ToString(json["barrier_open_command"]));
             prep_stmt->setString(57, ToString(json["barrier_close_command"]));
             prep_stmt->setString(58, ToString(json["barrier_communication"]));
-            prep_stmt->setString(59, ToString(json["transaction_time_out"]));
+            prep_stmt->setInt(59, json["transaction_time_out"]);
             prep_stmt->setString(60, ToString(json["rfid_port"]));
-            prep_stmt->setString(61, ToString(json["central_cashier"]));
+            prep_stmt->setInt(61, json["central_cashier"]);
             prep_stmt->setString(62, ToString(json["controller_ip"]));
-            prep_stmt->setString(63, ToString(json["enable_port_communication"]));
+            prep_stmt->setInt(63, json["enable_port_communication"]);
             prep_stmt->setString(64, ToString(json["barrier_port_ip"]));
-            prep_stmt->setString(65, ToString(json["barrier_port_number"]));
-            prep_stmt->setString(66, ToString(json["coupon_enabled"]));
-            prep_stmt->setString(67, ToString(json["short_term_ticket_enabled"]));
-            prep_stmt->setString(68, ToString(json["validation_enabled"]));
-            prep_stmt->setString(69, ToString(json["mode_of_operation"]));
-            prep_stmt->setString(70, ToString(json["wiegand_whitelist_check_enabled"]));
-            prep_stmt->setString(71, ToString(json["wiegand_whitelist_parking_zone_check_enabled"]));
-            prep_stmt->setString(72, ToString(json["wiegand_whitelist_expiry_check_enabled"]));
-            prep_stmt->setString(73, ToString(json["wiegand_whitelist_carpark_check_enabled"]));
-            prep_stmt->setString(74, ToString(json["wiegand_whitelist_facility_check_enabled"]));
-            prep_stmt->setString(75, ToString(json["send_wiegand_response_to_port"]));
-            prep_stmt->setString(76, ToString(json["screensaver_timeout"]));
-            prep_stmt->setString(77, ToString(json["upload_to_server_delay"]));
-            prep_stmt->setString(78, ToString(json["mobile_qrcode_time_limit"]));
+            prep_stmt->setInt(65, json["barrier_port_number"]);
+            prep_stmt->setInt(66, json["coupon_enabled"]);
+            prep_stmt->setInt(67, json["short_term_ticket_enabled"]);
+            prep_stmt->setInt(68, json["validation_enabled"]);
+            prep_stmt->setInt(69, json["mode_of_operation"]);
+            prep_stmt->setInt(70, json["wiegand_whitelist_check_enabled"]);
+            prep_stmt->setInt(71, json["wiegand_whitelist_parking_zone_check_enabled"]);
+            prep_stmt->setInt(72, json["wiegand_whitelist_expiry_check_enabled"]);
+            prep_stmt->setInt(73, json["wiegand_whitelist_carpark_check_enabled"]);
+            prep_stmt->setInt(74, json["wiegand_whitelist_facility_check_enabled"]);
+            prep_stmt->setInt(75, json["send_wiegand_response_to_port"]);
+            prep_stmt->setInt(76, json["screensaver_timeout"]);
+            prep_stmt->setInt(77, json["upload_to_server_delay"]);
+            prep_stmt->setInt(78, json["mobile_qrcode_time_limit"]);
             prep_stmt->setString(79, ToString(json["network_interface"]));
-            prep_stmt->setString(80, ToString(json["print_client_logo"]));
+            prep_stmt->setInt(80, json["print_client_logo"]);
             prep_stmt->setString(81, ToString(json["media_path"]));
-            prep_stmt->setString(82, ToString(json["output_pulse_length"]));
+            prep_stmt->setInt(82, json["output_pulse_length"]);
 
             delete res;
             if (!prep_stmt->execute()) {
