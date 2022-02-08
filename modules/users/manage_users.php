@@ -1,5 +1,5 @@
 <?php
-$page_title = "Manage users";
+$page_title = "Manage Users";
 
 include('../../includes/header.php');
 $access = checkPageAccess("manage_user");

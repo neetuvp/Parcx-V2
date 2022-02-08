@@ -9,6 +9,7 @@
 #include<iomanip>
 #include <phpcpp.h>
 #include <algorithm>
+#include <vector>
 #include "PX_GeneralOperations.h"
 using namespace std;
 GeneralOperations gen;
@@ -179,6 +180,53 @@ bool Validation::checkPhone(string str)
     return true;
 }
 
+
+bool isNumber(const string &str)
+{
+    // `std::find_first_not_of` searches the string for the first character
+    // that does not match any of the characters specified in its arguments
+    return !str.empty() &&
+        (str.find_first_not_of("[0123456789]") == std::string::npos);
+}
+ 
+// Function to split string `str` using a given delimiter
+vector<string> split(const string &str, char delim)
+{
+    auto i = 0;
+    vector<string> list;
+    auto pos = str.find(delim); 
+    while (pos != string::npos)
+    {
+        list.push_back(str.substr(i, pos - i));
+        i = ++pos;
+        pos = str.find(delim, pos);
+    }
+    list.push_back(str.substr(i, str.length()));
+    return list;
+}
+ 
+// Function to validate an IP address
+bool Validation::checkIP(string ip)
+{
+    // split the string into tokens
+    vector<string> list = split(ip, '.');
+    // if the token size is not equal to four
+    if (list.size() != 4) {
+        return false;
+    } 
+    // validate each token
+    for (string str: list)
+    {
+        // verify that the string is a number or not, and the numbers
+        // are in the valid range
+        if (!isNumber(str) || stoi(str) > 255 || stoi(str) < 0) {
+            return false;
+        }
+    }
+    return true;
+}
+ 
+
 Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int datatype,int mandatoryflag) //Datatype: 1 - Integer, 2 - Alphabets, 3 - AlphaNumeric, 4 - SpecialCharacter,5-email,6-Names
 {
     Php::Value response;
@@ -189,18 +237,21 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
 	writelog("DataValidation","Missing Mandatory field:"+data);
         response["result"]=false;
         response["reason"] = MANDATORY;
+        return response;
     }
     if((datatype==3||datatype==2||datatype==6||datatype==7) && data.length()>(unsigned)maxlen)  //Check if length of the data is within the assigned limit
     {
 	writelog("DataValidation","Data length exceeds allowed limit:"+data);
         response["result"]=false;
         response["reason"] = MAXLENGTH;
+        return response;
     }
     if((datatype==3||datatype==2||datatype==6||datatype==7) && data.length()<(unsigned)minlen && mandatoryflag==1)  //Check if length of the data is within the assigned limit
     {
-	writelog("DataValidation","Data length exceeds allowed limit:"+data);
+	writelog("DataValidation","Data length lesser than allowed limit:"+data);
         response["result"]=false;
         response["reason"] = MINLENGTH;
+        return response;
     }
     switch(datatype)                 //Check the datatype validity
     {
@@ -264,6 +315,14 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             if(!checkDateTime(data))
             {
 		writelog("DataValidation","Invalid DateTime:"+data);
+                response["result"]=false;
+                response["reason"] = CONSTRAINT;
+            }
+            break;
+        case 9:
+            if(!checkIP(data))
+            {
+		writelog("DataValidation","Invalid IP:"+data);
                 response["result"]=false;
                 response["reason"] = CONSTRAINT;
             }
