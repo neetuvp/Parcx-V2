@@ -353,7 +353,7 @@ include('../../includes/sidebar.php');
             var jsondata = JSON.stringify(data);
             //console.log(jsondata);
             $.post("../../modules/ajax/users.php", jsondata, function (result) {
-                //alert(result);
+                console.log(result);
                 if (result == "Successfull")
                     location.reload();
                 else

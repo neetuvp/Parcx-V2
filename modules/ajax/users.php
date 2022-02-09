@@ -1,4 +1,5 @@
 <?php 
+ini_set("display_errors",0);
 $json=file_get_contents("php://input");
 $data=json_decode($json,TRUE);
 $data["request_ip"] = $_SERVER['REMOTE_ADDR'];

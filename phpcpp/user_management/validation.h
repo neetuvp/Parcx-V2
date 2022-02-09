@@ -28,6 +28,7 @@ class Validation{
     bool checkDateTime(string data);
     bool checkName(string data);
     bool checkPhone(string data);
+    bool checkIP(string data);
     void writelog(string function,string txt);
     string CurrentDateTimeValidation();
     string CurrentDateValidation();
