@@ -11,7 +11,6 @@ $access = checkPageAccess("manage_user");
     include('../../includes/navbar-start.php');
     ?>
 
-
 </ul>
 <div class="header text-dark" id="pdf-report-header">Manage Users</div>
 <div class="row hidden-sm-down">

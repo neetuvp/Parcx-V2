@@ -68,7 +68,7 @@ include('../../includes/sidebar.php');
                             <div class="row">	
                                 <div class="col form-group mb-4">
                                     <label for="">Device number</label>
-                                    <input type="number" class="form-control" id="device_number" value="0" min="0" required >
+                                    <input type="number" class="form-control acceptdigit" id="device_number" value="0" min="0" required >
                                     <small class="form-text text-muted">Device number</small>
                                 </div> 
                                 <div class="col form-group mb-4">
@@ -134,7 +134,7 @@ include('../../includes/sidebar.php');
                                     </div>
                                     <div class="col form-group mb-4 ">
                                         <label for="">ANPR COM port</label>
-                                        <input type="number" class="form-control" id="anpr_com_port" placeholder=""  value="8091" required >
+                                        <input type="number" class="form-control acceptdigit" id="anpr_com_port" placeholder=""  value="8091" required >
                                         <small class="form-text text-muted"> </small>
                                     </div>                                  
                                 </div>
@@ -149,7 +149,7 @@ include('../../includes/sidebar.php');
                                     </div>
                                     <div class="col form-group mb-4">
                                         <label for="">Server handshake interval</label>
-                                        <input type="number" class="form-control" id="server_handshake_interval" value="90"  required >                    
+                                        <input type="number" class="form-control acceptdigit" id="server_handshake_interval" value="90"  required >                    
                                         <small class="form-text text-muted">Time interval for server handshake from device in seconds</small>
                                     </div>
 
@@ -157,7 +157,7 @@ include('../../includes/sidebar.php');
                                 <div class="row d-none"> 
                                     <div class="col form-group mb-4">
                                         <label for="">Plate capturing wait delay</label>
-                                        <input type="number" class="form-control" id="plate_capturing_wait_delay" value="7"  required >
+                                        <input type="number" class="form-control acceptdigit" id="plate_capturing_wait_delay" value="7"  required >
                                         <small class="form-text text-muted"></small>
                                     </div>
                                     <div class="col form-group mb-4">
@@ -175,12 +175,12 @@ include('../../includes/sidebar.php');
                                 <div class="row ">	                        
                                     <div class="col form-group mb-4">
                                         <label >Screen saver time out</label>
-                                        <input type="number" class="form-control" id="screensaver_timeout" value="30"  required >
+                                        <input type="number" class="form-control acceptdigit" id="screensaver_timeout" value="30"  required >
                                         <small class="form-text text-muted">Screen saver time out in seconds</small>
                                     </div> 
                                     <div class="col form-group mb-4">
                                         <label >Upload to server delay</label>
-                                        <input type="number" class="form-control" id="upload_to_server_delay" value="10"  required >
+                                        <input type="number" class="form-control acceptdigit" id="upload_to_server_delay" value="10"  required >
                                         <small class="form-text text-muted">Upload to server delay in seconds</small>
                                     </div> 
                                 </div>
@@ -209,12 +209,12 @@ include('../../includes/sidebar.php');
                                 <div class="row ">
                                     <div class="col form-group mb-4">
                                         <label for="">Barrier open time limit</label>
-                                        <input type="number" class="form-control" id="barrier_open_time_limit" value="10"  required >
+                                        <input type="number" class="form-contro acceptdigit" id="barrier_open_time_limit" value="10"  required >
                                         <small class="form-text text-muted">Time limit in seconds for barrier to stay open</small>
                                     </div>
                                     <div class="col form-group mb-4">
                                         <label for="">Backout blacklist delay</label>
-                                        <input type="number" class="form-control" id="backout_blacklist_delay" value="0"  required >
+                                        <input type="number" class="form-control acceptdigit" id="backout_blacklist_delay" value="0"  required >
                                         <small class="form-text text-muted">Time limit in seconds for blacklist ticket after backout</small>
                                     </div>
                                     
@@ -222,12 +222,12 @@ include('../../includes/sidebar.php');
                                 <div class="row ">
                                     <div class="col form-group mb-4">
                                         <label for="">Output pulse width</label>
-                                        <input type="number" class="form-control" id="output_pulse_length" value="150"  required >
+                                        <input type="number" class="form-control acceptdigit" id="output_pulse_length" value="150"  required >
                                         <small class="form-text text-muted">Output pulse width</small>
                                     </div>
                                     <div class="col form-group mb-4">
                                         <label >Mobile qr code validity limit</label>
-                                        <input type="number" class="form-control" id="mobile_qrcode_time_limit" value="10"  required >
+                                        <input type="number" class="form-control acceptdigit" id="mobile_qrcode_time_limit" value="10"  required >
                                         <small class="form-text text-muted">Mobile qr code validity in seconds</small>
                                     </div> 
                                 </div>
@@ -299,13 +299,13 @@ include('../../includes/sidebar.php');
                                 <div class="row">
                                     <div class="col form-group mb-4">
                                         <label for="">Plate captured interval</label>
-                                        <input type="number" class="form-control" id="plate_captured_interval" value="10"  required >
+                                        <input type="number" class="form-control acceptdigit" id="plate_captured_interval" value="10"  required >
                                         <small class="form-text text-muted">Plate captured delay for ticket check</small>
                                     </div>
 
                                     <div class="col form-group mb-4">
                                         <label for="">Transaction time out</label>
-                                        <input type="number" class="form-control" id="transaction_time_out" value="120"  required >
+                                        <input type="number" class="form-control acceptdigit" id="transaction_time_out" value="120"  required >
                                         <small class="form-text text-muted">Time limit in seconds to cancel the transaction in cashier </small>
                                     </div> 
                                 </div>
@@ -332,7 +332,7 @@ include('../../includes/sidebar.php');
                                     </div> 
                                     <div class="col form-group mb-4">
                                         <label for="">Barrier port number</label>                            
-                                        <input type="number" class="form-control" id="barrier_port_number" value="1234"  required >
+                                        <input type="number" class="form-control acceptdigit" id="barrier_port_number" value="1234"  required >
                                         <small class="form-text text-muted">Port number barrier</small>
                                     </div> 
                                 </div>  
@@ -1235,6 +1235,20 @@ include('../../includes/sidebar.php');
             previous_facility = response.facility_number;
             previous_device = response.device_number;
         });
+    });
+
+
+    var invalidChars = ["-","+","e"];
+    $(".acceptdigit").bind("keypress", function (e) {
+        console.log("here");
+        if (invalidChars.includes(e.key)) {
+            e.preventDefault();
+        }
+    });
+    
+    $(".acceptdigit").bind("input", function (e) {
+        console.log("hereinput");
+        this.value = this.value.replace(/[e\+\-]/gi, "");
     });
 
 </script>
