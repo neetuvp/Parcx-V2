@@ -51,12 +51,12 @@ string Validation::CurrentDateValidation()
     return datetime;
 }
 
-void Validation::writelog(string function, string txt) {    
+void writelog(string function, string txt) {    
     string path = "WebApplication/ExceptionLogs/PX_UserManagement_Validation_" + gen.currentDateTime("%Y-%m-%d");
     gen.writeLog(path, function, txt);
 }
 
-bool Validation::checkDigit(string data)
+bool checkDigit(string data)
 {
     int n = data.length();
     for(int i=0;i<n;i++)
@@ -68,7 +68,7 @@ bool Validation::checkDigit(string data)
     }
     return true;
 }
-bool Validation::checkAlpha(string data)
+bool checkAlpha(string data)
 {
     int n = data.length();
     for(int i=0;i<n;i++)
@@ -82,7 +82,7 @@ bool Validation::checkAlpha(string data)
 }
 
 
-bool Validation::checkAlphaNumeric(string str)
+bool checkAlphaNumeric(string str)
 {
     for(int i=0;i<(signed)str.length();i++)
     {
@@ -99,7 +99,7 @@ bool Validation::checkAlphaNumeric(string str)
     return true;
 }
 
-bool Validation::checkDateTime(string data)
+bool checkDateTime(string data)
 {
     struct tm tm;
     if(!strptime(data.c_str(),"%Y-%m-%d %H:%M:%S",&tm) && data!="")
@@ -112,7 +112,7 @@ bool Validation::checkDateTime(string data)
     }
 }
 
-bool Validation::checkDate(string data)
+bool checkDate(string data)
 {
     struct tm tm;
     if(!strptime(data.c_str(),"%Y-%m-%d",&tm) && data!="")
@@ -125,7 +125,7 @@ bool Validation::checkDate(string data)
     }
 }
 
-bool Validation::checkEmail(string data)
+bool checkEmail(string data)
 {
     if(data != "")
     {
@@ -146,7 +146,7 @@ bool Validation::checkEmail(string data)
 	
 }
 
-bool Validation::checkName(string str)
+bool checkName(string str)
 {
     for(int i=0;i<(signed)str.length();i++)
     {
@@ -163,7 +163,7 @@ bool Validation::checkName(string str)
     return true;
 }
 
-bool Validation::checkPhone(string str)
+bool checkPhone(string str)
 {
     for(int i=0;i<(signed)str.length();i++)
     {
@@ -190,7 +190,7 @@ bool isNumber(const string &str)
 }
  
 // Function to split string `str` using a given delimiter
-vector<string> splitip(const string &str, char delim)
+vector<string> splitfunct(const string &str, char delim)
 {
     auto i = 0;
     vector<string> list;
@@ -206,10 +206,10 @@ vector<string> splitip(const string &str, char delim)
 }
  
 // Function to validate an IP address
-bool Validation::checkIP(string ip)
+bool checkIP(string ip)
 {
     // split the string into tokens
-    vector<string> list = splitip(ip, '.');
+    vector<string> list = splitfunct(ip, '.');
     // if the token size is not equal to four
     if (list.size() != 4) {
         return false;
@@ -226,6 +226,33 @@ bool Validation::checkIP(string ip)
     return true;
 }
  
+bool checkSelectOptions(string data,int type)
+{
+
+    vector<string> list = splitfunct(data, ',');
+    // validate each token
+    for (string str: list)
+    {
+        // verify that the string is a number or not, and the numbers
+        // are in the valid range
+        if(type==1)
+        {
+            if (!isNumber(str) || stoi(str) < 0) {
+                return false;
+            }
+        }
+        else if(type==2)
+        {
+            replace(str.begin(),str.end(),'\'',' ');
+            replace(str.begin(),str.end(),'"',' ');
+            //Php::out<<str<<endl;
+            if(!checkAlphaNumeric(str)){
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
 Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int datatype,int mandatoryflag) //Datatype: 1 - Integer, 2 - Alphabets, 3 - AlphaNumeric, 4 - SpecialCharacter,5-email,6-Names
 {
@@ -284,7 +311,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid Date:"+data);
                 response["result"]=false;
-                response["reason"] = CONSTRAINT;
+                response["reason"] = "Invalid Date";
             }
             break;
         case 5:
@@ -292,7 +319,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid Email:"+data);
                 response["result"]=false;
-                response["reason"] = "Invalid Email Id";
+                response["reason"] = "Invalid Email";
             }
             break;
         case 6:
@@ -300,7 +327,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
                 writelog("DataValidation","Invalid Name:"+data);
                 response["result"]=false;
-                response["reason"] = CONSTRAINT;
+                response["reason"] = "Invalid Name";
             }
             break;
         case 7:
@@ -308,7 +335,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
                 writelog("DataValidation","Invalid Phone:"+data);
                 response["result"]=false;
-                response["reason"] = CONSTRAINT;
+                response["reason"] = "Invalid Phone Number";
             }
             break;
         case 8:
@@ -316,7 +343,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid DateTime:"+data);
                 response["result"]=false;
-                response["reason"] = CONSTRAINT;
+                response["reason"] = "Invalid DateTime";
             }
             break;
         case 9:
@@ -324,7 +351,23 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid IP:"+data);
                 response["result"]=false;
-                response["reason"] = "Invalid Ip Address";
+                response["reason"] = "Invalid IP";
+            }
+            break;
+        case 10:
+            if(!checkSelectOptions(data,1)) //for int array
+            {
+		writelog("DataValidation","Invalid Options Selected:"+data);
+                response["result"]=false;
+                response["reason"] = "Invalid Select Options";
+            }
+            break;
+        case 11:
+            if(!checkSelectOptions(data,2)) //for string array
+            {
+		writelog("DataValidation","Invalid Options Selected:"+data);
+                response["result"]=false;
+                response["reason"] = "Invalid Select Options";
             }
             break;
 

@@ -1,8 +1,7 @@
 <?php
-$json='{"uuid":"cbc326d345af29bf297f7947af82e252","task":"1"}';
-echo $json."\n";
+$json='{"edit":1,"delete":1,"task":"10"}';
 $data= json_decode($json,TRUE); 
-$response=parcxCloudIOT($data);
+$response=parcxV2Settings($data);
 if(is_array($response))
     {
     echo json_encode($response);    

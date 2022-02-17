@@ -18,7 +18,7 @@
 #	are automatically generated
 #
 
-NAME				=	PX_V2_Settings
+NAME				=	PX_V2_Reports
 
 
 #
@@ -29,8 +29,7 @@ NAME				=	PX_V2_Settings
 #	one for each extension. Use this variable to specify this directory.
 #
 
-#INI_DIR				=	/etc/php/7.2/cli/conf.d
-#INI_DIR_APACHE   		=	/etc/php/7.2/apache2/conf.d
+#INI_DIR				=	/etc/php/7.1/cli/conf.d
 
 
 #
@@ -43,6 +42,7 @@ NAME				=	PX_V2_Settings
 #
 
 EXTENSION_DIR		=	$(shell /opt/lampp/bin/php-config --extension-dir)
+
 
 #
 #	The name of the extension and the name of the .ini file
@@ -87,7 +87,7 @@ LINKER				=	g++
 
 COMPILER_FLAGS		=	-Wall -c -O2 -std=c++11 -fpic -I/opt/lampp/include -o
 LINKER_FLAGS		=	-shared
-LINKER_DEPENDENCIES	=	-lphpcpp -lmysqlcppconn -L/opt/lampp/lib
+LINKER_DEPENDENCIES	=	-lphpcpp  -lmysqlcppconn -ljsoncpp  -L/opt/parcx/lib
 
 
 #
@@ -129,7 +129,6 @@ ${OBJECTS}:
 install:		
 						${CP} ${EXTENSION} ${EXTENSION_DIR}
 #						${CP} ${INI} ${INI_DIR}
-#						${CP} ${INI} ${INI_DIR_APACHE}
 				
 clean:
 						${RM} ${EXTENSION} ${OBJECTS}

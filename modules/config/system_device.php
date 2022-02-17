@@ -81,14 +81,14 @@ include('../../includes/sidebar.php');
                                 <div class="col form-group mb-4">
                                     <label for="">Carpark Name</label>
                                     <select id="carpark">                  
-                                        <?php echo parcxV2Configuration(array("task" => "1")); ?>
+                                        <?php echo parcxV2Settings(array("task" => "12")); ?>
                                     </select>
                                     <small class="form-text text-muted">Name of carpark</small>
                                 </div> 
                                 <div class="col form-group mb-4 ">
                                     <label for="">Facility Name</label>
                                     <select id="facility">                  
-                                        <?php echo parcxV2Configuration(array("task" => "2")); ?>
+                                        <?php echo parcxV2Settings(array("task" => "5")); ?>
                                     </select>
                                     <small class="form-text text-muted">Name of facility</small>
                                 </div> 
@@ -143,7 +143,7 @@ include('../../includes/sidebar.php');
                                         <label for="">Camera</label>
                                         <select id="camera_id"> 
                                             <option value="0">Select Camera</option>                 
-                                            <?php echo parcxV2Configuration(array("task" => "3", "type" => "8")); ?>
+                                            <?php echo parcxV2Settings(array("task" => "14", "type" => "8")); ?>
                                         </select>
                                         <small class="form-text text-muted">Camera connected to device</small>
                                     </div>
@@ -597,7 +597,7 @@ include('../../includes/sidebar.php');
                 <div class="card" >               
                     <div class="card-body" id="div-table">     
                         <table id="RecordsTable" class="table table-bordered">                    
-                            <?php echo parcxV2Configuration(array("task" => "5","edit"=>$access["edit"],"delete"=>$access["delete"])); ?>
+                            <?php echo parcxV2Settings(array("task" => "10","edit"=>$access["edit"],"delete"=>$access["delete"])); ?>
                         </table>
                     </div>                                                  
                 </div>             
@@ -669,7 +669,7 @@ include('../../includes/sidebar.php');
     {
         page=table.page();
         var data = {};
-        data["task"] = "5";
+        data["task"] = "10";
         data["edit"] = <?php echo $access["edit"]; ?>;
         data["delete"] = <?php echo $access["delete"]; ?>;
         var jsondata = JSON.stringify(data);
@@ -1042,7 +1042,7 @@ include('../../includes/sidebar.php');
 
 
                 data["user_id"] = $("#user_id").val();
-                data["task"] = "6";
+                data["task"] = "15";
                 var jsondata = JSON.stringify(data);
                 //console.log(jsondata);
                 $.post("../ajax/settings.php", jsondata, function (result) {
@@ -1076,7 +1076,7 @@ include('../../includes/sidebar.php');
         var data = {};
         data["id"] = id;
         data["status"] = status;
-        data["task"] = "7";
+        data["task"] = "11";
         data["activity_message"]=status_text+" device "+device_name;
         var jsondata = JSON.stringify(data);
         $.post("../ajax/settings.php", jsondata, function (result) {
@@ -1095,7 +1095,7 @@ include('../../includes/sidebar.php');
         device_name=$(this).parent('td').siblings(":eq( 0 )").text();
         var data = {};
         data["id"] = id;
-        data["task"] = "8";
+        data["task"] = "16";
         var jsondata = JSON.stringify(data);
         //console.log(jsondata);
         $.post("../ajax/settings.php", jsondata, function (result) {

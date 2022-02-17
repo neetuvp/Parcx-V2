@@ -129,13 +129,15 @@ function loadDataTable()
         {
         var data={}
         data["user_role_id"]= <?=$_SESSION["userRollId"]?>; 
+        data["user_id"]=<?=$_SESSION["userId"]?>;
         data["url"]="<?=URL?>"; 
         data["task"]=1; 
         data["lang"]=$("#language").val();
         var json = JSON.stringify(data);
         console.log(json);
         $.post("/parcx/modules/ajax/users.php",json,function(data){ 
-            $("#sidebar").html(data);
+            console.log(data);
+            $("#sidebar-menu").html(data);
 	});
     
         }
