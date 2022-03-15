@@ -2,11 +2,12 @@
 #include "PX_ParkingReport.h"
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
 #include <phpcpp.h>
 #include <cmath>
 #include <iostream>
 #include <sstream>
-
+#include "validation.h"
 #define ServerDB "v2_parcx_server"
 #define ReportingDB "v2_parcx_reporting"
 #define DashboardDB "v2_parcx_dashboard"
@@ -14,6 +15,7 @@
 
 using namespace std;
 extern GeneralOperations General;
+Validation validations;
 string query;
 string entry_type, parking_duration;
 string image, croppedImage, sceneImage, datefolder;
@@ -33,6 +35,19 @@ void writeParkingReportException(string function, string message) {
     Php::out << message << endl;
     Php::out << query << endl;
     General.writeLog("WebApplication/ExceptionLogs/PX-ParkingReport-" + General.currentDateTime("%Y-%m-%d"), function, message);
+}
+
+string ArrayToString(Php::Value json) {
+
+    stringstream ss;
+    //ss << "{";
+    for (auto &iter : json)
+        //ss << "\"" << iter.first << "\":\"" << iter.second << "\",";
+        ss <<iter.second << ",";
+    string response = ss.str();
+    response = response.substr(0, response.size() - 1);
+    //response = response.substr(0, response.size() - 1) + "}";
+    return response;
 }
 
 inline string toString(Php::Value param) {
@@ -649,18 +664,32 @@ void ParkingReport::trackTicket(Php::Value json) {
 void ParkingReport::visitorFrequencyReport(Php::Value json) {
     string visit_type = json["visit_type"];
     string lang = json["language"];
+    Php::Value validation_response;
+    sql::PreparedStatement *prep_stmt;
     try 
-        {                
+        {      
+        
+        validation_response = validations.DataValidation(visit_type,1,20,3,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation Error in Visit Type : "<<toString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+
         string labels = "customer_name,plate_number,ticket_id,no_records,entries,tag,category,last_7_days,last_30_days,last_60_days,last_90_days,last_120_days,last_150_days,last_180_days";
         Php::Value label = General.getLabels(lang, labels);
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-
+        
         if (visit_type == "all")
             query = "Select * from visitor_frequency where last_visited_date>=( CURDATE() - INTERVAL 180 DAY )";
         else
-            query = "Select * from visitor_frequency where category = '" + visit_type + "' and last_visited_date>=( CURDATE() - INTERVAL 180 DAY )";
-        res = rStmt->executeQuery(query);
+            query = "Select * from visitor_frequency where category = ? and last_visited_date>=( CURDATE() - INTERVAL 180 DAY )";
+
+        prep_stmt = rCon->prepareStatement(query);
+        if (visit_type != "all")
+            prep_stmt->setString(1,visit_type);
+        res = prep_stmt->executeQuery();
         if (res->rowsCount() > 0) {
             Php::out << "<div class='row mb-4 jspdf-graph'>" << endl;
             Php::out << "<div class='col-lg-3 col-6'>" << endl;
@@ -726,7 +755,7 @@ void ParkingReport::visitorFrequencyReport(Php::Value json) {
         }
 
         delete res;
-        delete rStmt;
+        delete prep_stmt;
         delete rCon;
 
 

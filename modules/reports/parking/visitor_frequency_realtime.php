@@ -8,7 +8,7 @@ $data = array();
 $data["task"] = 29;
 $data["language"] = $_SESSION["language"];
 $data["page"] = 15;
-$json = parcxReport($data);
+$json = parcxV2Report($data);
 ?>
 <div class="navbar-has-tablink">
 
@@ -63,7 +63,7 @@ include('../../../includes/sidebar.php');
             $data["search_text"] = "";
             $data["language"] = $_SESSION["language"];
             $data["task"] = 7;
-            echo parcxReport($data);
+            echo parcxV2Report($data);
             ?>  
 
         </div>

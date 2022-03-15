@@ -10,7 +10,7 @@ $data = array();
 $data["task"] = 29;
 $data["language"] = $_SESSION["language"];
 $data["page"] = 7;
-$json = parcxReport($data);
+$json = parcxV2Report($data);
 ?>
 
 </ul>
@@ -34,7 +34,7 @@ include('../../../includes/sidebar.php');
                 <!-- carparks -->
                 <div class="col-md-2">
                     <select class="form-control" id="multiselect" multiple="multiple">
-<?php echo parcxSettings(array("task" => "12")); ?>
+<?php echo parcxV2Settings(array("task" => "12")); ?>
                     </select>
                 </div>
 
@@ -42,7 +42,7 @@ include('../../../includes/sidebar.php');
                 <!-- payment devices multiselect-->
                 <div class="col-md-2">
                     <select class="form-control" id="deviceNumber" multiple="multiple">
-<?php echo parcxSettings(array("task" => "14", "type" => "3,4,5")); ?>
+<?php echo parcxV2Settings(array("task" => "14", "type" => "3,4,5")); ?>
                     </select>
                 </div>
 
@@ -75,7 +75,7 @@ include('../../../includes/sidebar.php');
                     $data["exception_option"] = 0;
                     $data["task"] = 20;
                     $data["language"] = $_SESSION["language"];
-                    echo parcxReport($data);
+                    echo parcxV2Report($data);
                     ?>                           
 
                     </div>
@@ -124,6 +124,7 @@ include('../../../includes/sidebar.php');
                     data["language"] = $("#language").val();
                     data["task"] = 20;
                     var jsondata = JSON.stringify(data);
+                    //console.log(jsondata);
                     $.post("../../ajax/reports.php", jsondata, function (data)
                     {
                         loadReport(data);

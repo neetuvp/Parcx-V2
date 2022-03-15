@@ -190,7 +190,7 @@ bool isNumber(const string &str)
 }
  
 // Function to split string `str` using a given delimiter
-vector<string> splitip(const string &str, char delim)
+vector<string> split(const string &str, char delim)
 {
     auto i = 0;
     vector<string> list;
@@ -209,7 +209,7 @@ vector<string> splitip(const string &str, char delim)
 bool Validation::checkIP(string ip)
 {
     // split the string into tokens
-    vector<string> list = splitip(ip, '.');
+    vector<string> list = split(ip, '.');
     // if the token size is not equal to four
     if (list.size() != 4) {
         return false;
@@ -292,7 +292,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid Email:"+data);
                 response["result"]=false;
-                response["reason"] = "Invalid Email Id";
+                response["reason"] = CONSTRAINT;
             }
             break;
         case 6:
@@ -324,7 +324,7 @@ Php::Value Validation::DataValidation(string data,int minlen,int maxlen,int data
             {
 		writelog("DataValidation","Invalid IP:"+data);
                 response["result"]=false;
-                response["reason"] = "Invalid Ip Address";
+                response["reason"] = CONSTRAINT;
             }
             break;
 

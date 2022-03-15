@@ -93,8 +93,8 @@ include('../../../includes/sidebar.php');
                 <div class="col-md-2">
                     <select class="form-control" id="paymentType" multiple="multiple">
                         <!-- <option value=0>All Payment Types</option> -->
-                        <option value="'Cash'" id="paymentTypeCash"><?= $json["cash"] ?></option>
-                        <option value="'Credit Card'" id="paymentTypeCreditCard"><?= $json["credit_card"] ?></option>             
+                        <option value="Cash" id="paymentTypeCash"><?= $json["cash"] ?></option>
+                        <option value="Credit Card" id="paymentTypeCreditCard"><?= $json["credit_card"] ?></option>             
                     </select>
                 </div>
 
@@ -249,7 +249,7 @@ include('../../../includes/sidebar.php');
                     data["task"] = 8;
                     data["language"] = $("#language").val();
                     var jsondata = JSON.stringify(data);
-                    //console.log(jsondata);
+                    console.log(jsondata);
                     $.post("../../ajax/reports.php", jsondata, function (data)
                     {
                         loadReport(data);

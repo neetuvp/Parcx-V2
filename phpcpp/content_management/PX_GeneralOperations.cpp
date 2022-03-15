@@ -8,7 +8,6 @@
 #define Password "1fromParcx!19514"
 #define timeFormat "%H:%M:%S"
 #define dateFormat "%Y-%m-%d"
-
 using namespace std;
 
 string logpath="/opt/parcx/Logs/";
@@ -47,7 +46,7 @@ sql::Connection* GeneralOperations::mysqlConnect(string database)
 	}
     catch(exception &e)
 	{
-        writeLog("DBException/Settings-"+currentDateTime(dateFormat),"mysqlConnect",e.what());  				      
+        writeLog("DBException/Users-"+currentDateTime(dateFormat),"mysqlConnect",e.what());  				      
 	}
     return con;
 }//end of  mysqlConnect

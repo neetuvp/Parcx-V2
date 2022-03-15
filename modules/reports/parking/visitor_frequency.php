@@ -7,7 +7,7 @@ $data=array();
 $data["task"]=29;     
 $data["language"]=$_SESSION["language"];
 $data["page"]=16;
-$json=parcxReport($data);
+$json=parcxV2Report($data);
 ?>
 
 <div class="navbar-has-tablink">
@@ -105,7 +105,7 @@ include('../../../includes/sidebar.php');
 
   <section class="content">
     <div class="container-wide" id="report-content">    
-        <?php echo parcxReport(array("task"=>"6","visit_type"=>"all","language"=>$_SESSION["language"]));?>        
+        <?php echo parcxV2Report(array("task"=>"6","visit_type"=>"all","language"=>$_SESSION["language"]));?>        
     </div>
 </section>
 </div>

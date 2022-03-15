@@ -10,7 +10,7 @@ $data=array();
 $data["task"]=29;     
 $data["language"]=$_SESSION["language"];
 $data["page"]=10;
-$json=parcxReport($data);
+$json=parcxV2Report($data);
 ?>
 
 </ul>
@@ -35,14 +35,14 @@ include('../../../includes/sidebar.php');
          <!-- carparks -->
          <div class="col-md-2">
             <select class="form-control" id="multiselect" multiple="multiple">
-              <?php echo parcxSettings(array("task"=>"12"));?>
+              <?php echo parcxV2Settings(array("task"=>"12"));?>
             </select>
           </div>
 
         <!-- payment devices multiselect-->
         <div class="col-md-2">
           <select class="form-control" id="deviceNumber" multiple="multiple">
-            <?php echo parcxSettings(array("task"=>"14","type"=>"4"));?>
+            <?php echo parcxV2Settings(array("task"=>"14","type"=>"4"));?>
           </select>
         </div>
 
@@ -61,7 +61,7 @@ include('../../../includes/sidebar.php');
             $data["device"]="";	
             $data["language"] = $_SESSION["language"];
             $data["task"]=19;                          
-            echo parcxReport($data);             
+            echo parcxV2Report($data);             
           ?>
          
       </div>

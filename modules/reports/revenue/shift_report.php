@@ -116,7 +116,6 @@ $('body').on('click', '#shift_detail', function ()
   data["task"]=16;   
   data["language"] = $("#language").val();
   var jsondata = JSON.stringify(data);      
-  console.log(jsondata);
   $.post("../../ajax/reports.php",jsondata,function(data)
     {	
     $("#shift-detail-content").html(data); 
@@ -172,7 +171,6 @@ $(function()
     data["language"] = $("#language").val();
     data["task"]=15;   
     var jsondata = JSON.stringify(data);    
-    console.log(jsondata);
     $.post("../../ajax/reports.php",jsondata,function(data)
       {		
        loadReport(data);  

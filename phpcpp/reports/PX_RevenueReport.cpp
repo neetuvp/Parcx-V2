@@ -16,7 +16,6 @@
 using namespace std;
 extern GeneralOperations General;
 Validation validation;
-string validation_failed = "Validation Failed\n";
 string sql_query;
 extern sql::ResultSet *res, *res2;
 extern sql::Connection *rCon, *con;
@@ -140,10 +139,24 @@ string ToString(Php::Value param) {
     return value;
 }
 
+string buildQuery(int length)
+{
+    string query;
+    for(i=0;i<length;i++)
+    {
+        query = query+"?";
+        if(i<length-1)
+        {
+            query = query +",";
+        }
+    }
+    return query;
+}
+
 void RevenueReport::paymentTransactions(Php::Value json) {
     sql::PreparedStatement *prep_stmt;
     Php::Value validation_response;
-    int index=0;
+    int index=0,i=0;
     try {
         string startdate = json["from"];
         string enddate = json["to"];
@@ -158,14 +171,14 @@ void RevenueReport::paymentTransactions(Php::Value json) {
         string lang = json["language"];
         string currency = getCurrency();
 
-        validation_response = validation.DataValidation(startdate,10,10,4,1);
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
         if(validation_response["result"]==false)
         {
             Php::out<<"<div class='card p-3'>Start Date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
             return;
         }
 
-        validation_response = validation.DataValidation(enddate,10,10,4,1);
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
         if(validation_response["result"]==false)
         {
             Php::out<<"<div class='card p-3'>End Date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
@@ -235,6 +248,17 @@ void RevenueReport::paymentTransactions(Php::Value json) {
         
         string html_data="";
 
+        vector<string> carpark_array = split(carpark, ',');
+        int carpark_length = carpark_array.size();
+
+        vector<string> device_array = split(device, ',');
+        int device_length = device_array.size();
+
+        vector<string> discount_array = split(discount, ',');
+        int discount_length = discount_array.size();
+
+        vector<string> type_array = split(type, ',');
+        int type_length = type_array.size();
         
         string labels = "validations,grace_period,entry_date_time,total_revenue,transactions,ticket_id,device_name,payment_date_time,duration,category,payment_type,discount_name,discount_amount,gross_amount,no_records";
         Php::Value label = General.getLabels(lang, labels);
@@ -249,15 +273,34 @@ void RevenueReport::paymentTransactions(Php::Value json) {
             sql_query = sql_query + " and void is not null";
 
         if (carpark.length() > 0)
-            sql_query = sql_query + " AND carpark_number in(?)";
+        {
+            //sql_query = sql_query + " AND carpark_number in(?)";        
+            sql_query = sql_query + " AND carpark_number in(";
+            sql_query = sql_query + buildQuery(carpark_length);
+            sql_query = sql_query + ")";
+        }
         if (device.length() > 0)
-            sql_query = sql_query + " AND device_number in(?)";
+        {
+            //sql_query = sql_query + " AND device_number in(?)";
+            sql_query = sql_query + " AND device_number in(";
+            sql_query = sql_query + buildQuery(device_length);
+            sql_query = sql_query + ")";
+        }
 
         if (type.length() > 0)
-            sql_query = sql_query + " AND payment_type IN("+type+")";
-
+        {
+            //sql_query = sql_query + " AND payment_type IN(?)";
+            sql_query = sql_query + " AND payment_type in(";
+            sql_query = sql_query + buildQuery(type_length);
+            sql_query = sql_query + ")";
+        }
         if (discount.length() > 0)
-            sql_query = sql_query + " AND discount_id IN(?)";  
+        {
+            //sql_query = sql_query + " AND discount_id IN(?)"; 
+            sql_query = sql_query + " AND discount_id in(";
+            sql_query = sql_query + buildQuery(discount_length);
+            sql_query = sql_query + ")";
+        }
         
         if (validation_id.length() > 0)
             sql_query = sql_query + " AND validation_id!=''";
@@ -283,24 +326,50 @@ void RevenueReport::paymentTransactions(Php::Value json) {
         }
 
         sql_query = sql_query + " ORDER BY  payment_date_time desc";
+        Php::out<<sql_query<<endl;
         prep_stmt = rCon->prepareStatement(sql_query);
         prep_stmt->setString(1,startdate);
         prep_stmt->setString(2,enddate);
         index = 3;
         if(carpark.length() > 0)
         {
-            prep_stmt->setString(index,carpark);
-            index++;
+            //prep_stmt->setString(index,carpark);
+            for(i=0;i<carpark_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(carpark_array[i]));
+                index++;
+            }
         }
         if(device.length() > 0)
         {
-            prep_stmt->setString(index,device);
-            index++;
+            //prep_stmt->setString(index,device);
+            for(i=0;i<device_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(device_array[i]));
+                index++;
+            }
         }
         
         if(discount.length()>0)
         {
-            prep_stmt->setString(index,discount);
+            //prep_stmt->setString(index,discount);
+            for(i=0;i<discount_length;i++)
+            {
+                
+                prep_stmt->setInt(index,stoi(discount_array[i]));
+                index++;
+            }
+        }
+        
+        if(type.length()>0)
+        {
+            //prep_stmt->setString(index,discount);
+            for(i=0;i<type_length;i++)
+            {
+                Php::out<<type_array[i]<<endl;
+                prep_stmt->setString(index,type_array[i]);
+                index++;
+            }
         }
        
         res = prep_stmt->executeQuery();
@@ -446,6 +515,9 @@ void RevenueReport::paymentTransactions(Php::Value json) {
 }
 
 void RevenueReport::vatReport(Php::Value json) {
+    Php::Value validation_response;
+    int index=0,i=0;
+    sql::PreparedStatement *prep_stmt;
     try {
         string startdate = json["from"];
         string enddate = json["to"];
@@ -455,24 +527,93 @@ void RevenueReport::vatReport(Php::Value json) {
         string payment_category;
         string currency=getCurrency() ;
         
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for start date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for end date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        if (carpark.length() > 0)
+        {
+            validation_response = validation.DataValidation(carpark,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for carpark: "<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        if (device.length() > 0)
+        {
+            validation_response = validation.DataValidation(device,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for device:"<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        
+        vector<string> carpark_array = split(carpark, ',');
+        int carpark_length = carpark_array.size();
+
+
+        vector<string> device_array = split(device, ',');
+        int device_length = device_array.size();
+
+       
 
         string labels = "total_revenue,total_vat,transactions,ticket_id,device_name,payment_date_time,duration,category,payment_type,discount_name,vat_amount,discount_amount,gross_amount,no_records";
         Php::Value label = General.getLabels(lang, labels);
 
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-        sql_query = "select * from revenue_payments where payment_date_time between '" + startdate + "' AND '" + enddate + "'";        
+        sql_query = "select * from revenue_payments where payment_date_time between ? AND ?";        
         sql_query = sql_query + " and (void is null or void='')";
         
 
         if (carpark.length() > 0)
-            sql_query = sql_query + " AND carpark_number in(" + carpark + ")";
-        if (device.length() > 0)
-            sql_query = sql_query + " AND device_number in(" + device + ")";
+        {
+            sql_query = sql_query + " AND carpark_number in(";
+            sql_query = sql_query + buildQuery(carpark_length);
+            sql_query = sql_query + ")";
+        }
 
-       
+        if (device.length() > 0)
+        {
+            sql_query = sql_query + " AND device_number in(";
+            sql_query = sql_query + buildQuery(device_length);
+            sql_query = sql_query + ")";
+        }       
         sql_query = sql_query + " ORDER BY  payment_date_time desc";
-        res = rStmt->executeQuery(sql_query);
+
+
+        prep_stmt = rCon->prepareStatement(sql_query);
+        prep_stmt->setString(1,startdate);
+        prep_stmt->setString(2,enddate);
+        index = 3;
+        if (carpark.length() > 0)
+        {
+            for(i=0;i<carpark_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(carpark_array[i]));
+                index++;
+            }
+        }
+        if (device.length() > 0)
+        {
+            for(i=0;i<device_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(device_array[i]));
+                index++;
+            }
+        }
+        res = prep_stmt->executeQuery();
         if (res->rowsCount() > 0) {
             float total = 0;
             float vat = 0;
@@ -561,7 +702,7 @@ void RevenueReport::vatReport(Php::Value json) {
         } else {
             Php::out << "<div class='card p-3'>" + toString(label["no_records"]) + "</div>" << endl;
         }
-        delete rStmt;
+        delete prep_stmt;
         delete res;
         rCon->close();
         delete rCon;
@@ -829,6 +970,7 @@ void RevenueReport::getPdfReceipt(Php::Value json) {
 void RevenueReport::shiftReport(Php::Value json) {
     double difference = 0;
     sql::PreparedStatement *prep_stmt;
+    int index=0,i=0;
     Php::Value validation_response;
     try {
         string startdate = json["from"];
@@ -837,16 +979,15 @@ void RevenueReport::shiftReport(Php::Value json) {
         string carpark = json["carpark"];
         string operator_id = json["operator"];
         string lang = json["language"];
-        
 
-        validation_response = validation.DataValidation(startdate,10,10,4,1);
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
         if(validation_response["result"]==false)
         {
             Php::out<<"<div class='card p-3'>Validation failed for start date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
             return;
         }
 
-        validation_response = validation.DataValidation(enddate,10,10,4,1);
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
         if(validation_response["result"]==false)
         {
             Php::out<<"<div class='card p-3'>Validation failed for end date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
@@ -882,27 +1023,87 @@ void RevenueReport::shiftReport(Php::Value json) {
             }
         }
         
+        vector<string> carpark_array = split(carpark, ',');
+        int carpark_length = carpark_array.size();
+
+
+        vector<string> device_array = split(device, ',');
+        int device_length = device_array.size();
+
+        vector<string> operator_array = split(operator_id, ',');
+        int operator_length = operator_array.size();
+
+        
 
         string labels = "shifts,device_name,operator_name,shift_number,shift_start,shift_end,shift_earnings,over_short,last_updated,status,no_records";
         Php::Value label = General.getLabels(lang, labels);
 
 
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-        sql_query = "select * from revenue_shifts where login_time between '" + startdate + "' AND '" + enddate + "'";
+        sql_query = "select * from revenue_shifts where login_time between ? AND ?";
 
         if (carpark.length() > 0)
-            sql_query = sql_query + " AND carpark_number in(" + carpark + ")";
+        {
+            //sql_query = sql_query + " AND carpark_number in(?)";
+            sql_query = sql_query + " AND carpark_number in(";
+            sql_query = sql_query + buildQuery(carpark_length);
+            sql_query = sql_query + ")";
+        }
         if (device.length() > 0)
-            sql_query = sql_query + " AND device_number in(" + device + ")";
+        {
+            //sql_query = sql_query + " AND device_number in(?)";
+            sql_query = sql_query + " AND device_number in(";
+            sql_query = sql_query + buildQuery(device_length);
+            sql_query = sql_query + ")";
+        }
         if (operator_id.length() > 0)
-            sql_query = sql_query + " AND operator_id in(" + operator_id + ")";
+        {
+           // sql_query = sql_query + " AND operator_id in("+operator_id+")";
+            sql_query = sql_query + " AND operator_id in(";
+            sql_query = sql_query + buildQuery(operator_length);
+            sql_query = sql_query + ")";
 
-
+        }
 
         sql_query = sql_query + " ORDER BY  device_number ASC";
+        prep_stmt = rCon->prepareStatement(sql_query);
+        prep_stmt->setString(1,startdate);
+        prep_stmt->setString(2,enddate);
+        index = 3;
+        if (carpark.length() > 0)
+        {
+            //prep_stmt->setString(index,carpark);
+            //index++;
+            for(i=0;i<carpark_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(carpark_array[i]));
+                index++;
+            }
+        }
+        if (device.length() > 0)
+        {
+            //prep_stmt->setString(index,device);
+            //index++;
+            for(i=0;i<device_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(device_array[i]));
+                index++;
+            }
+        }
+        if (operator_id.length() > 0)
+        {
+            //prep_stmt->setString(index,device);
+            //index++;
+            for(i=0;i<operator_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(operator_array[i]));
+                index++;
+            }
+        }
+        res = prep_stmt->executeQuery();
 
-        res = rStmt->executeQuery(sql_query);
+
+
         if (res->rowsCount() > 0) {
             
 
@@ -971,7 +1172,7 @@ void RevenueReport::shiftReport(Php::Value json) {
         } else {
             Php::out << "<div class='card p-3'>" << toString(label["no_records"]) << "</div>" << endl;
         }
-        delete rStmt;
+        delete prep_stmt;
         delete res;
         rCon->close();
         delete rCon;
@@ -983,18 +1184,29 @@ void RevenueReport::shiftReport(Php::Value json) {
 
 void RevenueReport::getshiftDetails(Php::Value json) {
     double difference = 0;
+    Php::Value validation_response;
+    sql::PreparedStatement *prep_stmt;
     try {
         string shift_id = json["shift_id"];
         string lang = json["language"];
         string currency = getCurrency();
 
+        validation_response = validation.DataValidation(shift_id,1,11,1,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Shift Id : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+
         string labels = "creditcard_amount,over,short,banknotes,discount_amount,shift_number,device_name,operator_name,shift_start,shift_end,open_amount,close_amount,payin_amount,payout_amount,shift_duration,parking_fee,lost_fee,vat,physical_cash,shift_earnings,over_short";
         Php::Value label = General.getLabels(lang, labels);
 
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-        sql_query = "select * from revenue_shifts where shift_id='" + shift_id + "'";
-        res = rStmt->executeQuery(sql_query);
+        sql_query = "select * from revenue_shifts where shift_id=?";
+        prep_stmt = rCon->prepareStatement(sql_query);
+        prep_stmt->setString(1,shift_id);
+        res = prep_stmt->executeQuery();
 
         if (res->next()) {
             Php::out << "<div class='row'><div class='col'>" << label["shift_number"] << "</div><div class='col'> " + res->getString("shift_id") + " </div></div>" << endl;            
@@ -1026,13 +1238,17 @@ void RevenueReport::getshiftDetails(Php::Value json) {
                 if(difference<0)
                     Php::out << "<div class='row'><div class='col'>" << label["short"] << "</div><div class='col font-weight-bold'>"+currency+" " <<SetDoublePrecision(difference*-1)<< "</div></div>" << endl;            
                 
-                sql_query = "select * from revenue_physical_cash where shift_id='" + shift_id + "'";
-                res = rStmt->executeQuery(sql_query);
+                sql_query = "select * from revenue_physical_cash where shift_id=?";
+                prep_stmt = rCon->prepareStatement(sql_query);
+                prep_stmt->setString(1,shift_id);
+                res = prep_stmt->executeQuery();
                 if(res->next())
                     {
                     Php::out << "<hr><div class='row'><div class='col'>" << label["physical_cash"] << "</div><div class='col'>"<<endl;
-                    sql_query = "select * from parcx_server.revenue_banknote_denominations where currency='" + currency + "'";
-                    res2 = rStmt->executeQuery(sql_query);
+                    sql_query = "select * from "+string(ServerDB)+".revenue_banknote_denominations where currency=?";
+                    prep_stmt = rCon->prepareStatement(sql_query);
+                    prep_stmt->setString(1,currency);
+                    res2 = prep_stmt->executeQuery();
                     res2->next();
                     
                     string denomination;
@@ -1053,7 +1269,7 @@ void RevenueReport::getshiftDetails(Php::Value json) {
             
         }
 
-        delete rStmt;
+        delete prep_stmt;
         delete res;
         rCon->close();
         delete rCon;
@@ -1065,7 +1281,9 @@ void RevenueReport::getshiftDetails(Php::Value json) {
 
 void RevenueReport::apmrefillReport(Php::Value json) {
     string  a, b, sum, currency;
-    int total = 0;
+    int total = 0,index=0,i=0;
+    Php::Value validation_response;
+    sql::PreparedStatement *prep_stmt;
     try {
         string startdate = json["from"];
         string enddate = json["to"];
@@ -1074,20 +1292,90 @@ void RevenueReport::apmrefillReport(Php::Value json) {
         string lang = json["language"];
         string notes = "";
 
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for start date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for end date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        if (carpark.length() > 0)
+        {
+            validation_response = validation.DataValidation(carpark,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for carpark: "<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        if (device_number.length() > 0)
+        {
+            validation_response = validation.DataValidation(device_number,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for device:"<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        
+        vector<string> carpark_array = split(carpark, ',');
+        int carpark_length = carpark_array.size();
+
+
+        vector<string> device_array = split(device_number, ',');
+        int device_length = device_array.size();
+
+
+
         string labels = "device_name,date_time,operator_name,banknote,amount,transactions,total_amount_refilled,no_records";
         Php::Value label = General.getLabels(lang, labels);
 
 
         currency = getCurrency();
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-        sql_query = "select * from revenue_apm_cash_refill where datetime between '" + startdate + "' and '" + enddate + "'";
+        sql_query = "select * from revenue_apm_cash_refill where datetime between ? and ?";
+
         if (carpark.length() > 0)
-            sql_query += " AND carpark_number IN(" + carpark + ")";
+        {
+            sql_query = sql_query + " AND carpark_number in(";
+            sql_query = sql_query + buildQuery(carpark_length);
+            sql_query = sql_query + ")";
+        }
 
         if (device_number.length() > 0)
-            sql_query += " AND device_number IN(" + device_number + ")";
-        res = rStmt->executeQuery(sql_query);
+        {
+            sql_query = sql_query + " AND device_number in(";
+            sql_query = sql_query + buildQuery(device_length);
+            sql_query = sql_query + ")";
+        }  
+        prep_stmt = rCon->prepareStatement(sql_query);
+        prep_stmt->setString(1,startdate);
+        prep_stmt->setString(2,enddate);
+        index = 3;
+        if (carpark.length() > 0)
+        {
+            for(i=0;i<carpark_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(carpark_array[i]));
+                index++;
+            }
+        }
+        if (device_number.length() > 0)
+        {
+            for(i=0;i<device_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(device_array[i]));
+                index++;
+            }
+        }
+        res = prep_stmt->executeQuery();
         string data = "";
         string summary = "";
         if (res->rowsCount() > 0) {
@@ -1160,7 +1448,7 @@ void RevenueReport::apmrefillReport(Php::Value json) {
             Php::out << "<div class='card p-3'>" << toString(label["no_records"]) << "</div>" << endl;
         }
 
-        delete rStmt;
+        delete prep_stmt;
         delete res;
         rCon->close();
         delete rCon;
@@ -1240,7 +1528,9 @@ void RevenueReport::apmcashlevelsReport(Php::Value json) {
 
 void RevenueReport::apmcashpayoutReport(Php::Value json) {
     string  a, b, sum, notes;
-    int total = 0;
+    int total = 0,index=0,i=0;
+    Php::Value validation_response;
+    sql::PreparedStatement *prep_stmt;
     try {
         string startdate = json["from"];
         string enddate = json["to"];
@@ -1249,21 +1539,91 @@ void RevenueReport::apmcashpayoutReport(Php::Value json) {
         string lang = json["language"];
         string currency=getCurrency();
 
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for start date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for end date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        if (carpark.length() > 0)
+        {
+            validation_response = validation.DataValidation(carpark,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for carpark: "<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        if (device_number.length() > 0)
+        {
+            validation_response = validation.DataValidation(device_number,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for device:"<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        
+        vector<string> carpark_array = split(carpark, ',');
+        int carpark_length = carpark_array.size();
+
+
+        vector<string> device_array = split(device_number, ',');
+        int device_length = device_array.size();
+
         string labels = "operator_name,device_name,operation,date_time,operator,banknotes,amount,transactions,total_payout,no_records";
         Php::Value label = General.getLabels(lang, labels);
 
 
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-        sql_query = "select * from revenue_apm_cash_payout where datetime between '" + startdate + "' AND '" + enddate + "'";
-
-        if (device_number.length() > 0)
-            sql_query += " AND device_number IN(" + device_number + ")";
+        sql_query = "select * from revenue_apm_cash_payout where datetime between ? AND ?";
 
         if (carpark.length() > 0)
-            sql_query += " AND device_number IN(" + device_number + ")";
+        {
+            sql_query = sql_query + " AND carpark_number in(";
+            sql_query = sql_query + buildQuery(carpark_length);
+            sql_query = sql_query + ")";
+            //sql_query += " AND carpark_number IN(" + carpark + ")";
+        }
 
-        res = rStmt->executeQuery(sql_query);
+        if (device_number.length() > 0)
+        {
+            sql_query = sql_query + " AND device_number in(";
+            sql_query = sql_query + buildQuery(device_length);
+            sql_query = sql_query + ")";
+            //sql_query += " AND device_number IN(" + device_number + ")";
+        }
+        prep_stmt = rCon->prepareStatement(sql_query);
+        prep_stmt->setString(1,startdate);
+        prep_stmt->setString(2,enddate);
+        index = 3;
+        if(carpark.length() > 0)
+        {
+            //prep_stmt->setString(index,carpark);
+            for(i=0;i<carpark_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(carpark_array[i]));
+                index++;
+            }
+        }
+        if(device_number.length() > 0)
+        {
+            //prep_stmt->setString(index,device);
+            for(i=0;i<device_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(device_array[i]));
+                index++;
+            }
+        }
+        res = prep_stmt->executeQuery();
         string data = "";
         string summary = "";
         if (res->rowsCount() > 0) {
@@ -1339,7 +1699,7 @@ void RevenueReport::apmcashpayoutReport(Php::Value json) {
             Php::out << "<div class='card p-3'>" << toString(label["no_records"]) << "</div>" << endl;
         }
 
-        delete rStmt;
+        delete prep_stmt;
         delete res;
         rCon->close();
         delete rCon;
@@ -1351,6 +1711,9 @@ void RevenueReport::apmcashpayoutReport(Php::Value json) {
 
 void RevenueReport::paymentexceptionReport(Php::Value json) {
     string  paid;
+    int index=0,i=0;
+    Php::Value validation_response;
+    sql::PreparedStatement *prep_stmt;
     try {
         string startdate = json["from"];
         string enddate = json["to"];
@@ -1361,23 +1724,106 @@ void RevenueReport::paymentexceptionReport(Php::Value json) {
         string notes = "";
         string currency = getCurrency();
 
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for start date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
+        if(validation_response["result"]==false)
+        {
+            Php::out<<"<div class='card p-3'>Validation failed for end date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
+            return;
+        }
+
+        if (ex_option != "0")
+        {
+            validation_response = validation.DataValidation(ex_option,1,20,3,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for Exception option: "<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+
+
+        if (carpark.length() > 0)
+        {
+            validation_response = validation.DataValidation(carpark,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for carpark: "<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+        if (device_number.length() > 0)
+        {
+            validation_response = validation.DataValidation(device_number,1,1,10,0);
+            if(validation_response["result"]==false)
+            {
+                Php::out<<"<div class='card p-3'>Validation failed for device:"<<ToString(validation_response["reason"]) << "</div>" << endl;
+                return;
+            }
+        }
+
+        vector<string> carpark_array = split(carpark, ',');
+        int carpark_length = carpark_array.size();
+
+        vector<string> device_array = split(device_number, ',');
+        int device_length = device_array.size();
+
+
         string labels = "date_time,device_name,ticket_id,exception,amount_received,balance_returned,credit_note,banknotes,transactions,no_records";
         Php::Value label = General.getLabels(lang, labels);
 
 
 
         rCon = General.mysqlConnect(ReportingDB);
-        rStmt = rCon->createStatement();
-        sql_query = "select * from revenue_payment_exceptions where date_time between '" + startdate + "' and '" + enddate + "'";
+        sql_query = "select * from revenue_payment_exceptions where date_time between ? and ?";
         if (carpark.length() > 0)
-            sql_query += " AND carpark_number IN(" + carpark + ")";
+        {
+            sql_query = sql_query + " AND carpark_number in(";
+            sql_query = sql_query + buildQuery(carpark_length);
+            sql_query = sql_query + ")";
+            //sql_query += " AND carpark_number IN(" + carpark + ")";
+        }
 
         if (device_number.length() > 0)
-            sql_query += " AND device_number IN(" + device_number + ")";
+        {
+            sql_query = sql_query + " AND device_number in(";
+            sql_query = sql_query + buildQuery(device_length);
+            sql_query = sql_query + ")";
+            //sql_query += " AND device_number IN(" + device_number + ")";
+        }
 
         if (ex_option != "0")
             sql_query += " AND exception LIKE '" + ex_option + "%'";
-        res = rStmt->executeQuery(sql_query);
+
+        prep_stmt = rCon->prepareStatement(sql_query);
+        prep_stmt->setString(1,startdate);
+        prep_stmt->setString(2,enddate);
+        index = 3;
+        if(carpark.length() > 0)
+        {
+            //prep_stmt->setString(index,carpark);
+            for(i=0;i<carpark_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(carpark_array[i]));
+                index++;
+            }
+        }
+        if(device_number.length() > 0)
+        {
+            //prep_stmt->setString(index,device);
+            for(i=0;i<device_length;i++)
+            {
+                prep_stmt->setInt(index,stoi(device_array[i]));
+                index++;
+            }
+        }
+        res = prep_stmt->executeQuery();
         string data = "";
         string summary = "";
         if (res->rowsCount() > 0) {
@@ -1442,7 +1888,7 @@ void RevenueReport::paymentexceptionReport(Php::Value json) {
             Php::out << "<div class='card p-3'>" << toString(label["no_records"]) << "</div>" << endl;
         }
 
-        delete rStmt;
+        delete prep_stmt;
         delete res;
         rCon->close();
         delete rCon;
@@ -1464,14 +1910,14 @@ void RevenueReport::creditcardReport(Php::Value json) {
         string carpark = json["carpark"];
         string lang = json["language"];
         
-        validation_response = validation.DataValidation(startdate,10,10,4,1);
+        validation_response = validation.DataValidation(startdate,10,10,8,1);
         if(validation_response["result"]==false)
         {
             Php::out<<"<div class='card p-3'>Validation failed for start date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
             return;
         }
 
-        validation_response = validation.DataValidation(enddate,10,10,4,1);
+        validation_response = validation.DataValidation(enddate,10,10,8,1);
         if(validation_response["result"]==false)
         {
             Php::out<<"<div class='card p-3'>Validation failed for end date : "<<ToString(validation_response["reason"]) << "</div>" << endl;
