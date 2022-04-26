@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<clientData>
+
+    <!-- logo and address data for pdf header -->
+    <!-- logo img height should be 42px for optimal display -->
+
+    <!-- test data -->
+    <data>
+        <client>test</client>
+        <logo>dist/img/pdf-logo/web_logo_dark_bg.png</logo>
+        <address>Parcx Lorem ipsum dolor sit amet, consetetur abore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.</address>
+        <addressWidth>100</addressWidth>
+    </data>
+
+    <!-- burlington -->
+    <data>
+        <client>burlington</client>
+        <logo>dist/img/pdf-logo/logo_small_white_bg.png</logo>
+        <address>The Burlington, By Deyaar Business Bay, Dubai</address>
+        <addressWidth>50</addressWidth>
+    </data>
+    
+    <!-- ubora -->
+    <data>
+        <client>ubora</client>
+        <logo>dist/img/pdf-logo/logo_small_white_bg.png</logo>
+        <address></address>
+        <addressWidth>61</addressWidth>
+    </data>
+
+    <!-- global village -->
+    <data>
+        <client>globalVillage</client>
+        <logo>dist/img/pdf-logo/global-village.png</logo>
+        <address>globalVillage</address>
+        <addressWidth>100</addressWidth>
+    </data>
+
+</clientData>
