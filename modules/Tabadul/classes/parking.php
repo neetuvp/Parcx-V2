@@ -88,7 +88,7 @@ function report_plates_captured($json)
         $this->log("Called Plates Captured report,input:".$json);                
         $con=$this->DBConnection_MySQL(DB_REPORTING);
             $json=json_decode($json);
-            $sql="select * from plates_captured where  capture_date_time >='".$json->{'fromDate'}."' and capture_date_time <= '".$json->{'toDate'}."'";
+            $sql="select *,Date(capture_date_time) as capture_date from plates_captured where  capture_date_time >='".$json->{'fromDate'}."' and capture_date_time <= '".$json->{'toDate'}."'";
             if($json->{'device'}>0)
                 $sql.=" and camera_device_number='".$json->{'device'}."'";
 
@@ -125,7 +125,7 @@ function report_plates_captured($json)
                 $html_data.= '<td>' . $data['plate_type']. '</td>';
                 //$html_data.= '<div class="col"><img src ="'.ANPRImageURL.'/default.jpg" width="100"; height="50";></div>';         
                 $html_data.= '<td><img
-                        src="'.ANPRImageURL.'\\'.$data['plate_image_name'].'"
+                        src="'.ANPRImageURL.'\\'.$data["camera_device_number"].'\\'.$data["capture_date"].'\\Crop_'.$data['plate_image_name'].'"
                         width="100" ; height="50" ;></center>
                 </td>';
                 $html_data.= '<td>
@@ -153,7 +153,8 @@ function report_plates_captured($json)
         //$camera_id = $json->{'camera_no'};
         $html_data.='<div>';
         //$html_data.='<img src ="'.ANPRImageURL.'/default.jpg" width="100%"; height="500";>';
-        $html_data.='<img src ="'.ANPRImageURL.'\\'.$plateImage.'" width="700"; height="700";>';
+       // $html_data.='<img src ="'.ANPRImageURL.'\\'.$plateImage.'" width="700"; height="700";>';
+	$html_data.='<img src ="'.ANPRImageURL.'\\'.$data["camera_device_number"].'\\'.$data["capture_date"].'\\Scene'.$data['plate_image_name'].'" width="700"; height="700";>';
         $html_data.='</div>';
         echo $html_data;
     }
@@ -418,22 +419,34 @@ function update_plate_captured($json)
             {                
             $initial_plate=$json_data["initial_plate_number1"];    
             if($json_data["plate1_already_corrected"]==0)    
-                $sql = "update plates_captured  set plate_number='".$plate_number."',initial_plate_number='".$initial_plate."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['user']."' where id = ".$id;                    
+                $sql = "update plates_captured  set plate_number='".$plate_number."',initial_plate_number='".$initial_plate."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['username']."' where plate_captured_id = '".$id."'";                    
             else
-                $sql = "update plates_captured  set plate_number='".$plate_number."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['user']."' where id = ".$id;                    
+                $sql = "update plates_captured  set plate_number='".$plate_number."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['username']."' where plate_captured_id = '".$id."'";             
+
+		//this->log("sql".$sql);        
             if($con->query($sql)==TRUE) 
                 $result="1";
+            }
+	    else
+	    {
+		$this->log("Plate Correction Error".$con->error);
             }
         $id = $json_data["plate_captured_id_secondary"];
         if($id>0)
             {                
             $initial_plate=$json_data["initial_plate_number2"];  
             if($json_data["plate2_already_corrected"]==0)    
-                $sql = "update plates_captured  set plate_number='".$plate_number."',initial_plate_number='".$initial_plate."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['user']."' where id = ".$id;                                
+                $sql = "update plates_captured  set plate_number='".$plate_number."',initial_plate_number='".$initial_plate."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['username']."' where plate_captured_id = '".$id."'";                              
             else
-                $sql = "update plates_captured  set plate_number='".$plate_number."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['user']."' where id = ".$id;                                
+                $sql = "update plates_captured  set plate_number='".$plate_number."',plate_corrected_date_time=CURRENT_TIMESTAMP,user_name='".$_SESSION['username']."' where plate_captured_id = '".$id."'";               
+		
+		//$this->log("sql".$sql);                          
             if($con->query($sql)==TRUE) 
                 $result="1";
+            }
+	    else
+	    {
+		$this->log("Plate Correction Error".$con->error);
             }
         mysqli_close($con);          
         if($result=="1")        
@@ -452,9 +465,9 @@ function get_access_request_details($json)
       if($con!=NULL)
       {
         if($id!="")
-            $sql = "SELECT a.*,b.plate_number as plate,b.initial_plate_number,b.plate_image_name,b.camera_device_number,b.capture_date_time,b.plate_type,b.plate_country,b.confidence_rate FROM smartgate_request as a left join plates_captured as b on a.plate_capture_id = b.id  where a.id = ".$id;
+            $sql = "SELECT a.*,b.plate_number as plate,b.initial_plate_number,b.plate_image_name,b.camera_device_number,b.capture_date_time,b.plate_type,b.plate_country,b.confidence_rate,Date(b.capture_date_time) as capture_date FROM smartgate_request as a left join plates_captured as b on a.plate_capture_id = b.plate_captured_id  where a.id = ".$id;
         else
-            $sql = "SELECT a.*,b.plate_number as plate,b.initial_plate_number,b.plate_image_name,b.camera_device_number,b.capture_date_time,b.plate_type,b.plate_country,b.confidence_rate FROM smartgate_request as a left join plates_captured as b on a.plate_capture_id = b.id  order by a.api_datetime_request desc limit 1";
+            $sql = "SELECT a.*,b.plate_number as plate,b.initial_plate_number,b.plate_image_name,b.camera_device_number,b.capture_date_time,b.plate_type,b.plate_country,b.confidence_rate,Date(b.capture_date_time) as capture_date FROM smartgate_request as a left join plates_captured as b on a.plate_capture_id = b.plate_captured_id  order by a.api_datetime_request desc limit 1";
         
 	$result = $con->query($sql);
     $row1 = $result -> fetch_assoc();
@@ -462,7 +475,7 @@ function get_access_request_details($json)
     if($id>0)    
         {
        
-        $sql = "SELECT initial_plate_number initial_plate_number2,plate_number plate_number2,plate_image_name plate_image_name2,camera_device_number camera_device_number2,capture_date_time capture_date_time2,plate_type plate_type2,plate_country plate_country2,confidence_rate confidence_rate2 FROM plates_captured  where id = '".$id."'";
+        $sql = "SELECT initial_plate_number initial_plate_number2,plate_number plate_number2,plate_image_name plate_image_name2,camera_device_number camera_device_number2,capture_date_time capture_date_time2,plate_type plate_type2,plate_country plate_country2,confidence_rate confidence_rate2,Date(capture_date_time) as capture_date2 FROM plates_captured  where plate_captured_id = '".$id."'";
 
         $result = $con->query($sql);
         $row2 = $result -> fetch_assoc();
@@ -484,7 +497,7 @@ function get_secondary_plate_details($json)
       if($con!=NULL)
       {
         if($id!=""){
-            $sql = "SELECT plate_number,plate_image_name,camera_device_number,capture_date_time,plate_type,plate_country,confidence_rate FROM plates_captured  where id = ".$id;
+            $sql = "SELECT plate_number,plate_image_name,camera_device_number,capture_date_time,plate_type,plate_country,confidence_rate FROM plates_captured  where plate_captured_id = ".$id;
             $result = $con->query($sql);
             $row = $result -> fetch_assoc();
             echo (json_encode($row));

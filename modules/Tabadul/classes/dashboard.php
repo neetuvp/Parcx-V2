@@ -90,7 +90,7 @@ function get_device_status_block_view()
                 $image_url = IMAGEURL."vms.png";
                 $data_img = "vms";
                 }
-            $html_data.='<div class="col-md-5 block-data device-block" data-number="' .$data["device_number"].'" barrier="'.$barrier.'" data-img="' .$data_img.'" data-target="#error-log-modal">';            
+            $html_data.='<div class="col-md-6 block-data device-block" data-number="' .$data["device_number"].'" barrier="'.$barrier.'" data-img="' .$data_img.'" data-target="#error-log-modal">';            
 
             $html_data .= '<div class="card p-0">';
             $html_data .= '<div class="card-header">';
@@ -151,9 +151,15 @@ function get_device_status_block_view()
                     // else
                     // $html_data .= '<span class="float-right safety_loop_status"><div class="dot-indicator bg-danger-gradient" data-toggle="tooltip" data-placement="top" title="Deactive"></div></span>';
                     // $html_data .= '</span>';
-                    $html_data.=' <div class="d-flex justify-content-between align-items-center mb-4 mt-4">                    
-                    <div class="col"><input type="submit" class="btn btn-outline-info btn-open-barrier btn-block" value="Open Barrier1" ></div>
-                    <div class="col"><input type="submit" class="btn btn-outline-info btn-open-barrier btn-block" value="Open Barrier2" ></div>                   
+                    $html_data.=' <div class="d-flex justify-content-between align-items-center mb-1 mt-1">                    
+                    <div class="col"><input type="submit" class="btn btn-outline-info btn-open-barrier btn-block btn-barrier" value="Open Barrier1" ></div>
+                    <div class="col"><input type="submit" class="btn btn-outline-info btn-open-barrier btn-block btn-barrier" value="Open Barrier2" ></div>                 
+                    </div>';
+                    $html_data .= '</li>';
+		    $html_data .= '<li class="nav-item">';
+                    $html_data.=' <div class="d-flex justify-content-between align-items-center mb-1 mt-1">                      
+		    <div class="col"><input type="submit" class="btn btn-outline-info btn-close-barrier btn-block btn-barrier" value="Close Barrier1" ></div>
+                    <div class="col"><input type="submit" class="btn btn-outline-info btn-close-barrier btn-block btn-barrier" value="Close Barrier2" ></div>                   
                     </div>';
                     $html_data .= '</li>';
                 }
@@ -175,7 +181,7 @@ function get_device_status_block_view()
                 $result = mysqli_query($con, $query_string) or die(mysqli_error($con));
                     
                 if (mysqli_num_rows($result)) {
-                $html_data .= '<div class="col-md-7">';
+                $html_data .= '<div class="col-md-12">';
                 $html_data .= '<div class="card ">';
                 $html_data .= '<div class="card-body p-0">';
                 $html_data .= '<table class="table table-blue table-bordered">';
@@ -224,7 +230,7 @@ function report_watchdog_device_log($device_number)
         $con=$this->db_connect(DB_DASHBOARD);
         if($con!=NULL)
             {
-            $json=json_decode($json,TRUE);
+            //$json=json_decode($json,TRUE);
             $sql="select * from watchdog_network_logs where device_number=".$device_number."  order by id desc limit 5";                                                  
             $result = $con->query($sql);
             $html_data='';

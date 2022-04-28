@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table smartgate_request
 --
-
-CREATE TABLE smartgate_request (
+Use parcx_reporting;
+CREATE TABLE parcx_reporting.smartgate_request (
   id int(11) NOT NULL,
   device_number int(11) DEFAULT NULL,
   device_name varchar(50) DEFAULT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE smartgate_request (
 --
 -- Indexes for table smartgate_request
 --
-ALTER TABLE smartgate_request
+ALTER TABLE parcx_reporting.smartgate_request
   ADD PRIMARY KEY (id);
 
 --
@@ -66,7 +66,7 @@ ALTER TABLE smartgate_request
 --
 -- AUTO_INCREMENT for table smartgate_request
 --
-ALTER TABLE smartgate_request
+ALTER TABLE parcx_reporting.smartgate_request
   MODIFY id int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
@@ -74,6 +74,7 @@ Use parcx_server;
 INSERT INTO parcx_server.system_menu_group (group_name, group_icon, group_order_index, header_id, group_expand, group_status) SELECT 'smart_gate', 'fas fa-key', '5',(Select header_id from system_menu_header where header_name='reports'), '1', '1' Where not exists (Select group_name from system_menu_group where group_name='smart_gate');
 INSERT INTO parcx_server.system_menu (group_id, menu_name, menu_link, menu_icon, menu_order_index, menu_add, menu_edit, menu_delete, menu_status) SELECT (Select group_id from system_menu_group where group_name='smart_gate'), 'access_request', 'modules/Tabadul/access_request.php', 'far fa-circle', '1', '0', '0', '0', '1' WHERE NOT EXISTS (Select menu_name from system_menu where menu_name='access_request');
 INSERT INTO parcx_server.system_menu (group_id, menu_name, menu_link, menu_icon, menu_order_index, menu_add, menu_edit, menu_delete, menu_status) SELECT (Select group_id from system_menu_group where group_name='smart_gate'), ' plates_captured', 'modules/Tabadul/plates_captured.php', 'far fa-circle', '2', '0', '0', '0', '1' WHERE NOT EXISTS (Select menu_name from system_menu where menu_name='plates_captured');
+Update parcx_server.system_menu set group_id = (Select group_id from system_menu_group where group_name='smart_gate') where menu_name='plates_captured';
 INSERT INTO parcx_server.system_menu (group_id, menu_name, menu_link, menu_icon, menu_order_index, menu_add, menu_edit, menu_delete, menu_status) SELECT (Select group_id from system_menu_group where group_name='smart_gate'), 'access_whitelist', 'modules/Tabadul/access_whitelist.php', 'far fa-circle', '3', '1', '1', '0', '1' WHERE NOT EXISTS (Select menu_name from system_menu where menu_name='access_whitelist');
 Update system_menu set menu_link = 'modules/Tabadul/home.php' where menu_name='home';
 INSERT INTO parcx_server.web_application_labels (message, english, arabic, spanish, status) VALUES ('smart_gate', 'Smart Gate', 'Smart Gate', 'Smart Gate', '1');

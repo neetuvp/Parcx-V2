@@ -48,12 +48,12 @@ function write_logs($file_name, $function_name, $message)
         
 
     
-    public function SendMessageToPort($message)
+    public function SendMessageToPort($message,$host)
     {        
         $this->write_logs("SendMessageToPort.txt","SendMessageToPort",$message);
 
          // Send Message To Terminal 
-        $host    = "10.195.14.141";
+        //$host    = "10.195.14.141";
         $port    = 8091;
 
         //echo "Message To server :".$message;

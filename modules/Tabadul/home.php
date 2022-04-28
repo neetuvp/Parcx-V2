@@ -264,7 +264,8 @@ include('../../includes/sidebar.php');
 
                             <div class="card-header" style="background-color:#44484a">
                                 <div class="nav-item d-flex justify-content-between align-items-center p-2">
-                                    <h3 class="card-title ml-2">Last Transaction</h3>                                                                      <a id='plate_mismatch_edit' href='#'><i class='fas fa-pencil-alt'></i>Manual plate correction</a>
+                                    <h3 class="card-title ml-2">Last Transaction</h3> 
+                                                                    <!-- <a id='plate_mismatch_edit' href='#'><i class='fas fa-pencil-alt'></i>Manual plate correction</a>-->
                                 </div>                                
                             </div>
                             <div class="card-body p-0">
@@ -525,7 +526,7 @@ include('../../includes/sidebar.php');
     });
 
 
-    $(document).on("click", ".btn-open-barrier", function ()
+    $(document).on("click", ".btn-barrier", function ()
     {
         var value = $(this).attr('value');
         switch (value)
@@ -535,10 +536,20 @@ include('../../includes/sidebar.php');
                 movement_type = 3;
                 description = "Open Barrier1 From Server"
                 break;
+	    case "Close Barrier1":
+                task = "S02";
+                movement_type = 4;
+                description = "Close Barrier1 From Server"
+                break;
             case "Open Barrier2":
                 task = "S14";
                 movement_type = 4;
                 description = "Open Barrier2 From Server"
+                break;
+	    case "Close Barrier2":
+                task = "S15";
+                movement_type = 4;
+                description = "Close Barrier2 From Server"
                 break;
 
         }
@@ -783,11 +794,11 @@ include('../../includes/sidebar.php');
                 $("#alert-div-access-details").addClass("bg-danger");
                 $("#alert-div-access-details").html("<h5><i class='icon fa fa-times'></i> Plates mismatch</h5>")
             }
-            var image_name = response["plate_image_name"];
+            //var image_name = response["plate_image_name"];
             var camera_id = response["camera_device_number"];
             var image_url = "<?php echo ANPRImageURL ?>";
             var date_captured = response["capture_date_time"];
-
+	    var image_name = camera_id+'/'+response["capture_date"]+'/Scene_'+response["plate_image_name"];
             if (date_captured != null)
                 date_captured = date_captured.substring(0, 10);
             //$('#plate_image_modal').html('<img src ="'+image_url+'/'+camera_id+'/'+date_captured+'/Scene_'+image_name+'" width="100%"; height="350";>');
@@ -807,7 +818,9 @@ include('../../includes/sidebar.php');
             $('#qrcode_modal').html(response["reference_number"]);
             $('#gate_code_modal').html(response["gate_code"]);
 
-            image_name = response["plate_image_name2"];
+            camera_id = response["camera_device_number2"];
+                //image_name = response["plate_image_name2"]; 
+	    image_name = camera_id+'/'+response["capture_date2"]+'/Scene_'+response["plate_image_name2"];           
                     
             $('#plate_image_modal_secondary').html('<img src ="' + image_url + '/' + image_name + '" width="100%"; height="100%";>');
             
@@ -877,8 +890,6 @@ var plate2_corrected;
         $.post("ajax/parking.php?task=14", jsondata, function (data)
         {         
             $('#plate_secondary').show();
-
-            
             var response = JSON.parse(data);
             if(access_id!=parseInt(response["id"],10))
                 {
@@ -926,9 +937,10 @@ var plate2_corrected;
                     $("#alert-div").html("<h5><i class='icon fa fa-times'></i> Plates mismatch</h5>")
                     $("#plate_mismatch_edit").removeClass("d-none");
                 }
-                var image_name = response["plate_image_name"];
+                
                 var camera_id = response["camera_device_number"];
                 var image_url = "<?php echo ANPRImageURL ?>";
+		var image_name = camera_id+'/'+response["capture_date"]+'/Scene_'+response["plate_image_name"];
                 var date_captured = response["capture_date_time"];
                 if (date_captured != null)
                     date_captured = date_captured.substring(0, 10);            
@@ -957,8 +969,9 @@ var plate2_corrected;
                 $('.qr_code').html(response["reference_number"]);
                 $('.gate_code').html(response["gate_code"]);
 
-
-                image_name = response["plate_image_name2"];            
+		camera_id = response["camera_device_number2"];
+                //image_name = response["plate_image_name2"]; 
+		image_name = camera_id+'/'+response["capture_date2"]+'/Scene_'+response["plate_image_name2"];           
                 $('#plate-image-content_secondary').html('<img src ="' + image_url + '/' + image_name + '" width="100%"; height="280";>');                    
                 
                 if(response["initial_plate_number2"]!=null)                        
@@ -1051,7 +1064,8 @@ $(document).on("click", "#btn-save", function (){
     else    
         {                            
         data["plate_number"]=corrected_plate1;       
-        var jsondata = JSON.stringify(data);          
+        var jsondata = JSON.stringify(data);
+	console.log(jsondata);          
         $.post("ajax/parking.php?task=16", jsondata, function (data){ 
             console.log(data);
             $("#plate-mismatch-modal").modal("hide");      

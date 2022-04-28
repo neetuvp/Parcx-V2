@@ -12,6 +12,7 @@ define("PASSWORD","1fromParcx!19514");
 define("DB_SERVER","parcx_server");
 define("DB_REPORTING","parcx_reporting");
 define("DB_DASHBOARD","parcx_dashboard");
-define("ANPRImageURL","../../../Media/SmartGate/images");
+define("ANPRImageURL","../../../ANPR/Images");
+//define("ANPRImageURL","../../../Media/SmartGate/images");
 define("IMAGEURL","../../dist/img/icon/device_icons/");
 ?>

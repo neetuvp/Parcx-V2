@@ -30,14 +30,14 @@ case 3:
     $device_type=$data_obj->{'device_type'};
 
     $result=1;
-    $general->SendMessageToPort($task);
+    $general->SendMessageToPort($task,$device_ip);
    	
     // $message=sendDataToPort($device_ip,8091,$task);    
     // if($message!="Error")  
     // {
     //     $result=InsertManualMovements($description,$movement_type,$reason,$device_number,$device_name,$carpark_number,$_SESSION['user']);
     // }
-    $dashboard->log_manual_movement($json,$message,$device_number,$device_name);
+    $dashboard->log_manual_movement($json,$reason,$device_number,$device_name);
         
     echo $result;
     break;

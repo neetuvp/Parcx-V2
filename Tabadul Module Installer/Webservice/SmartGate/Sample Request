@@ -1,0 +1,15 @@
+Url:    http://localhost/SmartGate/AccessRequest.php
+
+Request:    {
+    "plate_capture_id":"79",
+    "plate_number":"UAQ A 63254",
+    "qrcode":""
+}
+
+
+Response:   {
+    "access_allowed": "true",
+    "plate_capture_id": "79",
+    "plate_image_name": "OMNW65653_02-06-202007:13:56.jpg",
+    "description": "Description"
+}
