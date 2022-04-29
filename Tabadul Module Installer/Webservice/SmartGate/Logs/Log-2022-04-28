@@ -1,0 +1,601 @@
+
+Date :2022-04-28 08:35:03 *************************************Log**********************************************************
+Date :2022-04-28 08:35:03 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"M 72707",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 08:35:03 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','M 72707','GS31121215','0','0')
+Date :2022-04-28 08:35:03 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 08:35:03 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 08:35:03 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 08:35:03 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 08:35:03 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"M 72707","referenceType":"PlateNumber"}
+Date :2022-04-28 08:35:03 CallAPI,Response:{"success":false,"code":"GATE_PURPOSE_NOT_FOUND"}
+Date :2022-04-28 08:35:03 code:GATE_PURPOSE_NOT_FOUND
+Date :2022-04-28 08:35:03 codetext:The gate purpose not found
+Date :2022-04-28 08:35:03 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"gate_purpose_not_found","access_allowed":"false","description_line2":"Gate purpose not found","plate_number":"M 72707"}
+Date :2022-04-28 09:15:02 *************************************Log**********************************************************
+Date :2022-04-28 09:15:02 Request:{"transaction_id":"20220428071502","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a30e56b6a1","plate_captured_id1":"11626a30dd2083d"}
+Date :2022-04-28 09:15:02 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121215','11626a30dd2083d','11626a30e56b6a1')
+Date :2022-04-28 09:15:02 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:15:02 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:15:02 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:15:02 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:15:02 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:15:02 CallAPI,Response:{"success":false,"code":"GATE_PURPOSE_NOT_FOUND"}
+Date :2022-04-28 09:15:02 code:GATE_PURPOSE_NOT_FOUND
+Date :2022-04-28 09:15:02 codetext:The gate purpose not found
+Date :2022-04-28 09:15:02 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a30dd2083d","plate_capture_id_secondary":"11626a30e56b6a1","description_line1":"gate_purpose_not_found","access_allowed":"false","description_line2":"Gate purpose not found","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:16:24 *************************************Log**********************************************************
+Date :2022-04-28 09:16:24 Request:{"transaction_id":"20220428071624","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a313731d8f","plate_captured_id1":"11626a312f4f9e3"}
+Date :2022-04-28 09:16:24 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a312f4f9e3','11626a313731d8f')
+Date :2022-04-28 09:16:24 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:16:24 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:16:24 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:16:24 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:16:24 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:16:24 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:16:24 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a312f4f9e3","plate_capture_id_secondary":"11626a313731d8f","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:27:21 *************************************Log**********************************************************
+Date :2022-04-28 09:27:21 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"M 72707",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 09:27:21 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','M 72707','GS3112121','0','0')
+Date :2022-04-28 09:27:21 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:27:21 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:27:21 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:27:21 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:27:21 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"M 72707","referenceType":"PlateNumber"}
+Date :2022-04-28 09:27:21 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:27:21 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"M 72707"}
+Date :2022-04-28 09:33:56 *************************************Log**********************************************************
+Date :2022-04-28 09:33:56 Request:{"transaction_id":"20220428073356","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a354a8ae86","plate_captured_id1":"11626a35534e591"}
+Date :2022-04-28 09:33:56 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a35534e591','11626a354a8ae86')
+Date :2022-04-28 09:33:56 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:33:56 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:33:56 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:33:56 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:33:56 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:33:56 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:33:56 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a35534e591","plate_capture_id_secondary":"11626a354a8ae86","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:36:32 *************************************Log**********************************************************
+Date :2022-04-28 09:36:32 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 09:36:32 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','DXB M 76788','GS3112121','0','0')
+Date :2022-04-28 09:36:32 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:36:32 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:36:32 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:36:32 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:36:32 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 09:36:32 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:36:32 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"DXB M 76788"}
+Date :2022-04-28 09:36:34 *************************************Log**********************************************************
+Date :2022-04-28 09:36:34 Request:{"transaction_id":"20220428073634","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a35f16e142","plate_captured_id1":"11626a35ebf2f75"}
+Date :2022-04-28 09:36:34 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a35ebf2f75','11626a35f16e142')
+Date :2022-04-28 09:36:35 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:36:35 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:36:35 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:36:35 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:36:35 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:36:35 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:36:35 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a35ebf2f75","plate_capture_id_secondary":"11626a35f16e142","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:36:58 *************************************Log**********************************************************
+Date :2022-04-28 09:36:58 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 09:36:58 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','DXB M 76788','GS3112121','0','0')
+Date :2022-04-28 09:36:58 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:36:58 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:36:58 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:36:58 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:36:58 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 09:36:58 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:36:58 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"DXB M 76788"}
+Date :2022-04-28 09:37:53 *************************************Log**********************************************************
+Date :2022-04-28 09:37:53 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 09:37:53 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','DXB M 76788','GS31121212','0','0')
+Date :2022-04-28 09:37:53 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:37:53 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:37:53 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:37:53 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:37:53 CallAPI,Request:{"gateCode":"GS31121212","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 09:37:53 CallAPI,Response:{"success":false,"code":"GATE_PURPOSE_NOT_FOUND"}
+Date :2022-04-28 09:37:53 code:GATE_PURPOSE_NOT_FOUND
+Date :2022-04-28 09:37:53 codetext:The gate purpose not found
+Date :2022-04-28 09:37:53 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"gate_purpose_not_found","access_allowed":"false","description_line2":"Gate purpose not found","plate_number":"DXB M 76788"}
+Date :2022-04-28 09:38:20 *************************************Log**********************************************************
+Date :2022-04-28 09:38:20 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 09:38:20 Response:{"access_allowed":"true","plate_capture_id":null,"plate_capture_id_secondary":null,"description_line1":"access_allowed","description_line2":"Access Allowed","plate_number":"DXB M 76788","reference_type":"PlateNumber"}
+Date :2022-04-28 09:38:38 *************************************Log**********************************************************
+Date :2022-04-28 09:38:38 Request:{"transaction_id":"20220428073837","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a366533180","plate_captured_id1":"11626a366c4dd41"}
+Date :2022-04-28 09:38:38 Response:{"access_allowed":"false","description_line1":"technical_error","description_line2":"Plate number not found in Access Whitelist","plate_number":"AUH 10 32721","reference_type":"PlateNumber","plate_capture_id":"11626a366c4dd41","plate_capture_id_secondary":"11626a366533180"}
+Date :2022-04-28 09:39:19 *************************************Log**********************************************************
+Date :2022-04-28 09:39:19 Request:{"transaction_id":"20220428073918","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a36955acd6","plate_captured_id1":"11626a369026226"}
+Date :2022-04-28 09:39:19 Response:{"access_allowed":"false","description_line1":"technical_error","description_line2":"Plate number not found in Access Whitelist","plate_number":"AUH 10 32721","reference_type":"PlateNumber","plate_capture_id":"11626a369026226","plate_capture_id_secondary":"11626a36955acd6"}
+Date :2022-04-28 09:42:40 *************************************Log**********************************************************
+Date :2022-04-28 09:42:40 Request:{"transaction_id":"20220428074239","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a37580f175","plate_captured_id1":"11626a375dbce18"}
+Date :2022-04-28 09:42:40 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a375dbce18','11626a37580f175')
+Date :2022-04-28 09:42:40 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:42:40 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:42:40 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:42:40 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:42:40 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:42:40 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:42:40 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a375dbce18","plate_capture_id_secondary":"11626a37580f175","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:44:39 *************************************Log**********************************************************
+Date :2022-04-28 09:44:39 Request:{"transaction_id":"20220428074439","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a37d614c9d","plate_captured_id1":"11626a37ce281fe"}
+Date :2022-04-28 09:44:39 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a37ce281fe','11626a37d614c9d')
+Date :2022-04-28 09:44:39 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:44:39 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:44:39 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:44:39 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:44:39 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:44:39 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:44:39 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a37ce281fe","plate_capture_id_secondary":"11626a37d614c9d","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:45:15 *************************************Log**********************************************************
+Date :2022-04-28 09:45:15 Request:{"transaction_id":"20220428074515","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a37f4587e5","plate_captured_id1":"11626a37fa8047b"}
+Date :2022-04-28 09:45:15 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a37fa8047b','11626a37f4587e5')
+Date :2022-04-28 09:45:15 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:45:15 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:45:15 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:45:15 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:45:15 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:45:15 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:45:15 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a37fa8047b","plate_capture_id_secondary":"11626a37f4587e5","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:50:17 *************************************Log**********************************************************
+Date :2022-04-28 09:50:17 Request:{"transaction_id":"20220428075017","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a37f4587e5","plate_captured_id1":"11626a39204b1b6"}
+Date :2022-04-28 09:50:17 Response:{"access_allowed":"false","plate_capture_id":"11626a39204b1b6","plate_capture_id_secondary":"11626a37f4587e5","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"AUH 10 32721","reference_type":"PlateNumber"}
+Date :2022-04-28 09:50:52 *************************************Log**********************************************************
+Date :2022-04-28 09:50:52 Request:{"transaction_id":"20220428075052","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a394aca55d","plate_captured_id1":"11626a3944e61d1"}
+Date :2022-04-28 09:50:52 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a3944e61d1','11626a394aca55d')
+Date :2022-04-28 09:50:52 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:50:52 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:50:52 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:50:53 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:50:53 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:50:53 CallAPI,Response:{"success":false,"code":"GATE_PURPOSE_NOT_FOUND"}
+Date :2022-04-28 09:50:53 code:GATE_PURPOSE_NOT_FOUND
+Date :2022-04-28 09:50:53 codetext:The gate purpose not found
+Date :2022-04-28 09:50:53 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a3944e61d1","plate_capture_id_secondary":"11626a394aca55d","description_line1":"gate_purpose_not_found","access_allowed":"false","description_line2":"Gate purpose not found","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:51:19 *************************************Log**********************************************************
+Date :2022-04-28 09:51:19 Request:{"transaction_id":"20220428075119","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a396616545","plate_captured_id1":"11626a395f24c5e"}
+Date :2022-04-28 09:51:19 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a395f24c5e','11626a396616545')
+Date :2022-04-28 09:51:19 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:51:19 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:51:19 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:51:20 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:51:20 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:51:20 CallAPI,Response:{"success":false,"code":"GATE_NOT_FOUND"}
+Date :2022-04-28 09:51:20 code:GATE_NOT_FOUND
+Date :2022-04-28 09:51:20 codetext:The gate not found
+Date :2022-04-28 09:51:20 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a395f24c5e","plate_capture_id_secondary":"11626a396616545","description_line1":"gate_not_found","access_allowed":"false","description_line2":"The gate not found","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:52:48 *************************************Log**********************************************************
+Date :2022-04-28 09:52:48 Request:{"transaction_id":"20220428075248","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a39bf19ac3","plate_captured_id1":"11626a39b7d33a8"}
+Date :2022-04-28 09:52:48 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a39b7d33a8','11626a39bf19ac3')
+Date :2022-04-28 09:52:49 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:52:49 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:52:49 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:52:49 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:52:49 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:52:49 CallAPI,Response:{"success":false,"code":"APPOINTMENT_NOT_FOUND"}
+Date :2022-04-28 09:52:49 code:APPOINTMENT_NOT_FOUND
+Date :2022-04-28 09:52:49 codetext:The truck appointment not found
+Date :2022-04-28 09:52:49 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a39b7d33a8","plate_capture_id_secondary":"11626a39bf19ac3","description_line1":"appointment_not_found","access_allowed":"false","description_line2":"No Appointment,Driver turn back after first barrier","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:53:10 *************************************Log**********************************************************
+Date :2022-04-28 09:53:10 Request:{"transaction_id":"20220428075309","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a39d390746","plate_captured_id1":"11626a39cfa22d9"}
+Date :2022-04-28 09:53:10 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a39cfa22d9','11626a39d390746')
+Date :2022-04-28 09:53:10 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:53:10 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:53:10 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:53:10 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:53:10 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:53:10 CallAPI,Response:{"success":false,"code":"TOO_EARLY_ARRIVAL"}
+Date :2022-04-28 09:53:10 code:TOO_EARLY_ARRIVAL
+Date :2022-04-28 09:53:10 codetext:Too early arrival
+Date :2022-04-28 09:53:10 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a39cfa22d9","plate_capture_id_secondary":"11626a39d390746","description_line1":"too_early_arrival","access_allowed":"false","description_line2":"Too early arrival,Contact operator and scan QR","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:53:21 *************************************Log**********************************************************
+Date :2022-04-28 09:53:21 Request:{"transaction_id":"20220428075321","device_name":"Entry","plate_match":"","qrcode":"7877987978789","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a39d390746","plate_captured_id1":"11626a39cfa22d9"}
+Date :2022-04-28 09:53:21 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','7877987978789','','GS31121213','11626a39cfa22d9','11626a39d390746')
+Date :2022-04-28 09:53:21 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:53:21 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:53:21 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:53:21 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:53:21 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"7877987978789","referenceType":"BookRefNumber"}
+Date :2022-04-28 09:53:21 CallAPI,Response:{"success":false,"code":"TOO_EARLY_ARRIVAL"}
+Date :2022-04-28 09:53:21 code:TOO_EARLY_ARRIVAL
+Date :2022-04-28 09:53:21 codetext:Too early arrival
+Date :2022-04-28 09:53:22 Response:{"reference_type":"BookRefNumber","plate_capture_id":"11626a39cfa22d9","plate_capture_id_secondary":"11626a39d390746","description_line1":"too_early_arrival","access_allowed":"false","description_line2":"Too early arrival,Contact operator and scan QR","plate_number":""}
+Date :2022-04-28 09:53:53 *************************************Log**********************************************************
+Date :2022-04-28 09:53:53 Request:{"transaction_id":"20220428075352","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a39ff5c314","plate_captured_id1":"11626a39f9c2f6a"}
+Date :2022-04-28 09:53:53 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a39f9c2f6a','11626a39ff5c314')
+Date :2022-04-28 09:53:53 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:53:53 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:53:53 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:53:53 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:53:53 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:53:53 CallAPI,Response:{"success":false,"code":"TOO_LATE_ARRIVAL"}
+Date :2022-04-28 09:53:53 code:TOO_LATE_ARRIVAL
+Date :2022-04-28 09:53:53 codetext:Too late arrival
+Date :2022-04-28 09:53:53 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a39f9c2f6a","plate_capture_id_secondary":"11626a39ff5c314","description_line1":"too_late_arrival","access_allowed":"false","description_line2":"Too late arrival,Contact operator and scan QR","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:54:18 *************************************Log**********************************************************
+Date :2022-04-28 09:54:18 Request:{"transaction_id":"20220428075417","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a39ff5c314","plate_captured_id1":"11626a3a0f81380"}
+Date :2022-04-28 09:54:18 Response:{"access_allowed":"false","plate_capture_id":"11626a3a0f81380","plate_capture_id_secondary":"11626a39ff5c314","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"AUH 10 32721","reference_type":"PlateNumber"}
+Date :2022-04-28 09:54:40 *************************************Log**********************************************************
+Date :2022-04-28 09:54:40 Request:{"transaction_id":"20220428075439","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a3a28849d5","plate_captured_id1":"11626a3a2e6b972"}
+Date :2022-04-28 09:54:40 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a3a2e6b972','11626a3a28849d5')
+Date :2022-04-28 09:54:40 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:54:40 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:54:40 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:54:40 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:54:40 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:54:40 CallAPI,Response:{"success":false,"code":"INVALID_APPOINTMENT_STATUS"}
+Date :2022-04-28 09:54:40 code:INVALID_APPOINTMENT_STATUS
+Date :2022-04-28 09:54:40 codetext:Invalid truck appointment status
+Date :2022-04-28 09:54:40 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a3a2e6b972","plate_capture_id_secondary":"11626a3a28849d5","description_line1":"invalid_appointment_status","access_allowed":"false","description_line2":"Invalid appointment status","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:54:57 *************************************Log**********************************************************
+Date :2022-04-28 09:54:57 Request:{"transaction_id":"20220428075456","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a3a3f046e3","plate_captured_id1":"11626a3a3985b38"}
+Date :2022-04-28 09:54:57 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a3a3985b38','11626a3a3f046e3')
+Date :2022-04-28 09:54:57 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:54:57 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:54:57 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:54:57 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:54:57 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:54:57 CallAPI,Response:{"success":false,"code":"INVALID_PORT_GATE"}
+Date :2022-04-28 09:54:57 code:INVALID_PORT_GATE
+Date :2022-04-28 09:54:57 codetext:Invalid port gate
+Date :2022-04-28 09:54:57 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a3a3985b38","plate_capture_id_secondary":"11626a3a3f046e3","description_line1":"invalid_port_gate","access_allowed":"false","description_line2":"Invalid port gate","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:55:22 *************************************Log**********************************************************
+Date :2022-04-28 09:55:22 Request:{"transaction_id":"20220428075522","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a3a50caaaa","plate_captured_id1":"11626a3a585c3b2"}
+Date :2022-04-28 09:55:22 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS31121213','11626a3a585c3b2','11626a3a50caaaa')
+Date :2022-04-28 09:55:22 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:55:22 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:55:22 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:55:22 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:55:22 CallAPI,Request:{"gateCode":"GS31121213","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:55:22 CallAPI,Response:{"success":false,"code":"MULTIPLE_APPOINTMENT"}
+Date :2022-04-28 09:55:22 code:MULTIPLE_APPOINTMENT
+Date :2022-04-28 09:55:22 codetext:There are multiple appointment for this truck
+Date :2022-04-28 09:55:22 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a3a585c3b2","plate_capture_id_secondary":"11626a3a50caaaa","description_line1":"multiple_appointment","access_allowed":"false","description_line2":"Multiple appointment for the vehicle,contact operator and scan QR","plate_number":"AUH 10 32721"}
+Date :2022-04-28 09:57:04 *************************************Log**********************************************************
+Date :2022-04-28 09:57:04 Request:{"transaction_id":"20220428075704","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a3abddd701","plate_captured_id1":"11626a3ab8e65d0"}
+Date :2022-04-28 09:57:04 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('11','Entry','','AUH 10 32721','GS3112121','11626a3ab8e65d0','11626a3abddd701')
+Date :2022-04-28 09:57:04 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 09:57:04 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 09:57:04 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 09:57:04 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 09:57:04 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"AUH 10 32721","referenceType":"PlateNumber"}
+Date :2022-04-28 09:57:04 CallAPI,Response:{"success":true}
+Date :2022-04-28 09:57:04 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a3ab8e65d0","plate_capture_id_secondary":"11626a3abddd701","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"AUH 10 32721"}
+Date :2022-04-28 10:02:44 *************************************Log**********************************************************
+Date :2022-04-28 10:02:44 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:02:44 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','DXB M 76788','GS3112121','0','0')
+Date :2022-04-28 10:02:44 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:02:44 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:02:44 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:02:44 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:02:44 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:02:44 CallAPI,Response:{"success":true}
+Date :2022-04-28 10:02:44 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:12:57 *************************************Log**********************************************************
+Date :2022-04-28 10:12:57 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:12:57 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','DXB M 76788','GS31121216','0','0')
+Date :2022-04-28 10:12:57 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:12:57 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:12:57 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:12:57 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:12:57 CallAPI,Request:{"gateCode":"GS31121216","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:12:57 CallAPI,Response:<br />
+<b>Parse error</b>:  syntax error, unexpected  (T_ENCAPSED_AND_WHITESPACE), expecting - or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in <b>/opt/lampp/htdocs/SmartGate/APIService.php</b> on line <b>24</b><br />
+
+Date :2022-04-28 10:12:57 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"technical_error","access_allowed":"false","description_line2":"API Technical Error","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:13:18 *************************************Log**********************************************************
+Date :2022-04-28 10:13:18 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:13:18 sql:Insert into smartgate_request(device_number,device_name,reference_number,plate_number,gate_code,plate_capture_id,plate_capture_id_secondary)values('1','test','','DXB M 76788','GS31121216','0','0')
+Date :2022-04-28 10:13:18 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:13:18 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:13:18 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:13:18 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:13:18 CallAPI,Request:{"gateCode":"GS31121216","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:13:18 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 10:13:18 code:SOME_REASON
+Date :2022-04-28 10:13:18 codetext:NO_ACCESS
+Date :2022-04-28 10:13:18 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:15:08 *************************************Log**********************************************************
+Date :2022-04-28 10:15:08 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:15:08 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:15:08 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:15:08 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:15:08 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:15:08 CallAPI,Request:{"gateCode":"GS31121216","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:15:08 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 10:15:08 code:SOME_REASON
+Date :2022-04-28 10:15:08 codetext:NO_ACCESS
+Date :2022-04-28 10:15:08 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:17:07 *************************************Log**********************************************************
+Date :2022-04-28 10:17:07 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:17:07 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:17:07 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:17:07 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:17:07 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:17:07 CallAPI,Request:{"gateCode":"GS31121216","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:17:07 CallAPI,Response:{"success":false,"code":"SOME_REASONS"}
+Date :2022-04-28 10:17:07 code:SOME_REASONS
+Date :2022-04-28 10:17:07 codetext:NO_ACCESS
+Date :2022-04-28 10:17:07 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:19:02 *************************************Log**********************************************************
+Date :2022-04-28 10:19:02 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:19:02 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:19:02 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:19:02 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:19:02 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:19:02 CallAPI,Request:{"gateCode":"GS31121216","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:19:02 CallAPI,Response:{"success":false,"code":"MULTIPLE_APPOINTMENT"}
+Date :2022-04-28 10:19:02 code:MULTIPLE_APPOINTMENT
+Date :2022-04-28 10:19:02 codetext:There are multiple appointment for this truck
+Date :2022-04-28 10:19:02 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"multiple_appointment","access_allowed":"false","description_line2":"Multiple appointment for the vehicle,contact operator and scan QR","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:19:32 *************************************Log**********************************************************
+Date :2022-04-28 10:19:32 Request:{
+"plate_capture_id1":"59",
+"plate_capture_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:19:32 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:19:32 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:19:32 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:19:32 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:19:32 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:19:32 CallAPI,Response:{"success":true}
+Date :2022-04-28 10:19:32 Response:{"reference_type":"PlateNumber","plate_capture_id":0,"plate_capture_id_secondary":0,"description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"DXB M 76788"}
+Date :2022-04-28 10:20:48 *************************************Log**********************************************************
+Date :2022-04-28 10:20:48 Request:{
+"plate_captured_id1":"59",
+"plate_captured_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:20:48 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:20:48 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:20:48 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:20:48 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:20:48 CallAPI,Request:{"gateCode":"GS3112121","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:20:48 CallAPI,Response:{"success":true}
+Date :2022-04-28 10:20:48 Response:{"reference_type":"PlateNumber","plate_capture_id":"59","plate_capture_id_secondary":"58","description_line1":"access_allowed","access_allowed":"true","description_line2":"Open barriers,Driver move forward","plate_number":"DXB M 76788"}
+Date :2022-04-28 11:00:31 *************************************Log**********************************************************
+Date :2022-04-28 11:00:31 Request:{
+"plate_captured_id1":"59",
+"plate_captured_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 11:00:31 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 11:00:31 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 11:00:31 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 11:00:31 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 11:00:31 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 11:00:31 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 11:00:31 code:SOME_REASON
+Date :2022-04-28 11:00:31 codetext:No Access
+Date :2022-04-28 11:00:31 Response:{"reference_type":"PlateNumber","plate_capture_id":"59","plate_capture_id_secondary":"58","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"DXB M 76788"}
+Date :2022-04-28 11:18:21 *************************************Log**********************************************************
+Date :2022-04-28 11:18:21 Request:{"transaction_id":"20220428111820","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a6748cdf60","plate_captured_id1":"11626a69e2c83f6"}
+Date :2022-04-28 11:18:21 Response:{"access_allowed":"false","plate_capture_id":"11626a69e2c83f6","plate_capture_id_secondary":"11626a6748cdf60","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"AUH 10 32721","reference_type":"PlateNumber"}
+Date :2022-04-28 11:19:29 *************************************Log**********************************************************
+Date :2022-04-28 11:19:29 Request:{"transaction_id":"20220428111928","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"AUH 10 32721","plate_captured_id2":"11626a6748cdf60","plate_captured_id1":"11626a6a269e34f"}
+Date :2022-04-28 11:19:29 Response:{"access_allowed":"false","plate_capture_id":"11626a6a269e34f","plate_capture_id_secondary":"11626a6748cdf60","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"AUH 10 32721","reference_type":"PlateNumber"}
+Date :2022-04-28 10:40:20 *************************************Log**********************************************************
+Date :2022-04-28 10:40:20 Request:{"transaction_id":"20220428114019","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"8877TTJ","plate_captured_id2":"0","plate_captured_id1":"11626a6f0a727a9"}
+Date :2022-04-28 10:40:20 Response:{"access_allowed":"false","plate_capture_id":"11626a6f0a727a9","plate_capture_id_secondary":"0","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"8877TTJ","reference_type":"PlateNumber"}
+Date :2022-04-28 10:41:56 *************************************Log**********************************************************
+Date :2022-04-28 10:41:56 Request:{
+"plate_captured_id1":"59",
+"plate_captured_id2":"58",
+"plate_number":"DXB M 76788",
+"qrcode":"",
+"device_number":1,
+"device_name":"test",
+"plate_match":"plate_matching"
+}
+Date :2022-04-28 10:41:56 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 10:41:56 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 10:41:56 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 10:41:56 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 10:41:56 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"DXB M 76788","referenceType":"PlateNumber"}
+Date :2022-04-28 10:41:56 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 10:41:56 code:SOME_REASON
+Date :2022-04-28 10:41:56 codetext:No Access
+Date :2022-04-28 10:41:56 Response:{"reference_type":"PlateNumber","plate_capture_id":"59","plate_capture_id_secondary":"58","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"DXB M 76788"}
+Date :2022-04-28 12:13:32 *************************************Log**********************************************************
+Date :2022-04-28 12:13:32 Request:{"transaction_id":"20220428131331","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"test","plate_captured_id2":"11626a84eaefd4a","plate_captured_id1":"11626a84e3b4b16"}
+Date :2022-04-28 12:13:32 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 12:13:32 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 12:13:32 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 12:13:32 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 12:13:32 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"test","referenceType":"PlateNumber"}
+Date :2022-04-28 12:13:32 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 12:13:32 code:SOME_REASON
+Date :2022-04-28 12:13:32 codetext:No Access
+Date :2022-04-28 12:13:32 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a84e3b4b16","plate_capture_id_secondary":"11626a84eaefd4a","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"test"}
+Date :2022-04-28 13:24:44 *************************************Log**********************************************************
+Date :2022-04-28 13:24:44 Request:{"transaction_id":"20220428142443","device_name":"Entry","plate_match":"plate_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"test","plate_captured_id2":"11626a9595a8e1b","plate_captured_id1":"11626a959a8bfea"}
+Date :2022-04-28 13:24:44 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:24:44 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:24:44 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:24:44 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:24:44 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"test","referenceType":"PlateNumber"}
+Date :2022-04-28 13:24:44 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:24:44 code:SOME_REASON
+Date :2022-04-28 13:24:44 codetext:No Access
+Date :2022-04-28 13:24:44 Response:{"reference_type":"PlateNumber","plate_capture_id":"11626a959a8bfea","plate_capture_id_secondary":"11626a9595a8e1b","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":"test"}
+Date :2022-04-28 13:24:57 *************************************Log**********************************************************
+Date :2022-04-28 13:24:57 Request:{"transaction_id":"20220428142456","device_name":"Entry","plate_match":"","qrcode":"787997797","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a9595a8e1b","plate_captured_id1":"11626a959a8bfea"}
+Date :2022-04-28 13:24:57 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:24:57 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:24:57 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:24:57 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:24:57 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"787997797","referenceType":"BookRefNumber"}
+Date :2022-04-28 13:24:57 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:24:57 code:SOME_REASON
+Date :2022-04-28 13:24:57 codetext:No Access
+Date :2022-04-28 13:24:57 Response:{"reference_type":"BookRefNumber","plate_capture_id":"11626a959a8bfea","plate_capture_id_secondary":"11626a9595a8e1b","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":""}
+Date :2022-04-28 13:25:20 *************************************Log**********************************************************
+Date :2022-04-28 13:25:20 Request:{"transaction_id":"20220428142519","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"A 123","plate_captured_id2":"11626a95beab87f","plate_captured_id1":"11626a95b600663"}
+Date :2022-04-28 13:25:20 Response:{"access_allowed":"false","plate_capture_id":"11626a95b600663","plate_capture_id_secondary":"11626a95beab87f","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"A 123","reference_type":"PlateNumber"}
+Date :2022-04-28 13:25:32 *************************************Log**********************************************************
+Date :2022-04-28 13:25:32 Request:{"transaction_id":"20220428142531","device_name":"Entry","plate_match":"","qrcode":"78788778","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a95beab87f","plate_captured_id1":"11626a95b600663"}
+Date :2022-04-28 13:25:32 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:25:32 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:25:32 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:25:32 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:25:32 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"78788778","referenceType":"BookRefNumber"}
+Date :2022-04-28 13:25:32 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:25:32 code:SOME_REASON
+Date :2022-04-28 13:25:32 codetext:No Access
+Date :2022-04-28 13:25:32 Response:{"reference_type":"BookRefNumber","plate_capture_id":"11626a95b600663","plate_capture_id_secondary":"11626a95beab87f","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":""}
+Date :2022-04-28 13:25:43 *************************************Log**********************************************************
+Date :2022-04-28 13:25:43 Request:{"transaction_id":"20220428142542","device_name":"Entry","plate_match":"","qrcode":"887878","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a95beab87f","plate_captured_id1":"11626a95b600663"}
+Date :2022-04-28 13:25:43 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:25:43 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:25:43 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:25:43 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:25:43 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"887878","referenceType":"BookRefNumber"}
+Date :2022-04-28 13:25:43 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:25:43 code:SOME_REASON
+Date :2022-04-28 13:25:43 codetext:No Access
+Date :2022-04-28 13:25:43 Response:{"reference_type":"BookRefNumber","plate_capture_id":"11626a95b600663","plate_capture_id_secondary":"11626a95beab87f","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":""}
+Date :2022-04-28 13:31:16 *************************************Log**********************************************************
+Date :2022-04-28 13:31:16 Request:{"transaction_id":"20220428143115","device_name":"Entry","plate_match":"","qrcode":"erererererer","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a9704c5223","plate_captured_id1":"0"}
+Date :2022-04-28 13:31:16 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:31:16 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:31:16 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:31:16 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:31:16 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"erererererer","referenceType":"BookRefNumber"}
+Date :2022-04-28 13:31:16 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:31:16 code:SOME_REASON
+Date :2022-04-28 13:31:16 codetext:No Access
+Date :2022-04-28 13:31:16 Response:{"reference_type":"BookRefNumber","plate_capture_id":"0","plate_capture_id_secondary":"11626a9704c5223","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":""}
+Date :2022-04-28 13:34:49 *************************************Log**********************************************************
+Date :2022-04-28 13:34:49 Request:{"transaction_id":"20220428143449","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"A 1236","plate_captured_id2":"11626a97ed3e65c","plate_captured_id1":"11626a97f855368"}
+Date :2022-04-28 13:34:49 Response:{"access_allowed":"false","plate_capture_id":"11626a97f855368","plate_capture_id_secondary":"11626a97ed3e65c","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"A 1236","reference_type":"PlateNumber"}
+Date :2022-04-28 13:34:56 *************************************Log**********************************************************
+Date :2022-04-28 13:34:56 Request:{"transaction_id":"20220428143456","device_name":"Entry","plate_match":"","qrcode":"343434343","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a97ed3e65c","plate_captured_id1":"11626a97f855368"}
+Date :2022-04-28 13:34:56 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:34:56 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:34:56 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:34:57 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:34:57 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"343434343","referenceType":"BookRefNumber"}
+Date :2022-04-28 13:34:57 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:34:57 code:SOME_REASON
+Date :2022-04-28 13:34:57 codetext:No Access
+Date :2022-04-28 13:34:57 Response:{"reference_type":"BookRefNumber","plate_capture_id":"11626a97f855368","plate_capture_id_secondary":"11626a97ed3e65c","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":""}
+Date :2022-04-28 13:35:47 *************************************Log**********************************************************
+Date :2022-04-28 13:35:47 Request:{"transaction_id":"20220428143547","device_name":"Entry","plate_match":"","qrcode":"2121212","device_number":11,"device_type":1,"plate_number":"","plate_captured_id2":"11626a97ed3e65c","plate_captured_id1":"11626a97f855368"}
+Date :2022-04-28 13:35:47 Token,URL:http://localhost/SmartGate/Token.php
+Date :2022-04-28 13:35:47 Token,Request:{"username":"wapm001","password":"53649@q*Vh7A"}
+Date :2022-04-28 13:35:47 Token,Response:{"token":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2eGhiZDAzOCIsIkdST1VQUyAiOiJHQVRFT1BFUkFUT1IiLCJJU19TU08gIjpmYWxzZSwiU1NPX1RPS0VOICI6IiIsIkNMSUVOVF9OQU1FIjoiRkFTQUgiLCJpc3MiOiJGQVNBSCIsImF1ZCI6IkZBU0FIIEFwcGxpY2F0aW9uIiwiZXhwIjoxNjE0NTIxMjc1fQ.PFNBicdYQ7ah5yYuiaEujd31II3WcZbvO3c0jEjrdt1qEk-EWs2E4VJ4ylBYv7RHYzCxeM8olWeBO3XNzKQy_g"}
+Date :2022-04-28 13:35:47 CallAPI,URL:http://localhost/SmartGate/APIService.php
+Date :2022-04-28 13:35:47 CallAPI,Request:{"gateCode":"GS31121215","referenceNumber":"2121212","referenceType":"BookRefNumber"}
+Date :2022-04-28 13:35:47 CallAPI,Response:{"success":false,"code":"SOME_REASON"}
+Date :2022-04-28 13:35:47 code:SOME_REASON
+Date :2022-04-28 13:35:47 codetext:No Access
+Date :2022-04-28 13:35:47 Response:{"reference_type":"BookRefNumber","plate_capture_id":"11626a97f855368","plate_capture_id_secondary":"11626a97ed3e65c","description_line1":"no_access","access_allowed":"false","description_line2":"No access","plate_number":""}
+Date :2022-04-28 14:07:34 *************************************Log**********************************************************
+Date :2022-04-28 14:07:34 Request:{"transaction_id":"20220428150733","device_name":"Entry","plate_match":"plates_not_matching","qrcode":"","device_number":11,"device_type":1,"plate_number":"A 123","plate_captured_id2":"11626a97ed3e65c","plate_captured_id1":"11626a9f9cd11e9"}
+Date :2022-04-28 14:07:34 Response:{"access_allowed":"false","plate_capture_id":"11626a9f9cd11e9","plate_capture_id_secondary":"11626a97ed3e65c","description_line1":"plates_not_matching","description_line2":"Plates do not match","plate_number":"A 123","reference_type":"PlateNumber"}

@@ -179,7 +179,7 @@ $("#addValidatorButton").click(function(){
 
 $(".btn.btn-default").click(function(event){
     event.preventDefault();
-    location.reload(true);
+   // location.reload(true);
     });//end of $("btnCancel"),click()
 
 

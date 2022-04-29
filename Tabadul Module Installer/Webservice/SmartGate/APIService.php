@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($json_request["gateCode"] != "GS3112121") 
             {
             $response['success'] = false;
-            //$response['code']="GATE_NOT_FOUND";
+            $response['code']="GATE_NOT_FOUND";
             //$response['code']="GATE_PURPOSE_NOT_FOUND";
             //$response['code']="APPOINTMENT_NOT_FOUND";
             //$response['code']="TOO_EARLY_ARRIVAL";
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //$response['code']="INVALID_APPOINTMENT_STATUS";
             //$response['code']="INVALID_PORT_GATE";
             //$response['code'] = "MULTIPLE_APPOINTMENT";
-		$response['code']="SOME_REASON";
+	      //$response['code']="SOME_REASON";
             } 
         else 
             {

@@ -21,7 +21,7 @@ include('../../includes/sidebar.php');
                             <div class="form-group">
                                 <label for="">Device</label>
                                 <select id="device_number">                             
-                                    <?php echo parcxSettings(array("task" => "14", "type" => "1,2,3")); ?>
+                                    <?php echo parcxV2Settings(array("task" => "14", "type" => "1,2,3")); ?>
                                 </select>
                             </div>                           
                              <div class="row ">				 

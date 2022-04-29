@@ -140,7 +140,8 @@ else
     data["task"]=9;
     var temp = JSON.stringify(data);        
     $.post("../../ajax/reports.php", temp)
-      .done(function (result) {           
+      .done(function (result) {   
+	console.log(result);        
         $("#page-content").html(body);           
        var json=JSON.parse(result);
        if(json.access_allowed=="true")

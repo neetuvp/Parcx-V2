@@ -600,9 +600,6 @@ function checkPageAccess($request)
             $menu_edit = $row["menu_edit"];
             $menu_delete = $row["menu_delete"];
 
-        
-
-
             $sql = "SELECT rr_view,rr_add,rr_edit,rr_delete FROM system_user_role_rights where menu_id=" .$menu_id." and user_role_id=".$user_role_id;
             $result = $conn->query($sql);
             if($row = $result -> fetch_assoc())

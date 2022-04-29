@@ -188,9 +188,11 @@ $('#api_response_modal').html("");
         var image_name = response["plate_image_name"];
         var camera_id = response["camera_device_number"];
         var image_url = "<?php echo ANPRImageURL?>";
-        var date_captured = response["capture_date_time"];
+        var date_captured = response["capture_date"];
         //date_captured = date_captured.substring(0,10);
-        $('#plate_image_modal').html('<img src ="'+image_url+'/'+image_name+'" width="100%"; height="400";>');
+        //$('#plate_image_modal').html('<img src ="'+image_url+'/'+image_name+'" width="100%"; height="400";>');
+	image_url = image_url+"/"+camera_id+"/"+date_captured
+	$('#plate_image_modal').html('<img src ="'+image_url+'/Scene_'+image_name+'" width="100%"; height="400";>');
         $('#plate_number_modal').html(response["plate_number"]);
         $('#plate_country_modal').html(response["plate_country"]);
         $('#plate_type_modal').html(response["plate_type"]);

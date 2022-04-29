@@ -106,7 +106,8 @@ function CallAPI($json_request)
     $api_url = $settings["api_url"];
     $client_id = $settings["client_id"];
     $client_secret = $settings["client_secret"];
-    $gatecode = $settings["gate_code"];
+    $gatecode = $settings["gate_code"]; 
+    //$gatecode = $json_request["gate_code"];
     $plate_capture_id1 = $json_request["plate_captured_id1"];
     $plate_capture_id2 = $json_request["plate_captured_id2"];
     if ($plate_capture_id1 == "")
@@ -118,7 +119,7 @@ function CallAPI($json_request)
     $device_number=$json_request["device_number"];
     $device_name=$json_request["device_name"];
             
-    //$gatecode = $gate_code;
+   
     $description = "Description";
     $description_line1 = "";
     $description_line2 = "";
@@ -278,6 +279,39 @@ function CallAPI($json_request)
                             $description_line1 = "no_appointment_on_time";
                             $description_line2 = "No appointment on time";
                         }
+			/*else if ($code == "USER_NOT_FOUND") {
+                            $code_text = USER_NOT_FOUND;
+                            $description_line1 = "user_not_found";
+                            $description_line2 = "The user not found";
+                        }else if ($code == "USER_NOT_AUTHORIZED") {
+                            $code_text = USER_NOT_AUTHORIZED;
+                            $description_line1 = "user_not_authorized";
+                            $description_line2 = "The user not authorized";
+                        }else if ($code == "SUCCESS_ENTRY") {
+                            $code_text = SUCCESS_ENTRY;
+                            $description_line1 = "success_entry";
+                            $description_line2 = "Truck checked in Successfully";
+                        }else if ($code == "SUCCESS_EXIT") {
+                            $code_text = SUCCESS_EXIT;
+                            $description_line1 = "success_exit";
+                            $description_line2 = "Truck checked out Successfully";
+                        }else if ($code == "SUCCESS_CHECK_OUT_WITHOUT_APPT") {
+                            $code_text = SUCCESS_CHECK_OUT_WITHOUT_APPT;
+                            $description_line1 = "success_check_out_without_appt";
+                            $description_line2 = "Truck Checked out without Appointment";
+                        }else if ($code == "SUCCESS_INDR_ENTRY") {
+                            $code_text = SUCCESS_INDR_ENTRY;
+                            $description_line1 = "success_indr_entry";
+                            $description_line2 = "Truck indirect checked in Successfully";
+                        }else if ($code == "SENT_TO_PARK") {
+                            $code_text = SENT_TO_PARK;
+                            $description_line1 = "sent_to_park";
+                            $description_line2 = "Sent to Parking";
+                        }else if ($code == "RETURNED") {
+                            $code_text = RETURNED;
+                            $description_line1 = "returned";
+                            $description_line2 = "Truck Has been Returned";
+                        }*/
 			else
 			{
 			    $code_text = NO_ACCESS;

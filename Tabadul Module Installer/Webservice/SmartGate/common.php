@@ -22,5 +22,13 @@ define("INVALID_APPOINTMENT_STATUS","Invalid truck appointment status");
 define("INVALID_PORT_GATE","Invalid port gate");
 define("MULTIPLE_APPOINTMENT","There are multiple appointment for this truck");
 define("NO_APPOINTMENT_ON_TIME","There are no appointment on time");
+define("USER_NOT_FOUND","The user not found");
+define("USER_NOT_AUTHORIZED","The user not authorized");
+define("SUCCESS_ENTRY","Truck checked in Successfully");
+define("SUCCESS_EXIT","Truck checked out Successfully");
+define("SUCCESS_CHECK_OUT_WITHOUT_APPT","Truck Checked out without Appointment");
+define("SUCCESS_INDR_ENTRY","Truck indirect checked in Successfully");
+define("SENT_TO_PARK","Sent to Parking");
+define("RETURNED","Truck Has been Returned");
 define("NO_ACCESS","No Access");
 ?>
