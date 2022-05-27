@@ -100,6 +100,10 @@ Php::Value parcxV2Report(Php::Parameters &params)
                 break;
 	case 34:pObj.systemJournal(data);
                 break;
+        case 35:pObj.interfaceReport(data);
+                break;
+        case 36:response = pObj.getinterfaceRequestDetails(data);
+                break;
 	}
 	return response;
 	}

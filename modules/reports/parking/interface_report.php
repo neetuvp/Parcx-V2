@@ -2,9 +2,9 @@
 $page_title = "Application";
 
 //# Import application layout.
-include('../../includes/header.php');
+include('../../../includes/header.php');
 $access = checkPageAccess("cms_interface_report");
-include('../../includes/navbar-start.php');
+include('../../../includes/navbar-start.php');
 
 ?>
 
@@ -22,8 +22,8 @@ include('../../includes/navbar-start.php');
 <div class="header text-dark" id="pdf-report-header">Interface Report</div>
 
 <?php
-include('../../includes/navbar-end.php');
-include('../../includes/sidebar.php');
+include('../../../includes/navbar-end.php');
+include('../../../includes/sidebar.php');
 ?>
 
 <!-- Modal -->
@@ -43,6 +43,11 @@ include('../../includes/sidebar.php');
                     <div class="col-12">
 
                         <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <span class="nav-link"><strong>Request Url : </strong>
+                                    <span id="url_modal"></span>
+                                </span>
+                            </li>
                             <li class="nav-item">
                                 <span class="nav-link"><strong>Request Date Time : </strong>
                                     <span id="date_modal"></span>
@@ -85,9 +90,7 @@ include('../../includes/sidebar.php');
                 <!-- interfaces -->
                 <div class="col-md-2">
                     <select class="form-control" id="interface" multiple="multiple">
-                    <option value="'PX-Adnoc-CMS-Pump-Status'">PX-Adnoc-CMS-Pump-Status</option>
-		    <option value="'PX-Greeting-Screen-Controller'">PX-Greeting-Screen-Controller</option>
-		    <option value="'PX-Adnoc-CMS-Pump-BillingInfo'">PX-Adnoc-CMS-Pump-BillingInfo</option>
+                    <?php echo parcxV2Settings(array("task" => "58")); ?>
                     </select>
                 </div>
 
@@ -156,7 +159,7 @@ include('../../includes/sidebar.php');
     </section>
 </div>
 
-<?php include('../../includes/footer.php'); ?>
+<?php include('../../../includes/footer.php'); ?>
 
 <script>
 
@@ -184,10 +187,10 @@ include('../../includes/sidebar.php');
         data["to"] = to;
         data["type"] = $("#interface_type").val();
         data["interface"] = $("#interface").val().toString();
-        data["task"] = 15;
+        data["task"] = 35;
         var jsondata = JSON.stringify(data);
-
-        $.post("ajax/greeting_screen.php", jsondata, function (data)
+        //console.log(jsondata);
+        $.post("../../ajax/reports.php", jsondata, function (data)
         {
             loadReport(data);
 
@@ -200,6 +203,34 @@ include('../../includes/sidebar.php');
             alert(date_range_message);
         else
             callReport();
+    });
+    
+    $('body').on('click', '#access_record', function ()
+    {
+        $('#url_modal').html("");
+        $('#date_modal').html("");
+        $('#request_field_modal').html("");
+        $('#response_field_modal').html("");
+        $('#response_status_modal').html("");
+        var data = {};
+        data["id"] = $(this).attr('access_id');
+        data["task"] = 36;
+        var jsondata = JSON.stringify(data);
+        $.post("../../ajax/reports.php", jsondata, function (data)
+        {
+           // console.log(data);
+            var response = JSON.parse(data);
+
+            $('#url_modal').html(response["url"]);
+            $('#date_modal').html(response["request_date_time"]);
+            $('#request_field_modal').html(response["request"]);
+            $('#response_field_modal').html(response["response"]);
+            $('#response_status_modal').html(response["response_code"]);
+        })
+        .fail(function (jqxhr, status, error)
+        {
+            alert("Error: " + error);
+        });
     });
    
 

@@ -63,3 +63,9 @@ Date :2022-05-27 09:33:01 Request: {"from":"2022-05-27 00:00:00","to":"2022-05-2
 Date :2022-05-27 09:33:01 Response: 
 Date :2022-05-27 09:36:27 Request: {"from":"2022-04-17 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
 Date :2022-05-27 09:36:27 Response: 
+Date :2022-05-27 13:55:04 Request: {"stage_id":"1","status":"1","task":"12","customer_type":"2"}
+Date :2022-05-27 13:55:05 Response: Successfull
+Date :2022-05-27 13:55:08 Request: {"stage_id":"1","status":"0","task":"12","customer_type":"2"}
+Date :2022-05-27 13:55:08 Response: Successfull
+Date :2022-05-27 14:03:21 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 14:03:21 Response: 

@@ -44,7 +44,7 @@
                 $.post("modules/ajax/users.php", jsondata, function (result) {
                   console.log(result);
                   var json=JSON.parse(result)
-                    if (json.message === "Success")
+                    if (json.message == "Success")
                       window.location=json.home;
                     else
                         showMessage(json.message);

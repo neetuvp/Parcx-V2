@@ -1473,7 +1473,7 @@ string interfaceDropdown(string type) {
         con = General.mysqlConnect(ServerDB);
         stmt = con->createStatement();
 
-        res = stmt->executeQuery("select id,interface_name from interface_settings where interface_type='" + type + "'");
+        res = stmt->executeQuery("select id,interface_name from interface_settings where interface_type='" + type + "' and status = 1");
         html = html + "<option value='0'>Select interface</option>";
         while (res->next())
             html = html + "<option value='" + res->getString("id") + "'>" + res->getString("interface_name") + "</option>";
@@ -1995,6 +1995,26 @@ void getSettingsInputBox(Php::Value json)
 
 }
 
+string interfaceDropdownbyname(string type) {
+    string html = "";
+    try {
+        con = General.mysqlConnect(ServerDB);
+        stmt = con->createStatement();
+
+        res = stmt->executeQuery("select interface_name from interface_settings where interface_type='" + type + "' and status = 1");
+        //html = html + "<option value='0'>Select interface</option>";
+        while (res->next())
+            html = html + "<option value='\"" + res->getString("interface_name") + "\"'>" + res->getString("interface_name") + "</option>";
+        delete res;
+        delete stmt;
+        delete con;
+
+    } catch (const std::exception& e) {
+        writeException("interfaceDropdownbyname", e.what());
+    }
+    return html;
+}
+
 Php::Value parcxV2Settings(Php::Parameters &params) {
     Php::Value data = params[0];
     int task = data["task"];
@@ -2114,6 +2134,8 @@ Php::Value parcxV2Settings(Php::Parameters &params) {
             break;
         case 57:parkingZoneDropdown(data);
             break;
+        case 58:response = interfaceDropdownbyname("api");
+            break;
     }
     return response;    
 }
@@ -2143,6 +2165,8 @@ void addParcxV2UserActivity(Php::Parameters &params)
         writeException("addParcxV2UserActivity",e.what());
         }
     }
+
+
 
 extern "C" {
 

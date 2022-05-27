@@ -2199,3 +2199,116 @@ void ParkingReport::systemJournal(Php::Value json) {
         writeParkingReportException("systemJournal", e.what());
     }
 }
+
+void ParkingReport::interfaceReport(Php::Value data)
+{
+	sql::Connection *con=NULL;
+    	sql::PreparedStatement *prep_stmt=NULL;
+	sql::ResultSet *res;  
+	string query = "";  
+	try {
+        string interface_type = toString(data["type"]);
+        string from = toString(data["from"]);
+	string to = toString(data["to"]);
+	string interface_name = toString(data["interface"]);
+        
+        con= General.mysqlConnect(ReportingDB); 
+	query = "select * from interface_access_request where request_date_time between ? and ?";
+	if(interface_name!="")
+	{
+		query += " and interface_name in ("+interface_name+")";
+	}
+	if(interface_type!="")
+	{
+		query += " and request_type = "+interface_type;
+	}
+	query+= " order by request_date_time desc";
+	prep_stmt = con->prepareStatement(query);
+        prep_stmt->setString(1,from);
+	prep_stmt->setString(2,to);
+	
+        res = prep_stmt->executeQuery();
+        if (res->rowsCount() > 0) {
+            Php::out << "<div class='row mb-4 jspdf-graph'>" << endl;
+            Php::out << "<div class='col-lg-3 col-6'>" << endl;
+            Php::out << "<div class='small-box bg-success'>" << endl;
+            Php::out << "<div class='inner'>" << endl;
+            Php::out << "<h3>" << res->rowsCount() << "</h3>" << endl;
+            Php::out << "<h6>Transactions</h6>" << endl;
+            Php::out << "</div>" << endl;
+            Php::out << "</div>" << endl;
+            Php::out << "</div>" << endl;
+            Php::out << "</div>" << endl;
+
+            Php::out << "<div class='card'>" << endl;
+            Php::out << "<div class='card-body'>" << endl;
+            Php::out << "<table id='RecordsTable' class='table  table-bordered jspdf-table'>" << endl;
+            Php::out << "<thead class='thead-light'><tr>" << endl;            
+            Php::out << "<th>DateTime</th>" << endl;
+            Php::out << "<th>Interface</th>" << endl;
+            Php::out << "<th>Request DateTime</th>" << endl;
+            Php::out << "<th>Response DateTime</th>" << endl;
+            Php::out << "<th>Type</th>" << endl;
+            Php::out << "</tr></thead>" << endl;
+            Php::out << "<tbody>" << endl;
+            
+            while (res->next()) {               
+                Php::out << "<tr  data-toggle='modal' data-target='#request-details-modal' id='access_record' access_id="+res->getString("id")+">" << endl;                
+                Php::out << "<td>" + res->getString("request_date_time") + "</td>" << endl;
+                Php::out << "<td>" + res->getString("interface_name") + "</td>" << endl;
+                Php::out << "<td> " + res->getString("request_date_time") + " </td>" << endl;
+                Php::out << "<td>" + res->getString("response_date_time") + "</td>" << endl;
+		if(res->getInt("request_type")==0) 
+                	Php::out << "<td>Incoming</td>" << endl;
+		else if(res->getInt("request_type")==1) 
+                	Php::out << "<td>Outgoing</td>" << endl;
+		else
+			Php::out<<"<td></td>"<<endl;
+                Php::out << "</tr>" << endl;
+            }
+            Php::out << "</tbody></table></div></div>" << endl;
+        } else {
+            Php::out << "<div class='card p-3'>No Records Found</div>" << endl;
+        }
+
+	delete res;
+        delete prep_stmt;
+        con->close();
+        delete con;
+    } catch (const std::exception& e) {
+        writeParkingReportException("interfaceReport", e.what());
+    }
+
+}
+Php::Value ParkingReport::getinterfaceRequestDetails(Php::Value json)
+    {
+    sql::Connection *con=NULL;
+    sql::Statement *stmt;
+    sql::ResultSet *res;
+    Php::Value response;  
+    string query;
+    try
+        {
+        string id=json["id"];        
+        con= General.mysqlConnect(ReportingDB); 
+        stmt=con->createStatement();
+        query="select * from interface_access_request where id="+id;
+        res=stmt->executeQuery(query);
+        if(res->next())
+            {
+            sql::ResultSetMetaData *res_meta = res -> getMetaData();
+            int columns = res_meta -> getColumnCount();   
+            for (int i = 1; i <= columns; i++) 							
+                    response[res_meta -> getColumnLabel(i)]=string(res->getString(i));				
+            }
+        delete res;    
+        delete stmt;
+        delete con;
+        }
+    catch(const std::exception& e)
+        {
+        writeParkingReportException("getinterfaceRequestDetails",e.what());
+        } 
+    return response;       
+    }
+

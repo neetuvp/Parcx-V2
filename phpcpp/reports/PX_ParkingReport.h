@@ -26,6 +26,8 @@ class ParkingReport
     void getPlatesfromTicket(Php::Value json);
     void userActivity(Php::Value json);
     void systemJournal(Php::Value json);
+    void interfaceReport(Php::Value json);
+    Php::Value getinterfaceRequestDetails(Php::Value json);
     };
 
 #endif    
