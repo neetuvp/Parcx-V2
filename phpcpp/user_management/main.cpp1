@@ -1,0 +1,1059 @@
+#include "PX_GeneralOperations.h"
+#include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <phpcpp.h>
+#include <iostream>
+#include <sstream>
+#include<sys/stat.h>
+#include <sys/time.h>
+#include <cppconn/prepared_statement.h>
+#include "validation.h"
+
+#define ServerDB "v2_parcx_server"
+#define ReportingDB "v2_parcx_reporting"
+#define DashboardDB "v2_parcx_dashboard"
+#define dateFormat "%Y-%m-%d"
+
+#define MANDATORY "Mandatory"
+#define MAXLENGTH "Maximum Length Exceeded"
+#define CONSTRAINT "Invalid Character"
+
+
+using namespace std;
+GeneralOperations General;
+Validation validation;
+sql::ResultSet *res;
+sql::Connection *con;
+sql::Statement *stmt;
+sql::PreparedStatement *pstmt;
+string query;
+string validation_failed = "Validation Failed\n";
+void writeLog(string function,string message)
+    {
+    General.writeLog("WebApplication/ApplicationLogs/PX-UserManagement-"+General.currentDateTime(dateFormat),function,message);    
+    }
+
+void writeException(string function,string message)
+    {
+    General.writeLog("WebApplication/ExceptionLogs/PX-UserManagement-"+General.currentDateTime(dateFormat),function,message); 
+    writeLog(function,"Exception: "+message);       
+    }
+
+string toString(Php::Value param) {
+    string value = param;
+    return value;
+}
+
+int generateUniqueId()
+{    							    		    
+   struct tm tm;
+    string startDate = "2020-01-01 00:00:00";
+
+    strptime(startDate.c_str(), "%Y-%m-%d %H:%M:%S", &tm);
+    time_t t = mktime(&tm);
+
+    time_t now = time(NULL);
+    long seconds = difftime(now, t);
+    return seconds;
+}
+
+std::string random_string( size_t length )
+{
+    auto randchar = []() -> char
+    {
+        const char charset[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+        const size_t max_index = (sizeof(charset) - 1);
+        return charset[ rand() % max_index ];
+    };
+    std::string str(length,0);
+    std::generate_n( str.begin(), length, randchar );
+    return str;
+}
+
+void showSideBar(Php::Value data)
+    {
+    try
+        {
+        Php::Value label;
+        string userrole_id=data["user_role_id"];
+        string base_url=data["url"];
+        string lang=data["lang"];
+        con = General.mysqlConnect(ServerDB);
+        stmt = con->createStatement();
+        query="SELECT menu_name,"+lang+" FROM system_menu left join web_application_labels on menu_name=message";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+            {
+            if(res->getString(lang)!="")
+                label[res->getString("menu_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("menu_name").asStdString()]=res->getString("menu_name").asStdString();                
+            }
+        
+        query="SELECT group_name,"+lang+" FROM system_menu_group left join web_application_labels on group_name=message";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+            {
+            if(res->getString(lang)!="")
+                label[res->getString("group_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("group_name").asStdString()]=res->getString("group_name").asStdString();                
+            }
+            
+        delete res;
+        
+        query="SELECT header_name,"+lang+" FROM system_menu_header left join web_application_labels on header_name=message";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+            {
+            if(res->getString(lang)!="")
+                label[res->getString("header_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("header_name").asStdString()]=res->getString("header_name").asStdString();                
+            }
+            
+        delete res;
+        
+        
+        query="SELECT c.*,group_name,group_icon,group_order_index,group_expand,a.* FROM system_menu_header a,system_menu_group b,system_menu c,system_user_role_rights d where b.group_id=c.group_id and a.header_id=b.header_id and d.menu_id=c.menu_id and d.user_role_id="+userrole_id+" and d.rr_view=1 and menu_status=1 ORDER by header_id,group_order_index,menu_order_index";
+        res=stmt->executeQuery(query);
+        int group_id=0,header_id=0,group_expand=0;
+        while(res->next())
+            {
+            if(header_id!=res->getInt("header_id"))
+                {
+                header_id=res->getInt("header_id");
+                if(group_id!=0 && group_expand==1)
+                    {
+                    Php::out<<"</ul>"<<endl;
+                    Php::out<<"</li>"<<endl;
+                    }
+                //Php::out<<"<li class='nav-header'>"<<res->getString("header_name")<<"</li>"<<endl;                     
+                Php::out<<"<li class='nav-header'>"<<label[res->getString("header_name")]<<"</li>"<<endl;                     
+                group_id=0;
+                }
+            if(group_id!=res->getInt("group_order_index"))	
+                {                  
+                if(group_id!=0 && group_expand==1)
+                    {
+                    Php::out<<"</ul>"<<endl;
+                    Php::out<<"</li>"<<endl;
+                    }
+                group_id=res->getInt("group_order_index");
+                group_expand=res->getInt("group_expand");
+                if(group_expand==1)
+                    {
+                    Php::out<<"<li class='nav-item has-treeview'>"<<endl;
+                    Php::out<<"<a href='#' class='nav-link'>"<<endl;
+                    Php::out<<"<i class='nav-icon "<<res->getString("group_icon")<<"'></i>"<<endl;
+                    //Php::out<<"<p>"<<res->getString("group_name")<<"<i class='right fa fa-angle-right'></i></p></a>"<<endl;
+                    Php::out<<"<p>"<<label[res->getString("group_name")]<<"<i class='right fa fa-angle-right'></i></p></a>"<<endl;
+                    Php::out<<"<ul class='nav nav-treeview'>"<<endl;
+                    }
+                }          
+            Php::out <<"<li class='nav-item has-treeview w-100'>"<<endl;
+            Php::out <<"<a href='"<<base_url<<res->getString("menu_link")<<"' class='nav-link'>"<<endl;                
+            Php::out<<"<i class='nav-icon "<<res->getString("menu_icon")<<"'></i>"<<endl;                
+            //Php::out <<"<p>"<<res->getString("menu_name")<<"</p>"<<endl;
+            Php::out <<"<p>"<<label[res->getString("menu_name").asStdString()]<<"</p>"<<endl;
+            Php::out <<"</a>"<<endl;
+            Php::out <<"</li>"<<endl;                            
+            }
+        delete res;
+        delete stmt;
+        delete con;
+        }
+    catch(const std::exception& e)
+        {
+        writeException("showSideBar",e.what());
+        }    
+    }
+
+void showNavigationList()
+{
+    sql::Connection *conn;
+    sql::Statement *stmt;
+    sql::ResultSet *res;
+    try
+    {
+        Php::Value label;
+        string lang="english";
+        conn = General.mysqlConnect(ServerDB);
+        stmt = conn->createStatement();      
+        
+        query="SELECT menu_name,"+lang+" FROM system_menu left join web_application_labels on menu_name=message";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+        {
+            if(res->getString(lang)!="")
+                label[res->getString("menu_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("menu_name").asStdString()]=res->getString("menu_name").asStdString();                
+        }
+        
+        query="SELECT group_name,"+lang+" FROM system_menu_group left join web_application_labels on group_name=message";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+            {
+            if(res->getString(lang)!="")
+                label[res->getString("group_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("group_name").asStdString()]=res->getString("group_name").asStdString();                
+            }
+            
+        delete res;
+        
+        query="SELECT menu_id,group_name,a.group_id,menu_name,menu_add,menu_delete,menu_edit FROM system_menu_group a INNER JOIN system_menu b ON a.group_id=b.group_id where menu_status=1 order by group_id desc";
+        res=stmt->executeQuery(query);
+        int group_id=0;
+        if(res->rowsCount()>0)
+            {
+                Php::out<< "<div class='row'>"<<endl;
+                Php::out<< "<div class='col-4'>"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>View"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>Add"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>Edit"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>Delete"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "</div>"<<endl;
+            }
+            while(res->next())
+            {
+                
+                if(group_id!=res->getInt("group_id"))
+                {
+                    group_id=res->getInt("group_id");
+                    Php::out<<"<div class='row'><div class='col-4'><label class='label h5'>"<<label[res->getString("group_name")]<<"</label></div></div>"<<endl;
+                }
+                
+              
+                
+                // Php::out<<"<div class='form-group custom-control custom-checkbox'>"<<endl;
+                Php::out<< "<div class='row' id ='menuadd-"+res->getString("menu_id")+"'>"<<endl;
+                Php::out<< "<div class='col-4'>"<<endl;
+                Php::out<<"<label class='label'>"<<label[res->getString("menu_name")]<<"</label>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+                Php::out<<"<div class='col'>"<<endl;
+                Php::out<<"<input type='checkbox' class='custom-checkbox' title='View' id='"<<res->getInt("menu_id")<<"-view'>"<<endl;
+                Php::out<<"</div>"<<endl;
+                
+                Php::out<<"<div class='col'>"<<endl;
+                if(res->getInt("menu_add")==1)
+                    Php::out<<"<input type='checkbox' class='custom-checkbox' title='Add' id='"<<res->getInt("menu_id")<<"-add'>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+                Php::out<<"<div class='col'>"<<endl;
+                if(res->getInt("menu_edit")==1)
+                    Php::out<<"<input type='checkbox' class='custom-checkbox' title='Edit' id='"<<res->getInt("menu_id")<<"-edit'>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+                Php::out<<"<div class='col'>"<<endl;
+                if(res->getInt("menu_delete")==1)
+                    Php::out<<"<input type='checkbox' class='custom-checkbox' title='Delete' id='"<<res->getInt("menu_id")<<"-delete'>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+
+
+                Php::out<<"</div>"<<endl;
+            }
+       /* while(res->next())
+            {
+            if(group_id!=res->getInt("group_id"))
+                {
+                group_id=res->getInt("group_id");
+                Php::out<<"<label>"<<label[res->getString("group_name")]<<"</label>"<<endl;
+                }
+            Php::out<<"<div class='form-group custom-control custom-checkbox'>"<<endl;
+            Php::out<<"<input type='checkbox' class='custom-control-input' id='"<<res->getInt("menu_id")<<"'>"<<endl;
+            Php::out<<"<label class='custom-control-label' for='"<<res->getString("menu_id")<<"'>"<<label[res->getString("menu_name")]<<"</label></div>"<<endl;
+            }*/
+        delete res;
+        delete stmt;
+        delete conn;        
+    }
+    catch(const std::exception& e)
+    {
+        writeException("showNavigationList",e.what());
+    } 
+}
+
+void showUserRoleNavigationList()
+    {
+    try
+        { 
+        Php::Value label;
+        string lang="english";
+        sql::ResultSet *role,*rights;
+        con = General.mysqlConnect(ServerDB);
+        stmt = con->createStatement();   
+        
+        query="SELECT menu_name,"+lang+" FROM system_menu left join web_application_labels on menu_name=message where menu_status<2";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+            {
+            if(res->getString(lang)!="")
+                label[res->getString("menu_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("menu_name").asStdString()]=res->getString("menu_name").asStdString();                
+            }
+        
+        query="SELECT group_name,"+lang+" FROM system_menu_group left join web_application_labels on group_name=message";
+        res=stmt->executeQuery(query);
+        while(res->next())            
+            {
+            if(res->getString(lang)!="")
+                label[res->getString("group_name").asStdString()]=res->getString(lang).asStdString();                
+            else
+                label[res->getString("group_name").asStdString()]=res->getString("group_name").asStdString();                
+            }
+            
+        delete res;
+        
+        query="SELECT menu_id,group_name,a.group_id,menu_name,menu_add,menu_delete,menu_edit FROM system_menu_group a INNER JOIN system_menu b ON a.group_id=b.group_id where menu_status=1 order by header_id desc,group_id desc";
+        res=stmt->executeQuery(query);
+        int group_id=0;
+        
+        Php::Value menu;
+        while(res->next())            
+            menu[res->getInt("menu_id")]=0;            
+        
+        Php::Value start_menu=menu;                        
+        
+        query="select * from system_user_role where Lower(user_role_name) not like ('%admin%')";
+        role=stmt->executeQuery(query);
+        string checked;
+        while(role->next())
+        {    
+            Php::out<<"<div id='parent'>"<<endl;
+            Php::out<<"<div id='roleholder' class='accordion'>"<<role->getString("user_role_name")<<endl;
+            Php::out<<"<div class='panel' style='display: none;'><form>"<<endl;
+            query="select menu_id,rr_view,rr_add,rr_edit,rr_delete from system_user_role_rights where rr_view=1 and user_role_id="+role->getString("user_role_id");
+            //Php::out<<query<<endl;
+            rights=stmt->executeQuery(query);
+            menu=start_menu;
+            while(rights->next())                
+                menu[rights->getInt("menu_id")]=1;                
+            res->beforeFirst();
+            
+            Php::out<< "<div class='row'>"<<endl;
+            Php::out<< "<div class='col form-group'>"<<endl;
+            Php::out<< "<label for=''>User Role Name</label>"<<endl;
+            Php::out<< "<input type='text' disabled class='form-control' id='user_role_name_"<<role->getString("user_role_id")<<"' value='"<<role->getString("user_role_name")<<"' required="">"<<endl;
+            Php::out<< "</div></div>"<<endl;
+            if(res->rowsCount()>0)
+            {
+                Php::out<< "<div class='row'>"<<endl;
+                Php::out<< "<div class='col-4'>"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>View"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>Add"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>Edit"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "<div class='col'>Delete"<<endl;
+                Php::out<< "</div>"<<endl;
+                Php::out<< "</div>"<<endl;
+            }
+            while(res->next())
+            {
+                
+                if(group_id!=res->getInt("group_id"))
+                {
+                    group_id=res->getInt("group_id");
+                    Php::out<<"<div class='row'><div class='col-4'><label class='label h5'>"<<label[res->getString("group_name")]<<"</label></div></div>"<<endl;
+                }
+                
+                checked="";
+                if(menu[res->getInt("menu_id")]==1)
+                    checked="checked='checked'";
+                
+                // Php::out<<"<div class='form-group custom-control custom-checkbox'>"<<endl;
+                Php::out<< "<div class='row' id ='menu-"+res->getString("menu_id")+"'>"<<endl;
+                Php::out<< "<div class='col-4'>"<<endl;
+                Php::out<<"<label class='label' for='"<<role->getString("user_role_id")<<"-"<<res->getString("menu_id")<<"'>"<<label[res->getString("menu_name")]<<"</label>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+                Php::out<<"<div class='col'>"<<endl;
+                Php::out<<"<input type='checkbox' class='custom-checkbox' title='View' disabled "<<checked<<" id='"<<role->getString("user_role_id")<<"-"<<res->getInt("menu_id")<<"-view'>"<<endl;
+                Php::out<<"</div>"<<endl;
+                
+                Php::out<<"<div class='col'>"<<endl;
+                if(res->getInt("menu_add")==1)
+                    Php::out<<"<input type='checkbox' class='custom-checkbox' title='Add' disabled "<<checked<<" id='"<<role->getString("user_role_id")<<"-"<<res->getInt("menu_id")<<"-add'>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+                Php::out<<"<div class='col'>"<<endl;
+                if(res->getInt("menu_edit")==1)
+                    Php::out<<"<input type='checkbox' class='custom-checkbox' title='Edit' disabled "<<checked<<" id='"<<role->getString("user_role_id")<<"-"<<res->getInt("menu_id")<<"-edit'>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+                Php::out<<"<div class='col'>"<<endl;
+                if(res->getInt("menu_delete")==1)
+                    Php::out<<"<input type='checkbox' class='custom-checkbox' title='Delete' disabled "<<checked<<" id='"<<role->getString("user_role_id")<<"-"<<res->getInt("menu_id")<<"-delete'>"<<endl;
+                Php::out<<"</div>"<<endl;
+
+
+
+                Php::out<<"</div>"<<endl;
+            }
+            Php::out<<"<div class='row'>"<<endl;
+           // Php::out<<"<div class='col'><input type='button' data-id='"<<role->getString("user_role_id")<<"' class='edit-user-role signUp btn btn-block btn-info mt-2 btn-lg mb-2' value='Edit'></div>";
+            Php::out << "<div class='col'><button type='button' data-id='"<<role->getString("user_role_id")<<"' class='btn btn-info user-edit edit-user-role float-right mb-2' value=' Edit ' title='Edit'><i class='fas fa-edit'></i><span id='editrole"<<role->getString("user_role_id")<<"'>Edit</span></button></div>"<< std::endl;  
+            if(role->getInt("status")==1)
+                Php::out << "<div class='col'><button type='button' data-id='"<<role->getString("user_role_id")<<"' class='btn btn-danger role-enable-disable-btn mr-2 mb-2' title='Disable' value='Disable' data-text='Disable'><i class='fas fa-stop-circle'></i><span id='disableenablerole'>Disable</span></button></div>"<< std::endl;
+            else
+                Php::out << "<div class='col'><button type='button' data-id='"<<role->getString("user_role_id")<<"' class='btn btn-success role-enable-disable-btn mr-2 mb-2' title='Enable' value='Enable' data-text='Enable'><i class='fas fa-play-circle'></i><span id='disableenablerole'>Enable</span></button></div>"<< std::endl;
+            
+            Php::out<<"</div"<<endl;
+            Php::out<<"</form></div></div></div>"<<endl;
+        }  
+        delete role;
+        delete res;
+        delete stmt;
+        delete con;        
+        }
+    catch(const std::exception& e)
+        {
+        writeException("showUserRoleNavigationList",e.what());
+        } 
+    }
+
+
+
+Php::Value createUserRole(Php::Value data)
+{
+    sql::Connection *conn;
+    sql::PreparedStatement *prep_stmt;
+    sql::ResultSet *res;
+    string msg = "Failed"; 
+    string menu_id;
+    int view_access,add_access,edit_access,delete_access;
+    try
+        {
+        string name=data["name"];
+        Php::Value menu=data["menu"];
+        Php::Value validation_response = validation.DataValidation(name,30,3,1);
+        if(validation_response["result"]==false)
+        {
+            msg = "User Role Name:"+ toString(validation_response["reason"]);
+            return msg;
+        }
+        
+        for(int i=0;i<menu.size();i++)
+        {
+            validation_response = validation.DataValidation(menu[i]["id"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = "Invalid Menu id:"+ toString(validation_response["reason"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["view"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = "Invalid Input for View for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["add"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = "Invalid Input for Add for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["edit"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = "Invalid Input for Edit for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["delete"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = "Invalid Input for Delete for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            
+        }
+
+        conn = General.mysqlConnect(ServerDB);
+
+        prep_stmt = conn->prepareStatement("insert into system_user_role(user_role_name)values(?)");
+        prep_stmt->setString(1, name);
+        prep_stmt->execute();
+
+        prep_stmt = conn->prepareStatement("select user_role_id from system_user_role where user_role_name=?");
+        prep_stmt->setString(1, name);
+        res=prep_stmt->executeQuery();
+        if(res->next())
+        {
+            string user_role_id=res->getString("user_role_id");
+            for(int i=0;i<menu.size();i++)
+            {
+                menu_id=toString(menu[i]["id"]);
+                view_access = menu[i]["view"];
+                add_access = menu[i]["add"];
+                edit_access = menu[i]["edit"];
+                delete_access = menu[i]["delete"];
+                prep_stmt = conn->prepareStatement("insert into system_user_role_rights(user_role_id,menu_id,rr_view,rr_add,rr_edit,rr_delete)values(?,?,?,?,?,?)");
+                prep_stmt->setString(1, user_role_id);
+                prep_stmt->setString(2, menu_id);
+                prep_stmt->setInt(3, view_access);
+                prep_stmt->setInt(4, add_access);
+                prep_stmt->setInt(5, edit_access);
+                prep_stmt->setInt(6, delete_access);
+                prep_stmt->execute();
+            }
+        }
+        delete res;
+        delete prep_stmt;
+        delete conn;
+        msg="Successfull";
+        }
+    catch(const std::exception& e)
+        {
+        writeException("createUserRole",e.what());
+        }
+    return msg;
+}
+
+Php::Value updateUserRoleRights(Php::Value data)
+{
+    sql::Connection *conn;
+    sql::PreparedStatement *prep_stmt;
+    sql::ResultSet *res;
+    string msg = "Failed"; 
+    string menu_id;
+    int view_access,add_access,edit_access,delete_access;
+    try
+    {
+        string user_role_id=data["user_role_id"];
+        string user_role_name=data["user_role_name"];
+        Php::Value menu=data["menu"];
+           
+        Php::Value validation_response = validation.DataValidation(user_role_name,30,3,1);
+        if(validation_response["result"]==false)
+        {
+            msg = validation_failed+"User Role Name:"+ toString(validation_response["reason"]);
+            return msg;
+        }
+        
+        for(int i=0;i<menu.size();i++)
+        {
+            validation_response = validation.DataValidation(menu[i]["id"],11,1,1);
+            msg = validation_failed;
+            if(validation_response["result"]==false)
+            {
+                msg = msg+"Invalid Menu id:"+ toString(validation_response["reason"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["view"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = msg+"Invalid Input for View for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["add"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = msg+"Invalid Input for Add for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["edit"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = msg+"Invalid Input for Edit for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            validation_response = validation.DataValidation(menu[i]["delete"],11,1,1);
+            if(validation_response["result"]==false)
+            {
+                msg = msg+"Invalid Input for Delete for Menu id:"+toString(menu[i]["id"]);
+                return msg;
+            }
+            
+        }
+
+
+        msg = "Failed";
+
+        conn = General.mysqlConnect(ServerDB);  
+        
+        if(user_role_name!="")
+        {
+            prep_stmt = conn->prepareStatement("update system_user_role set user_role_name=? where user_role_id=?");
+            prep_stmt->setString(1, user_role_name);
+            prep_stmt->setString(2, user_role_id);
+            prep_stmt->execute();
+            delete prep_stmt;
+        }
+        //Php::out<<user_role_id<<endl;
+        prep_stmt = conn->prepareStatement("update system_user_role_rights set rr_view=0,rr_edit=0,rr_delete=0 where user_role_id=?");
+        prep_stmt->setString(1, user_role_id);
+        prep_stmt->execute();
+        delete prep_stmt;    
+        string id;
+        for(int i=0;i<menu.size();i++)
+        {
+            menu_id=toString(menu[i]["id"]);   
+            view_access = menu[i]["view"];
+            add_access = menu[i]["add"];
+            edit_access = menu[i]["edit"];
+            delete_access = menu[i]["delete"];
+            prep_stmt = conn->prepareStatement("select user_role_rights_id from system_user_role_rights where menu_id=? and user_role_id=?");
+            prep_stmt->setString(1, menu_id);
+            prep_stmt->setString(2, user_role_id);
+            res = prep_stmt->executeQuery();
+            delete prep_stmt;
+            if(res->next())
+            {
+                
+                id=res->getString("user_role_rights_id");
+                prep_stmt = conn->prepareStatement("update system_user_role_rights set rr_view=?,rr_add=?,rr_edit=?,rr_delete=? where user_role_rights_id=?");
+               
+                prep_stmt->setInt(1, view_access);
+                prep_stmt->setInt(2, add_access);
+                prep_stmt->setInt(3, edit_access);
+                prep_stmt->setInt(4, delete_access);
+                prep_stmt->setString(5, id);
+
+                prep_stmt->executeUpdate();
+                delete prep_stmt;
+                delete res;
+            }
+            else 
+            {
+                prep_stmt = conn->prepareStatement("insert into system_user_role_rights(user_role_id,menu_id,rr_view,rr_add,rr_edit ,rr_delete)values(?,?,?,?,?,?)");
+                prep_stmt->setString(1, user_role_id);
+                prep_stmt->setString(2, menu_id);
+                prep_stmt->setInt(3, view_access);
+                prep_stmt->setInt(4, add_access);
+                prep_stmt->setInt(5, edit_access);
+                prep_stmt->setInt(6, delete_access);
+                prep_stmt->executeUpdate();
+                delete prep_stmt;
+            }
+            
+        }
+
+        delete conn;
+        msg="Successfull";
+    }
+    catch(const std::exception& e)
+    {
+        writeException("updateUserRoleRights",e.what());
+    }
+    return msg;
+}
+
+
+Php::Value enableDisableRole(Php::Value json)
+    {
+    string msg = "Failed";    
+    sql::Connection *conn;
+    sql::PreparedStatement *prep_stmt;
+    try
+        {
+        string status=json["status"];
+        string id=json["id"];
+        conn= General.mysqlConnect(ServerDB); 
+        prep_stmt=conn->prepareStatement("update system_user_role set status=? where user_role_id=?");
+        prep_stmt->setString(1, status);
+        prep_stmt->setString(2, id);
+        
+       // query="update system_user_role set status="+status+" where user_role_id="+id;
+        //stmt->executeUpdate(query); 
+         prep_stmt->executeUpdate();
+        delete prep_stmt;
+        delete conn;       
+        msg = "Successfull";	
+        }
+    catch(const std::exception& e)
+        {
+        writeException("enableDisableRole",e.what());
+        }
+    return msg;
+    }
+
+void userRoleDropdown()
+    {
+    try
+        {                      
+        con = General.mysqlConnect(ServerDB);
+        stmt = con->createStatement();                
+        query="SELECT * from system_user_role";
+        res=stmt->executeQuery(query);                
+        while(res->next())           
+            Php::out<<"<option value='"<<res->getString("user_role_id")<<"'>"<<res->getString("user_role_name")<<"</option>"<<endl;                        
+        delete res;
+        delete stmt;
+        delete con;        
+        }
+    catch(const std::exception& e)
+        {
+        writeException("userRoleDropdown",e.what());
+        } 
+    }
+
+Php::Value insertUpdateUsers(Php::Value json)
+{
+    sql::Connection *conn;
+    sql::PreparedStatement *prep_stmt;
+    sql::Statement *stmt;
+    sql::ResultSet *res;
+    string msg = "Failed",auto_password;  
+    int generate_pwd=0;
+    try
+    {
+        string id=json["id"];
+        string full_name=json["full_name"];
+        string user_name=json["user_name"];
+        string email=json["email"];
+        string password=json["password"];
+        string company_name=json["company_name"];
+        string phone=json["phone"];
+        string start_date=json["start_date"];
+        string expiry_date=json["expiry_date"];
+        string user_role=json["user_role"];
+        string language=json["language"];
+        
+        conn = General.mysqlConnect(ServerDB);
+        stmt = conn->createStatement();                
+        if(id=="")
+        {
+            prep_stmt = conn->prepareStatement("select user_id from system_users where user_name=?");
+            prep_stmt->setString(1,user_name);
+            res = prep_stmt->executeQuery();
+            if(res->next())
+            {
+                msg="Username exist try with another username";
+                delete res;
+                delete prep_stmt;
+                delete conn;
+                return msg;
+            }
+        }
+        
+        if(id=="")
+        {
+            string uuid;
+            generate_pwd = json["generate_pwd"];
+            int reset_pwd = json["reset_pwd"];
+            res = stmt->executeQuery("select uuid() as uuid");
+            if(res->next())
+            {
+                uuid = res->getString("uuid");
+            }
+            delete res;
+
+            if(generate_pwd==1)
+            {
+                auto_password = random_string(8);
+                password = auto_password;
+            }
+            
+            prep_stmt = conn->prepareStatement("insert into system_users(user_id,display_name,user_name,company_name,email,phone,password,user_role_id,language,validity_from_date,validity_to_date,account_status,password_key,password_reset_flag)values(?,?,?,?,?,?,SHA2(CONCAT('"+password+"','"+uuid+"'),256),?,?,?,?,?,?,?)");
+            prep_stmt->setInt(1,generateUniqueId());
+            prep_stmt->setString(2,full_name);
+            prep_stmt->setString(3,user_name);
+            prep_stmt->setString(4,company_name);
+            prep_stmt->setString(5,email);
+            prep_stmt->setString(6,phone);
+            prep_stmt->setString(7,user_role);
+            prep_stmt->setString(8,language);
+            prep_stmt->setString(9,start_date);
+            prep_stmt->setString(10,expiry_date);
+            prep_stmt->setInt(11,1);
+            prep_stmt->setString(12,uuid);
+            prep_stmt->setInt(13,reset_pwd);
+
+
+
+        }
+        else
+        {
+            prep_stmt = conn->prepareStatement("update system_users set display_name=?,user_name=?,company_name=?,email=?,phone=?,user_role_id=?,language=?,validity_from_date=?,validity_to_date=? where id=?");
+            prep_stmt->setString(1,full_name);
+            prep_stmt->setString(2,user_name);
+            prep_stmt->setString(3,company_name);
+            prep_stmt->setString(4,email);
+            prep_stmt->setString(5,phone);
+            prep_stmt->setString(6,user_role);
+            prep_stmt->setString(7,language);
+            prep_stmt->setString(8,start_date);
+            prep_stmt->setString(9,expiry_date);
+            prep_stmt->setString(10,id);
+           
+        }
+
+        prep_stmt->execute();
+        
+        delete stmt;
+        delete conn;
+        msg = "Successfull";
+        if(generate_pwd==1)
+        {
+            msg = "Auto generated password:"+auto_password;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        writeException("insertUpdateUsers",e.what());
+    } 
+    return msg;
+}
+
+void showUsersList()
+    {
+    try
+        {
+        Php::Value role;
+        con= General.mysqlConnect(ServerDB); 
+        stmt=con->createStatement();
+        res=stmt->executeQuery("select * from system_user_role");
+        while(res->next())
+            {
+            role[res->getInt("user_role_id")]=string(res->getString("user_role_name"));
+            }
+        delete res;
+        res=stmt->executeQuery("select * from system_users");
+        if(res->rowsCount()>0)
+            {
+            //Php::out<<"<table class='table table-blue'>"<<endl;
+            Php::out << "<thead class='thead-light'>" << std::endl;
+            Php::out<<"<tr>"<<endl;
+            Php::out<<"<th>User name</th>"<<endl;
+            Php::out<<"<th>Name</th>"<<endl; 
+            Php::out<<"<th>User Role</th>"<<endl;
+            Php::out<<"<th>Language</th>"<<endl;       
+            Php::out<<"<th>From</th>"<<endl;           
+            Php::out<<"<th>To</th>"<<endl;           
+            Php::out<<"<th></th>"<<endl;		           
+           
+            Php::out<<"</tr>"<<endl;	
+            Php::out << "</thead>" << std::endl;		
+            }
+        while(res->next())
+            {
+            Php::out<<"<tr data-id='"<<res->getString("user_id")<<"'>"<<endl;                       
+            Php::out<<"<td>"+res->getString("user_name")+"</td>"<<endl;
+            Php::out<<"<td>"+res->getString("display_name")+"</td>"<<endl;            
+            Php::out<<"<td>"<<role[res->getInt("user_role_id")]<<"</td>"<<endl;
+            Php::out<<"<td>"+res->getString("language")+"</td>"<<endl;
+            Php::out<<"<td>"+res->getString("validity_from_date")+"</td>"<<endl;
+            Php::out<<"<td>"+res->getString("validity_to_date")+"</td>"<<endl;            
+            
+            Php::out << "<td>"<< std::endl;
+            if(res->getInt("account_status")==1)
+                Php::out << "<button type='button' class='btn btn-danger user-enable-disable-btn' title='Disable' data-text='Disable'><i class='fas fa-stop-circle'></i></button>"<< std::endl;
+            else
+                Php::out << "<button type='button' class='btn btn-success user-enable-disable-btn' title='Enable' data-text='Enable'><i class='fas fa-play-circle'></i></button>"<< std::endl;
+            
+            Php::out << "<button type='button' class='btn btn-info user-edit' title='Edit'><i class='fas fa-edit'></i></button>"<< std::endl;            
+            
+            Php::out << "<button type='button' class='btn btn-info user-change-password' title='Change password'><i class='fas fa-key'></i></button>"<< std::endl;            
+            Php::out << "</td>"<< std::endl;
+            Php::out<<"</tr>"<<endl;	
+            }
+        //Php::out<<"</table>"<<endl;	
+        delete res;    
+        delete stmt;
+		delete con;  
+        }
+    catch(const std::exception& e)
+        {
+        writeException("showUsersList",e.what());
+        }
+    
+    }
+
+Php::Value enableDisableUser(Php::Value json)
+    {
+    string msg = "Failed";    
+    try
+        {
+        string status=json["status"];
+        string id=json["id"];
+        con= General.mysqlConnect(ServerDB); 
+        stmt=con->createStatement();
+        query="update system_users set account_status="+status+" where user_id="+id;
+        stmt->executeUpdate(query);        
+        delete stmt;
+        delete con;       
+        msg = "Successfull";	
+        }
+    catch(const std::exception& e)
+        {
+        writeException("enableDisableUser",e.what());
+        }
+    return msg;
+    }
+
+Php::Value changePassword(Php::Value json)
+    {
+    string msg = "Failed";    
+    try
+        {        
+        string id=json["id"];
+        string current_password=json["current_password"];
+        string new_password=json["new_password"];
+        con= General.mysqlConnect(ServerDB); 
+        stmt=con->createStatement();
+        query="select user_id from system_users where user_id="+id+" and password=md5('"+current_password+"')";
+        res=stmt->executeQuery(query);
+        if(res->next())
+            {
+            query="update system_users set password=md5('"+new_password+"') where user_id="+id;
+            stmt->executeUpdate(query);  
+            msg = "Successfull";	
+            }
+        else
+            msg="current password is wrong";
+        delete stmt;
+        delete con;       
+        
+        }
+    catch(const std::exception& e)
+        {
+        writeException("changePassword",e.what());
+        }
+    return msg;
+    }
+
+Php::Value getUserDetails(Php::Value json)
+    {
+    Php::Value response;    
+    try
+        {
+        string id=json["id"];        
+        con= General.mysqlConnect(ServerDB); 
+        stmt=con->createStatement();
+        query="select * from system_users where user_id="+id;
+        res=stmt->executeQuery(query);
+        if(res->next())
+            {
+            sql::ResultSetMetaData *res_meta = res -> getMetaData();
+            int columns = res_meta -> getColumnCount();   
+            for (int i = 1; i <= columns; i++) 							
+                    response[res_meta -> getColumnLabel(i)]=string(res->getString(i));				
+            }
+        delete res;    
+        delete stmt;
+        delete con;
+        }
+    catch(const std::exception& e)
+        {
+        writeException("getUserDetails",e.what());
+        } 
+    return response;       
+    }
+
+Php::Value loginUser(Php::Value json)
+    {
+    Php::Value response;
+    string message= "Failed";    
+    try
+        {                
+        string user_name=json["user_name"];
+        string password=json["password"];
+        con= General.mysqlConnect(ServerDB); 
+        query="SELECT SHA2(CONCAT(?,password_key),256) as user_password,password,validity_from_date,validity_to_date,display_name,system_users.user_role_id,user_role_name,account_status,user_id,language  FROM system_users INNER JOIN system_user_role ON system_users.user_role_id=system_user_role.user_role_id where user_name= ?  LIMIT 1";
+        //Php::out<<query<<endl;
+        pstmt=con->prepareStatement(query);  
+        pstmt->setString(1,password);
+        pstmt->setString(2,user_name);        
+        res=pstmt->executeQuery();
+        if(res->next())
+            {            
+            string current_date = General.currentDateTime(dateFormat);
+            string expiry_date = res->getString("validity_to_date");
+            string start_date = res->getString("validity_from_date");
+            string user_password=res->getString("user_password");
+            password=res->getString("password");
+            
+            if(res->getInt("account_status")==0)
+                message="Account disabled";
+            else if(password!=user_password)
+                message="Wrong password";
+            else if (expiry_date.compare(current_date) < 0) 
+                message="User validity expired";  
+            else if (start_date.compare(current_date) > 0) 
+               message = "User validity not started";
+            else
+                {
+                message="Success";
+                response["operator_name"]=string(res->getString("display_name"));
+                response["user_role_id"]=string(res->getString("user_role_id"));
+                response["user_role_name"]=string(res->getString("user_role_name"));
+                response["user_id"]=string(res->getString("user_id"));
+                response["language"]=string(res->getString("language"));
+                }                                                                                                               
+            delete res;
+            }
+        else
+            message="Wrong Username";
+        delete pstmt;
+        delete con; 
+        response["message"]=message;
+        }
+    catch(const std::exception& e)
+        {
+        writeException("loginUser",e.what());
+        }
+    return response;
+    }
+
+Php::Value parcxV2UserManagement(Php::Parameters &params)
+    {
+    Php::Value data=params[0];      
+    int task=data["task"];   
+    Php::Value response;
+    switch (task)
+        {
+        case 1:showSideBar(data);
+            break;
+        case 2:showNavigationList();
+            break;
+        case 3:response=createUserRole(data);
+            break;
+        case 4:showUserRoleNavigationList();
+            break;
+        case 5:response=updateUserRoleRights(data);
+            break;
+        case 6:userRoleDropdown();
+            break;
+        case 7:response=insertUpdateUsers(data);
+            break;
+        case 8:showUsersList();
+            break;
+        case 9:response=enableDisableUser(data);
+            break;
+        case 10:response=changePassword(data);
+            break;
+        case 11:response=getUserDetails(data);
+            break; 
+        case 12:response=loginUser(data);
+            break; 
+        case 13:response=enableDisableRole(data);
+            break;
+        }
+    return response;
+    }
+
+
+extern "C" 
+	{    
+    PHPCPP_EXPORT void *get_module()
+	{        
+	static Php::Extension extension("PX_V2_UserManagement", "1.0");
+        extension.add<parcxV2UserManagement>("parcxV2UserManagement");               
+        return extension;
+		}
+	}

@@ -1,0 +1,155 @@
+
+Date :2022-04-22 10:52:54 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-22 10:52:54 Response: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-22 11:00:57 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-22 11:00:57 Response: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-22 11:14:12 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-22 11:14:12 Response: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-22 11:32:39 Request: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:32:39 Response: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:32:52 Request: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:32:52 Response: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:33:50 Request: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:33:50 Response: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:34:06 Request: {"stage_id":"1","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 11:34:06 Response: {"stage_id":"1","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 11:34:07 Request: {"stage_id":"1","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 11:34:07 Response: {"stage_id":"1","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 11:34:09 Request: {"stage_id":"1","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 11:34:09 Response: {"stage_id":"1","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 11:34:56 Request: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:34:56 Response: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:35:16 Request: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:35:16 Response: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:35:27 Request: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:35:27 Response: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:55:40 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:55:40 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:55:48 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:55:48 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:55:59 Request: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 11:55:59 Response: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 11:56:02 Request: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 11:56:02 Response: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 11:56:05 Request: {"stage_id":"2","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 11:56:05 Response: {"stage_id":"2","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 11:56:10 Request: {"stage_id":"2","schedule":"4","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_night.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 11:56:10 Response: {"stage_id":"2","schedule":"4","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_night.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 11:58:42 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:58:42 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:58:48 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:58:48 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:09 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:09 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:21 Request: {"stage_id":"2","schedule":"1","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 11:59:21 Response: {"stage_id":"2","schedule":"1","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 11:59:30 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:30 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:36 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:36 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:40 Request: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 11:59:40 Response: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 11:59:44 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:44 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:45 Request: {"stage_id":"2","schedule":"4","known_customer":1,"task":3}
+Date :2022-04-22 11:59:45 Response: {"stage_id":"2","schedule":"4","known_customer":1,"task":3}
+Date :2022-04-22 11:59:47 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:47 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:49 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:49 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 11:59:55 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:55 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 11:59:57 Request: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 11:59:57 Response: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:00:45 Request: {"stage_id":"2","schedule":"2","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:00:45 Response: {"stage_id":"2","schedule":"2","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:00:52 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:00:52 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:00:55 Request: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:00:55 Response: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:00:56 Request: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 12:00:56 Response: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 12:01:05 Request: {"stage_id":"2","schedule":"3","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_evening.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:01:05 Response: {"stage_id":"2","schedule":"3","known_customer":0,"title":"Vehicle Arrives","description":"","message_line1":"welcome","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_evening.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:01:11 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:01:11 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:01:13 Request: {"stage_id":"2","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 12:01:13 Response: {"stage_id":"2","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 12:01:15 Request: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 12:01:15 Response: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 12:01:16 Request: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:01:16 Response: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:01:17 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:01:17 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:05:24 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:05:24 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:05:28 Request: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:05:28 Response: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:06:22 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:06:22 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:06:30 Request: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"test","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:06:30 Response: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"test","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:07:04 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:07:04 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:07:09 Request: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"Good to see you again","message_line1":"test","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:07:09 Response: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"Good to see you again","message_line1":"test","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_station_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:09:44 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:09:44 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:09 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:15:09 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:15:16 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:16 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:25 Request: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 12:15:25 Response: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 12:15:26 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:26 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:28 Request: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"Good to see you again","message_line1":"test","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_skyline_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:15:28 Response: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"Good to see you again","message_line1":"test","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_skyline_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:15:32 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:32 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:40 Request: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_skyline_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:15:40 Response: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_skyline_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:15:45 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:45 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:15:48 Request: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 12:15:48 Response: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 12:15:48 Request: {"stage_id":"2","schedule":"3","known_customer":1,"task":3}
+Date :2022-04-22 12:15:48 Response: {"stage_id":"2","schedule":"3","known_customer":1,"task":3}
+Date :2022-04-22 12:15:49 Request: {"stage_id":"2","schedule":"4","known_customer":1,"task":3}
+Date :2022-04-22 12:15:49 Response: {"stage_id":"2","schedule":"4","known_customer":1,"task":3}
+Date :2022-04-22 12:15:54 Request: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:15:54 Response: {"stage_id":"2","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 12:15:56 Request: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:15:56 Response: {"stage_id":"2","schedule":"2","known_customer":0,"task":3}
+Date :2022-04-22 12:15:57 Request: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 12:15:57 Response: {"stage_id":"2","schedule":"3","known_customer":0,"task":3}
+Date :2022-04-22 12:15:58 Request: {"stage_id":"2","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 12:15:58 Response: {"stage_id":"2","schedule":"4","known_customer":0,"task":3}
+Date :2022-04-22 12:18:37 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:18:37 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:18:50 Request: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"103","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_skyline_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:18:50 Response: {"stage_id":"2","schedule":"1","known_customer":1,"title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"103","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"abudhabi_skyline_morning.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"3","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 12:20:50 Request: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:20:50 Response: {"stage_id":"2","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:20:54 Request: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 12:20:54 Response: {"stage_id":"2","schedule":"2","known_customer":1,"task":3}
+Date :2022-04-22 12:32:36 Request: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:32:36 Response: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:33:10 Request: {"stage_id":"3","schedule":"1","known_customer":1,"title":"App Promotion","description":"","message_line1":"we will be with you shortly","m1_font_family":"AktivGroteskld","m1_font_size":"50","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"3QRscene.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"4","bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-22 12:33:10 Response: {"stage_id":"3","schedule":"1","known_customer":1,"title":"App Promotion","description":"","message_line1":"we will be with you shortly","m1_font_family":"AktivGroteskld","m1_font_size":"50","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"3QRscene.mp4","bg_type":"video/mp4","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"4","bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-22 12:38:33 Request: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:38:33 Response: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:48:35 Request: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:48:35 Response: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:50:56 Request: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 12:50:56 Response: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 13:06:31 Request: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 13:06:31 Response: {"stage_id":"3","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 13:14:43 Request: {"stage_id":"3","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 13:14:43 Response: {"stage_id":"3","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 13:15:36 Request: {"stage_id":"3","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 13:15:36 Response: {"stage_id":"3","schedule":"1","known_customer":0,"task":3}
+Date :2022-04-22 14:00:48 Request: {"stage_id":"13","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 14:00:48 Response: {"stage_id":"13","schedule":"1","known_customer":1,"task":3}
+Date :2022-04-22 14:02:13 Request: {"stage_id":"13","schedule":"1","known_customer":1,"title":"Rewards","description":"Description for Rewards","message_line1":"You've just earned","m1_font_family":"AktivGroteskld","m1_font_size":"100","m1_font_color":"white","message_line2":"200","m2_font_family":"AktivGroteskld","m2_font_size":"120","m2_font_color":"white","message_line3":"new reward points","m3_font_family":"AktivGroteskld","m3_font_size":"100","m3_font_color":"white","timeout":"0","bg_file":"","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"0","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-22 14:02:13 Response: {"stage_id":"13","schedule":"1","known_customer":1,"title":"Rewards","description":"Description for Rewards","message_line1":"You've just earned","m1_font_family":"AktivGroteskld","m1_font_size":"100","m1_font_color":"white","message_line2":"200","m2_font_family":"AktivGroteskld","m2_font_size":"120","m2_font_color":"white","message_line3":"new reward points","m3_font_family":"AktivGroteskld","m3_font_size":"100","m3_font_color":"white","timeout":"0","bg_file":"","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"0","bg_color":"255,255,255","bg_opacity":"20","task":2}

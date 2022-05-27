@@ -1,0 +1,7 @@
+
+Date :2022-05-22 01:03:37 Request: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-05-22 01:03:37 Response: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-05-22 02:45:03 Request: {"stage_id":"1","status":"0","task":"12","customer_type":1}
+Date :2022-05-22 02:45:03 Response: {"stage_id":"1","status":"0","task":"12","customer_type":1}
+Date :2022-05-22 02:45:38 Request: {"stage_id":"1","status":"1","task":"12","customer_type":1}
+Date :2022-05-22 02:45:38 Response: {"stage_id":"1","status":"1","task":"12","customer_type":1}

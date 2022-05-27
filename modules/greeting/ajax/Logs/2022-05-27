@@ -1,0 +1,65 @@
+
+Date :2022-05-27 08:28:19 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":{"0":{"0":{},"1":{},"2":{}},"length":1},"interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:28:19 Response: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":{"0":{"0":{},"1":{},"2":{}},"length":1},"interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:37:01 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":{"0":{"0":{},"1":{},"2":{}},"length":1},"interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:37:01 Response: 
+Date :2022-05-27 08:38:44 Request: {"from":"2022-05-01 00:00:00","to":"2022-05-27 23:59:59","type":{"0":{"0":{},"1":{},"2":{}},"length":1},"interface":"","task":15}
+Date :2022-05-27 08:38:44 Response: 
+Date :2022-05-27 08:39:37 Request: {"from":"2022-04-03 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 08:39:37 Response: 
+Date :2022-05-27 08:55:15 Request: {"from":"2022-05-01 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:15 Response: 
+Date :2022-05-27 08:55:16 Request: {"from":"2022-05-01 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:16 Response: 
+Date :2022-05-27 08:55:17 Request: {"from":"2022-05-01 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:17 Response: 
+Date :2022-05-27 08:55:22 Request: {"from":"2022-03-01 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:22 Response: 
+Date :2022-05-27 08:55:30 Request: {"from":"2022-02-19 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:30 Response: 
+Date :2022-05-27 08:55:31 Request: {"from":"2022-02-19 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:31 Response: 
+Date :2022-05-27 08:55:41 Request: {"from":"2022-01-02 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:41 Response: 
+Date :2022-05-27 08:55:49 Request: {"from":"2022-01-02 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:49 Response: 
+Date :2022-05-27 08:55:50 Request: {"from":"2022-01-02 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:55:50 Response: 
+Date :2022-05-27 08:57:26 Request: {"from":"2022-05-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 08:57:26 Response: 
+Date :2022-05-27 08:57:31 Request: {"from":"2022-05-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"PX-Adnoc-CMS-Pump-Status,PX-Greeting-Screen-Controller,PX-Adnoc-CMS-Pump-BillingInfo","task":15}
+Date :2022-05-27 08:57:31 Response: 
+Date :2022-05-27 09:03:08 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:03:08 Response: 
+Date :2022-05-27 09:04:52 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:04:52 Response: 
+Date :2022-05-27 09:09:56 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:09:56 Response: 
+Date :2022-05-27 09:10:02 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"'PX-Adnoc-CMS-Pump-Status','PX-Greeting-Screen-Controller','PX-Adnoc-CMS-Pump-BillingInfo'","task":15}
+Date :2022-05-27 09:10:02 Response: 
+Date :2022-05-27 09:10:08 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"'PX-Adnoc-CMS-Pump-Status'","task":15}
+Date :2022-05-27 09:10:08 Response: 
+Date :2022-05-27 09:10:16 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"'PX-Adnoc-CMS-Pump-BillingInfo'","task":15}
+Date :2022-05-27 09:10:16 Response: 
+Date :2022-05-27 09:10:29 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"'PX-Greeting-Screen-Controller','PX-Adnoc-CMS-Pump-BillingInfo'","task":15}
+Date :2022-05-27 09:10:29 Response: 
+Date :2022-05-27 09:10:38 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"'PX-Greeting-Screen-Controller','PX-Adnoc-CMS-Pump-BillingInfo'","task":15}
+Date :2022-05-27 09:10:38 Response: 
+Date :2022-05-27 09:12:21 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"0","interface":"","task":15}
+Date :2022-05-27 09:12:21 Response: 
+Date :2022-05-27 09:12:25 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"1","interface":"","task":15}
+Date :2022-05-27 09:12:25 Response: 
+Date :2022-05-27 09:13:46 Request: {"from":"2022-04-01 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:13:46 Response: 
+Date :2022-05-27 09:15:04 Request: {"from":"2022-05-03 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:15:04 Response: 
+Date :2022-05-27 09:17:51 Request: {"from":"2022-05-27 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:17:51 Response: 
+Date :2022-05-27 09:17:53 Request: {"from":"2022-05-27 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:17:53 Response: 
+Date :2022-05-27 09:18:27 Request: {"from":"2022-05-10 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:18:27 Response: 
+Date :2022-05-27 09:33:01 Request: {"from":"2022-05-27 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:33:01 Response: 
+Date :2022-05-27 09:36:27 Request: {"from":"2022-04-17 00:00:00","to":"2022-05-27 23:59:59","type":"","interface":"","task":15}
+Date :2022-05-27 09:36:27 Response: 

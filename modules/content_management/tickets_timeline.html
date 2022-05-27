@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>tickets timeline - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!--<script src="http://localhost/parcx/plugins/jquery/jquery-3.3.1.min.js"></script>
+        <script src="http://localhost/parcx/plugins/jquery/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://localhost/parcx/plugins/bootstrap/css/bootstrap.min.css">
+        <script src="http://localhost/parcx/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+        
+</head>
+<body>
+    <link rel="stylesheet" href="http://localhost/parcx/plugins/font-awesome/css/font-awesome.min.css">
+<!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">-->
+<div class="container bootstrap snippets bootdeys">
+    <div class="col-md-9">
+        <div class="timeline-centered timeline-sm">
+            <article class="timeline-entry">
+                <div class="timeline-entry-inner">
+                    <time datetime="2014-01-10T03:45" class="timeline-time"><span>12:45 AM</span><span>Today</span></time>
+                    <div class="timeline-icon bg-violet stage" data-id="1"><i class="fa fa-exclamation"></i>
+                        
+                    </div>
+                    <div class="timeline-label"><h4 class="timeline-title">New Project</h4>
+    
+                    <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial.</p></div>
+                </div>
+            </article>
+            <article class="timeline-entry left-aligned">
+                <div class="timeline-entry-inner">
+                    <time datetime="2014-01-10T03:45" class="timeline-time"><span>9:15 AM</span><span>Today</span></time>
+                    <div class="timeline-icon bg-green stage" data-id="2"><i class="fa fa-group"></i></div>
+                    <div class="timeline-label bg-green"><h4 class="timeline-title">Job Meeting</h4>
+    
+                    <p>Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette.</p></div>
+                </div>
+            </article>
+            <article class="timeline-entry">
+                <div class="timeline-entry-inner">
+                    <time datetime="2014-01-09T13:22" class="timeline-time"><span>8:20 PM</span><span>04/03/2013</span></time>
+                    <div class="timeline-icon bg-orange stage" data-id="3"><i class="fa fa-paper-plane"></i></div>
+                    <div class="timeline-label bg-orange"><h4 class="timeline-title">Daily Feeds</h4>
+    
+                    <p><img src="https://via.placeholder.com/45x45/" alt="" class="timeline-img pull-left">Parsley amaranth tigernut silver beet maize fennel spinach ricebean black-eyed. Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial.</p></div>
+                </div>
+                <div class="timeline-entry-inner">
+                        <div style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);" class="timeline-icon"><i class="fa fa-plus"></i></div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+body{
+    margin-top:20px;
+    background:#eee;
+}
+
+.timeline-centered {
+  position: relative;
+  margin-bottom: 30px;
+}
+.timeline-centered.timeline-sm .timeline-entry {
+  margin-bottom: 20px !important;
+}
+.timeline-centered.timeline-sm .timeline-entry .timeline-entry-inner .timeline-label {
+  padding: 1em;
+}
+.timeline-centered:before,
+.timeline-centered:after {
+  content: " ";
+  display: table;
+}
+.timeline-centered:after {
+  clear: both;
+}
+.timeline-centered:before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 7px;
+  background: #ffffff;
+  left: 50%;
+  top: 20px;
+  bottom: 20px;
+  margin-left: -4px;
+}
+.timeline-centered .timeline-entry {
+  position: relative;
+  width: 50%;
+  float: right;
+  margin-bottom: 70px;
+  clear: both;
+}
+.timeline-centered .timeline-entry:before,
+.timeline-centered .timeline-entry:after {
+  content: " ";
+  display: table;
+}
+.timeline-centered .timeline-entry:after {
+  clear: both;
+}
+.timeline-centered .timeline-entry.begin {
+  margin-bottom: 0;
+}
+.timeline-centered .timeline-entry.left-aligned {
+  float: left;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner {
+  margin-left: 0;
+  margin-right: -28px;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-time {
+  left: auto;
+  right: -115px;
+  text-align: left;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-icon {
+  float: right;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label {
+  margin-left: 0;
+  margin-right: 85px;
+}
+.timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label:after {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-right: -9px;
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.timeline-centered .timeline-entry .timeline-entry-inner {
+  position: relative;
+  margin-left: -31px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner:before,
+.timeline-centered .timeline-entry .timeline-entry-inner:after {
+  content: " ";
+  display: table;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner:after {
+  clear: both;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time {
+  position: absolute;
+  left: -115px;
+  text-align: right;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span {
+  display: block;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:last-child {
+  font-size: 12px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon {
+  background: #fff;
+  color: #999999;
+  display: block;
+  width: 60px;
+  height: 60px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  border-radius: 50%;
+  text-align: center;
+  border: 7px solid #ffffff;
+  line-height: 45px;
+  font-size: 15px;
+  float: left;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-primary {
+  background-color: #dc6767;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-success {
+  background-color: #5cb85c;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-info {
+  background-color: #5bc0de;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-warning {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-red {
+  background-color: #bf4346;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-green {
+  background-color: #488c6c;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-blue {
+  background-color: #0a819c;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-yellow {
+  background-color: #f2994b;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-orange {
+  background-color: #e9662c;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-pink {
+  background-color: #bf3773;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-violet {
+  background-color: #9351ad;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-grey {
+  background-color: #4b5d67;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-dark {
+  background-color: #594857;
+  color: #fff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
+  position: relative;
+  background: #ffffff;
+  padding: 1.7em;
+  margin-left: 85px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red {
+  background: #bf4346;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red:after {
+  border-color: transparent #bf4346 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-red p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green {
+  background: #488c6c;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green:after {
+  border-color: transparent #488c6c transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-green p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange {
+  background: #e9662c;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange:after {
+  border-color: transparent #e9662c transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-orange p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow {
+  background: #f2994b;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow:after {
+  border-color: transparent #f2994b transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-yellow p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue {
+  background: #0a819c;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue:after {
+  border-color: transparent #0a819c transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-blue p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink {
+  background: #bf3773;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink:after {
+  border-color: transparent #bf3773 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-pink p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet {
+  background: #9351ad;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet:after {
+  border-color: transparent #9351ad transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-violet p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey {
+  background: #4b5d67;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey:after {
+  border-color: transparent #4b5d67 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-grey p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark {
+  background: #594857;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark:after {
+  border-color: transparent #594857 transparent transparent;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label.bg-dark p {
+  color: #ffffff;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 9px 9px 0;
+  border-color: transparent #ffffff transparent transparent;
+  left: 0;
+  top: 20px;
+  margin-left: -9px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title,
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p {
+  color: #999999;
+  margin: 0;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p + p {
+  margin-top: 15px;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title {
+  margin-bottom: 10px;
+  font-family: 'Oswald';
+  font-weight: bold;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label .timeline-title span {
+  -webkit-opacity: .6;
+  -moz-opacity: .6;
+  opacity: .6;
+  -ms-filter: alpha(opacity=60);
+  filter: alpha(opacity=60);
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img {
+  margin: 5px 10px 0 0;
+}
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p .timeline-img.pull-right {
+  margin: 5px 0 0 10px;
+}
+</style>
+<div class="modal fade" id="edit-preview-modal" tabindex="-1" role="dialog" aria-labelledby="edit-preview" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Select</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-playlist-modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body"> 
+            
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="btn btn-block btn-info btn-lg edit-btn">Edit</div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="btn btn-block btn-info btn-lg preview-btn">Preview</div>
+                        <input type="hidden" id="stage-id" value="">
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="modal fade" id="edit-preview-modal" tabindex="-1" role="dialog" aria-labelledby="edit-preview" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content inline-form">
+        <div class="btn btn-block btn-info btn-lg edit-btn">Edit</div>
+        <div class="btn btn-block btn-info btn-lg preview-btn">Preview</div>
+        <input type="hidden" id="stage-id" value="">
+    </div>
+  </div>
+</div>-->
+
+<div class="modal fade" id="edit-modal"  tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style="overflow-y:auto;">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-playlist-modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="margin:15px;">  
+                <div class="alert-danger" id="error-upload" style="display:none;"></div>
+                <form name="form1" class="block-data card card-body" data-status="form"  id="form">                
+                    <!--<div class="alert alert-light mb-2" role="alert" id="messagebox">
+                    </div>-->
+                    <div class="row"> 
+                        
+                        <div class="col form-group">
+                            <label for="">Title</label>
+                            <input type="text" class="form-control" id="title" required name="title">
+                        </div>
+                        
+                        <div class="col form-group">
+                            <label for="">Description</label>
+                            <input type="text" class="form-control" id="description" required name="description">
+                        </div>
+                        
+                        <div class="col form-group">
+                            <label for="">Message Line 1</label>
+                            <textarea class="form-control" id="message_line1"></textarea>
+                        </div>
+                        
+                    
+                        <div class="col form-group">
+                            <label for="">Message Line 2</label>
+                            <textarea class="form-control" id="message_line2"></textarea>
+                        </div> 
+                        
+                        <div class="col form-group">
+                            <label for="">Message Line 3</label>
+                            <textarea class="form-control" id="message_line3"></textarea>
+                        </div> 
+                        
+                        <div class="col form-group">
+                            <label for="">Backgroud Video</label>
+                            <!--<input type="file" id="bg_file" name="bgfile" accept ="video/mp4" />-->
+                            <input type="hidden" id="bgfile_hidden" value="">
+                            <br>
+                            <!--<video width='100%' height="100px" controls='controls' preload='metadata' id="bgvideo" ><source id= "video-source" src='/Media/Video1.mp4#t=0.5' type='video/mp4' ></video>-->
+                            <input type='file'  id='bg_file' accept ="video/mp4"  /><br>
+                            <video width="200" height="150" controls>
+                                Your browser does not support the video tag.
+                              </video>
+                        </div> 
+                        
+                        <div class="col form-group">
+                            <label for="">Status Animation</label></br>
+                            <label class="radio-inline">
+                                <input type="radio" class="radiobtn" name ="animation-radio" data-name="gif" id="file_gif" value=".gif" 
+                            checked/>Gif<br />
+                            </label>
+
+                            <label class="radio-inline">
+                                <input type="radio" class="radiobtn" name ="animation-radio" data-name="lottie" id="file_lottie" value=".lottie,.json" 
+/>Lottie<br />
+                            </label>
+                            
+                            <input type="file"  id="animation-file" name="animationfile" accept=".gif"/>
+                            <input type="hidden" id="animationfile_hidden" value="">
+
+                            <br>
+                            <img src ="https://localhost/parcx/Media/test.gif" width='100%'>
+                            <!--<lottie-player src="https://localhost/parcx/Media/test.json"></lottie-player>-->
+                        </div>
+                        
+                        
+                    </div>  
+                    
+
+                    <input type="submit" class="save-stage-details btn btn-block btn-info mt-2 btn-lg" value="Save" id="save-details">
+
+                </form>             
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / end modal -->
+
+
+<script type="text/javascript">
+var stage_id;
+$(document).on("click", ".stage", function ()
+{
+        $("#edit-preview-modal").modal("show");
+        stage_id = $(this).attr("data-id");
+        $("#stage-id").val(stage_id);
+        
+});
+
+$(document).on("click", ".edit-btn", function ()
+{
+    $("#edit-preview-modal").modal("hide");
+    $("#edit-modal").modal("show");
+    $("#error-upload").hide();
+    var data = {};
+    data["stage_id"] = $("#stage-id").val();
+    data["task"] = 3;
+    var jsondata = JSON.stringify(data);
+    //console.log(jsondata);
+    $.post("../../modules/ajax/greeting_screen.php?task=3", jsondata, function (result) {
+       // console.log(result);
+        var json = JSON.parse(result);
+        $("#title").val(json.title);
+        $("#description").val(json.description);
+        $("#message_line1").val(json.message_line1);
+        $("#message_line2").val(json.message_line2);
+        $("#message_line3").val(json.message_line3);
+        $("#bgfile_hidden").val(json.bg_video_file);
+        $("#animationfile_hidden").val(json.animation_file);
+        document.querySelector("video").src = "/parcx/Media/"+json.bg_video_file+"#t=0.5";
+        //$('#bgvideo').find("source").attr("src", '/parcx/Media/'+json.bg_video_file+'#t=0.5');
+        if(json.animation_type=="gif")
+        {
+            $("#file_gif").prop("checked", true);
+            $("#file_lottie").prop("checked", false);
+        }
+        else if(json.animation_type=="lottie" || json.animation_type=="json")
+        {
+            $("#file_lottie").prop("checked", true);
+            $("#file_gif").prop("checked", false);
+        }
+        
+    });
+    
+});
+$('.radiobtn').change(function() {
+    $('#animation-file').val(""); // before setting
+    $('#animation-file').attr("accept", $(this).val())
+})
+
+function uploadfile(type)
+{
+    event.preventDefault();
+    var formData = new FormData();
+    if(type==1)
+        var file_data = $("#bg_file").prop("files")[0];
+    else if(type==1)
+        var file_data = $("#animation_file").prop("files")[0];
+    formData.append('file', file_data);
+    formData.append('task',1);
+   
+    $.ajax({
+
+        url: "../../modules/ajax/greeting_screen.php?task=1",
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            try{
+                var json = JSON.parse(response);
+                if (json.status == 200) {
+                    if(type==1)
+                        $("#bgfile_hidden").val(file_data.name);
+                    else if(type==1)
+                        $("#animationfile_hidden").val(file_data.name);
+                        
+                    result = "Success"
+                    UpdateStageDetails();
+                } else
+                {
+                    result = "Failed"
+                    $("#error-upload").show();
+                    $("#error-upload").html(json.message);
+                    //alert(json.message);
+
+                }
+            }
+            catch (e) {
+
+                $("#error-upload").show();
+                $("#error-upload").html(response);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $("#error-upload").show();
+            $("#error-upload").html(textStatus+errorThrown);
+            //alert(textStatus);
+            //alert(errorThrown);
+        } //end of error
+    });
+    
+}
+$(document).on("click", ".save-stage-details", function ()
+{
+    var result = "Success";
+
+    
+    if($('#bg_file').val() || $('#animation_file').val())
+    {
+     alert($('#bg_file').val());
+        if ($('#bg_file').val()) {
+            uploadfile(1);
+        }
+        if ($('#animation_file').val()) {
+            uploadfile(2);
+        }
+        
+
+    }
+    else
+    {
+        UpdateStageDetails();
+    }
+        
+});
+    
+    function UpdateStageDetails()
+    {
+        var data = {};
+        data["stage_id"] = stage_id;
+        data["title"]= $("#title").val();
+        data["description"] = $("#description").val();
+        data["message_line1"] = $("#message_line1").val();
+        data["message_line2"] = $("#message_line2").val();
+        data["message_line3"] = $("#message_line3").val();
+        data["bg_file"] =$("#bgfile_hidden").val();
+        data["animation_file"]=$("#animationfile_hidden").val();
+        data["animation_type"] = $("input[name='radiobtn']:checked").data('name');
+        
+        data["task"] = 2;
+        var jsondata = JSON.stringify(data);
+        console.log(jsondata);
+        $.post("../../modules/ajax/greeting_screen.php?task=2", jsondata, function (result) {
+            console.log(result);
+            /*if (result === "Successfull")
+                location.reload();
+            else
+                alert(result);*/
+        });
+    }
+    
+    document.getElementById("bg_file")
+.onchange = function(event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector("video").src = blobURL;
+  }
+        
+</script>
+</body>
+</html>

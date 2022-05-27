@@ -1,0 +1,8 @@
+1.Advertisement videos to be shown based on known/unknown customer type and schedule?
+2.After enable/disable of a stage, reload the page and come to the same customer type
+3.MAnually adding rows in greeting_screen when new stage is added
+4.Add a setting in the table to identify if its an ad stage
+5.Button to sync the stages with the controllers
+
+
+INSERT INTO `greeting_screen` (`id`, `title`, `stage_id`, `schedule`, `bg_type`, `bg_file`, `bg_color`, `bg_opacity`, `message_line1`, `m1_font_size`, `m1_font_family`, `m1_font_color`, `message_line2`, `m2_font_family`, `m2_font_size`, `m2_font_color`, `message_line3`, `m3_font_family`, `m3_font_size`, `m3_font_color`, `description`, `animation_type`, `animation_file`, `auto_stage_change`, `next_stage_id`, `timeout_period`, `last_updated_date_time`, `known_customer`, `status`) VALUES (NULL, 'Test Stage', '14', '1', '', '', '', '0', '', '0', '', '', '', '', '0', '', '', '', '0', '', NULL, '', '', '0', '0', '5', '2022-04-06 08:44:45', '1', '1');

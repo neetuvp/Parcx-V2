@@ -1,0 +1,67 @@
+
+Date :2022-04-21 08:32:10 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 08:32:10 Response: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 08:32:32 Request: {"stage_id":"1","schedule":"2","task":3}
+Date :2022-04-21 08:32:32 Response: {"stage_id":"1","schedule":"2","task":3}
+Date :2022-04-21 08:32:42 Request: {"stage_id":"1","schedule":"3","task":3}
+Date :2022-04-21 08:32:42 Response: {"stage_id":"1","schedule":"3","task":3}
+Date :2022-04-21 08:32:49 Request: {"stage_id":"1","schedule":"4","task":3}
+Date :2022-04-21 08:32:49 Response: {"stage_id":"1","schedule":"4","task":3}
+Date :2022-04-21 08:32:58 Request: {"stage_id":"1","schedule":"4","title":"Standby","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"72442746_idle_screen@2x.png","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"10","bg_color":"","bg_opacity":"","task":2}
+Date :2022-04-21 08:32:58 Response: {"stage_id":"1","schedule":"4","title":"Standby","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"72442746_idle_screen@2x.png","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"10","bg_color":"","bg_opacity":"","task":2}
+Date :2022-04-21 08:33:03 Request: {"stage_id":"10","schedule":"1","task":3}
+Date :2022-04-21 08:33:03 Response: {"stage_id":"10","schedule":"1","task":3}
+Date :2022-04-21 08:33:15 Request: {"stage_id":"10","schedule":"2","task":3}
+Date :2022-04-21 08:33:15 Response: {"stage_id":"10","schedule":"2","task":3}
+Date :2022-04-21 08:33:26 Request: {"stage_id":"10","schedule":"3","task":3}
+Date :2022-04-21 08:33:26 Response: {"stage_id":"10","schedule":"3","task":3}
+Date :2022-04-21 08:34:25 Request: {"stage_id":"10","schedule":"4","task":3}
+Date :2022-04-21 08:34:25 Response: {"stage_id":"10","schedule":"4","task":3}
+Date :2022-04-21 08:34:35 Request: {"stage_id":"10","schedule":"4","title":"Welcome","description":"","message_line1":"WELCOME","m1_font_family":"AktivGroteskld","m1_font_size":"120","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"abudhabi_skyline_night.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"11","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-21 08:34:35 Response: {"stage_id":"10","schedule":"4","title":"Welcome","description":"","message_line1":"WELCOME","m1_font_family":"AktivGroteskld","m1_font_size":"120","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"abudhabi_skyline_night.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"11","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-21 08:34:47 Request: {"stage_id":"11","schedule":"1","task":3}
+Date :2022-04-21 08:34:47 Response: {"stage_id":"11","schedule":"1","task":3}
+Date :2022-04-21 08:35:11 Request: {"stage_id":"11","schedule":"1","title":"Pump Information","description":"","message_line1":"Belhasa (380)","m1_font_family":"AktivGroteskld","m1_font_size":"74","m1_font_color":"white","message_line2":"Pump 1","m2_font_family":"AktivGroteskld","m2_font_size":"50","m2_font_color":"white","message_line3":"","m3_font_family":"AktivGroteskld","m3_font_size":"50","m3_font_color":"white","timeout":"10","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"2","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-21 08:35:11 Response: {"stage_id":"11","schedule":"1","title":"Pump Information","description":"","message_line1":"Belhasa (380)","m1_font_family":"AktivGroteskld","m1_font_size":"74","m1_font_color":"white","message_line2":"Pump 1","m2_font_family":"AktivGroteskld","m2_font_size":"50","m2_font_color":"white","message_line3":"","m3_font_family":"AktivGroteskld","m3_font_size":"50","m3_font_color":"white","timeout":"10","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"2","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-21 08:35:21 Request: {"stage_id":"2","schedule":"1","task":3}
+Date :2022-04-21 08:35:21 Response: {"stage_id":"2","schedule":"1","task":3}
+Date :2022-04-21 08:35:43 Request: {"stage_id":"2","schedule":"1","title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"5","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-21 08:35:43 Response: {"stage_id":"2","schedule":"1","title":"Vehicle Arrives","description":"","message_line1":"Good to see you again","m1_font_family":"AktivGroteskld","m1_font_size":"113","m1_font_color":"white","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"abudhabi_station_morning.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"5","bg_color":"255,255,255","bg_opacity":"20","task":2}
+Date :2022-04-21 08:35:46 Request: {"stage_id":"5","schedule":"1","task":3}
+Date :2022-04-21 08:35:46 Request: {"stage":"5","task":4}
+Date :2022-04-21 08:35:46 Response: {"stage_id":"5","schedule":"1","task":3}
+Date :2022-04-21 08:35:46 Response: {"stage":"5","task":4}
+Date :2022-04-21 08:36:01 Request: {"stage_id":"5","schedule":"1","title":"Advertising","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"4","bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-21 08:36:01 Response: {"stage_id":"5","schedule":"1","title":"Advertising","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"4","bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-21 08:36:08 Request: {"stage_id":"3","schedule":"1","task":3}
+Date :2022-04-21 08:36:08 Response: {"stage_id":"3","schedule":"1","task":3}
+Date :2022-04-21 08:36:19 Request: {"stage_id":"3","schedule":"1","title":"App Promotion","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"3QRscene.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"4","bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-21 08:36:19 Response: {"stage_id":"3","schedule":"1","title":"App Promotion","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"10","bg_file":"3QRscene.mp4","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":"4","bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-21 08:45:01 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 08:45:01 Response: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 08:45:08 Request: {"stage_id":"10","schedule":"1","task":3}
+Date :2022-04-21 08:45:08 Response: {"stage_id":"10","schedule":"1","task":3}
+Date :2022-04-21 08:45:19 Request: {"stage_id":"11","schedule":"1","task":3}
+Date :2022-04-21 08:45:19 Response: {"stage_id":"11","schedule":"1","task":3}
+Date :2022-04-21 08:45:29 Request: {"stage_id":"2","schedule":"1","task":3}
+Date :2022-04-21 08:45:29 Response: {"stage_id":"2","schedule":"1","task":3}
+Date :2022-04-21 08:45:38 Request: {"stage_id":"3","schedule":"1","task":3}
+Date :2022-04-21 08:45:38 Response: {"stage_id":"3","schedule":"1","task":3}
+Date :2022-04-21 08:45:47 Request: {"stage_id":"4","schedule":"1","task":3}
+Date :2022-04-21 08:45:47 Response: {"stage_id":"4","schedule":"1","task":3}
+Date :2022-04-21 08:45:52 Request: {"stage_id":"5","schedule":"1","task":3}
+Date :2022-04-21 08:45:52 Request: {"stage":"5","task":4}
+Date :2022-04-21 08:45:52 Response: {"stage":"5","task":4}
+Date :2022-04-21 08:45:52 Response: {"stage_id":"5","schedule":"1","task":3}
+Date :2022-04-21 08:46:00 Request: {"stage_id":"7","schedule":"1","task":3}
+Date :2022-04-21 08:46:00 Response: {"stage_id":"7","schedule":"1","task":3}
+Date :2022-04-21 08:46:05 Request: {"stage_id":"7","schedule":"1","title":"FuelingAmountToPay","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":null,"bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-21 08:46:05 Response: {"stage_id":"7","schedule":"1","title":"FuelingAmountToPay","description":"","message_line1":"","m1_font_family":"","m1_font_size":"0","m1_font_color":"","message_line2":"","m2_font_family":"","m2_font_size":"0","m2_font_color":"","message_line3":"","m3_font_family":"","m3_font_size":"0","m3_font_color":"","timeout":"0","bg_file":"","bg_type":"","animation_file":"","animation_type":"","auto_stage_change":0,"next_stage_id":null,"bg_color":"","bg_opacity":"0","task":2}
+Date :2022-04-21 08:46:11 Request: {"stage_id":"8","schedule":"1","task":3}
+Date :2022-04-21 08:46:11 Response: {"stage_id":"8","schedule":"1","task":3}
+Date :2022-04-21 08:46:18 Request: {"stage_id":"9","schedule":"1","task":3}
+Date :2022-04-21 08:46:18 Response: {"stage_id":"9","schedule":"1","task":3}
+Date :2022-04-21 08:46:27 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 08:46:27 Response: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 09:08:26 Request: {"stage_id":"1","schedule":"1","task":3}
+Date :2022-04-21 09:08:26 Response: {"stage_id":"1","schedule":"1","task":3}

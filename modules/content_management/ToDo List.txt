@@ -1,0 +1,11 @@
+1.AVI Plugin
+2.Enabling a video should reflect in playlist
+3.Adding the same playlist multiple times to the same screen
+4.Device Playlist - The timepicker does not show when a playlist is added and trying to edit in the right div
+5.Device Settings need to have settings related to screen category
+6. Screen list should show preview of currently playing media/playlist
+7.Scheduling playlist should not coincide with other playlists' schedule
+8.Add Time delay required while uploading images in the media library - Done
+9.DateRangePicker does not scroll with the input box
+10.Alert Popups should be in modal
+11.Editing the Image Timeout for media upload

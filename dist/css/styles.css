@@ -1,0 +1,1111 @@
+/* === global styles // custom === */
+
+/* body - container */
+
+* {
+  font-family: "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  color: #222;
+}
+
+.container-wide {
+  padding: 30px;
+}
+
+.container-fix {
+  padding-bottom: 10px;
+}
+
+/* visibility */
+
+.hidden {
+  display: none !important;
+}
+
+/* spacing */
+
+.padding-reset {
+  padding: 0;
+}
+
+.spacer {
+  height: 30px;
+}
+
+/* text */
+
+.header {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0px 15px;
+}
+
+.font-weight-bold {
+  font-weight: 500 !important;
+}
+
+/* pointer styles */
+
+.pointer {
+  cursor: pointer;
+}
+
+/* borders */
+
+.border-simple {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+/* default table styles */
+
+table input {
+  width: 100%;
+}
+
+.table th,
+.table td {
+  border-top: none;
+}
+
+/* === bootstrap overrides === */
+
+/* text */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 0;
+}
+
+/* card elements */
+
+.card {
+  border: none;
+  background-color: #FFF;
+}
+
+.card-text {
+  background-color: #FFF;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  /*opacity: 0.95;*/
+}
+
+.card-header {
+  background-color: #0099d3;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  padding: 10px 0px;
+}
+
+.card-header span {
+  font-weight: 500;
+}
+
+.card-header img {
+  max-height: 40px;
+}
+
+.card-header .col:first-child,
+.card-header .col-2:first-child,
+.card-header .col-3:first-child,
+.table-view .col:first-child,
+.table-view .col-2:first-child,
+.table-view .col-3:first-child {
+  margin-left: 0.5rem;
+}
+
+.block-data {
+  margin-bottom: 30px;
+}
+
+.header-icon {
+  font-size: 20px;
+}
+
+/* buttons */
+
+.btn.btn-flat {
+  border-radius: 0.25rem !important;
+}
+
+/* labels */
+
+label:not(.form-check-label):not(.custom-file-label) {
+  font-weight: 500;
+}
+
+/* badges */
+
+.badge {
+  padding: 0.5em;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+/* === navbar === */
+
+.navbar {
+  padding-bottom: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+.navbar input[type="checkbox"] {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.nav-details {
+  margin-right: 10px;
+}
+
+.brand-link {
+  text-align: center;
+}
+
+.brand-link img {
+  max-height: 40px;
+  width: auto;
+  padding: 2px;
+  height: auto;
+  margin: 5px;
+}
+
+/* logout button */
+
+.logout-button {
+  margin-right: 12px;
+}
+
+/* Alternate navbar with tab-link */
+
+.navbar-has-tablink .navbar {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.navbar-has-tablink #action-buttons {
+  visibility: visible;
+}
+
+.navbar-has-tablink .additional-menu-left {
+  margin-left: 19px;
+}
+
+.navbar-has-sublink .additional-menu-left,
+.navbar-has-sublink .additional-menu-right {
+  padding: 0;
+}
+
+.navbar-has-sublink .additional-menu-left {
+  margin-left: -4px;
+}
+
+.nav-button-group {
+  margin-left: 11px !important;
+}
+
+/* === navbar > tab headers === */
+
+.tab-header {
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actions-link {
+  margin: 0px 20px;
+  padding: 10px 5px 10px 5px;
+  font-weight: 500;
+}
+
+.tab-link,
+.tab-header-link,
+.menu-info {
+  margin: 0px 20px;
+  padding: 13px 5px 13px 5px;
+  font-weight: 500;
+}
+
+.tab-header .active {
+  color: #0099D3;
+  border-bottom: 4px solid #0099d3;
+  font-weight: 500;
+}
+
+/* === tab headers > data status="block-view" === */
+
+[data-status="block-view"] .card-header {
+  background: white;
+  color: #333;
+  padding: 0.9rem 1rem !important;
+}
+#device-status-block .card-header {
+  background: white;
+  color: #333;
+  padding: 0.9rem 1rem !important;
+}
+
+[data-status="block-view"] .card-text {
+  border: none !important;
+  padding: 10px !important;
+}
+
+[data-status="block-view"] .card-body {
+  padding: 0;
+}
+
+[data-status="block-view"] .card .nav.flex-column>li {
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+[data-status="block-view"] .block-data {
+  margin-bottom: 16px;
+}
+
+[data-status="block-view"] {
+  margin-bottom: -12px;
+  /* fix bug where pdf export fails if block-view has no content */
+  border: 2px solid #f4f6f9;
+}
+
+[data-status="block-view"] .badge {
+  padding: 7px 10px;
+}
+
+.block-view-img img {
+  max-height: 64px;
+}
+
+/* === form elements > checkboxes === */
+
+input[type="checkbox"] {
+  /* keep */
+ width: auto;
+  display: inline;
+}
+
+.custom-control,
+.custom-checkbox,
+.custom-control-label,
+.custom-control-label::before,
+.custom-control-label::after {
+  cursor: pointer;
+}
+
+/* === form elements > input/select === */
+
+input,
+select:not(.hourselect):not(.minuteselect):not(.ampmselect) {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  /* background-clip: padding-box; */
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+select {
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
+input.btn {
+  width: auto;
+}
+
+/* === form elements > inline form === */
+
+.inline-form {
+  margin-left: 10px;
+}
+
+/* === form elements > date range picker === */
+
+.daterangepicker {
+  font-size: 13.5px;
+}
+
+/* === form elements > dropdown multiselect === */
+
+.multiselect-container.dropdown-menu.show {
+  width: 100%;
+  padding-left: 8px;
+  padding-bottom: 2px;
+}
+
+.checkbox,
+.multiselect-container a {
+  color: #333;
+}
+
+button.multiselect.dropdown-toggle.btn.btn-default {
+  text-align: left;
+  background: white;
+}
+
+.btn-group.show .dropdown-toggle {
+  box-shadow: none;
+}
+
+.multiselect-btn-default {
+  background-color: white;
+  color: #444;
+  border-color: #ddd;
+  text-align: left;
+}
+
+/* === login form === */
+
+#messagebox {
+  font-size: 13.5px;
+}
+
+/* === sidebar === */
+
+/* .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active {
+  background-color: #0099d3;
+} */
+
+.nav-sidebar .menu-open>.nav-link .right {
+  -ms-transform: rotate(-90deg);
+  transform: rotate(90deg);
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  margin-bottom: 5px;
+}
+
+.sidebar {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+i.nav-icon.fa.fa-car {
+  font-size: 1.4rem;
+}
+
+/* === small box / info box (colored detail box) === */
+
+.small-box p {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.small-box-footer {
+  font-weight: 500;
+  padding: 9px !important;
+}
+
+.small-box {
+  padding: 8px;
+  padding-top: 5px;
+}
+
+.info-box-icon img {
+  height: 50px;
+}
+
+/* === report select ops > container === */
+
+.additional-menu-left,
+.additional-menu-right {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.additional-menu-left {
+  margin-left: 10px;
+}
+
+.additional-menu-right {
+  margin-right: 12px;
+}
+
+#action-buttons,
+#loader {
+  visibility: hidden;
+}
+
+/* === report select ops > custom/individual styles === */
+
+#carpark_name {
+  float: left;
+  background-color: #D3D3D3;
+  pdding: 10px;
+  font-weight: bold;
+}
+
+table #head {
+  background-color: #444;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.weekdays {
+  float: left;
+  height: 25px;
+  width: auto;
+}
+
+.weekdays ul {
+  float: left;
+  list-style: none;
+}
+
+.weekdays ul li {
+  list-style: none;
+  margin: 0 10px 0 0;
+  padding: 0 10px 0 10px;
+  color: #333;
+  float: left;
+}
+
+.weekdays ul li:first-child {
+  padding-left: 0px;
+}
+
+/* === report select ops > loader === */
+
+div#loader img {
+  max-height: 35px;
+  display: block;
+  width: auto;
+}
+
+/* === modals > global styles === */
+
+[data-toggle="modal"] {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 55%;
+    /* adjust me */
+    max-width: 1200px !important;
+  }
+}
+
+/* fix extra padding issue */
+
+.modal-open {
+  padding-right: 0px !important;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-body .card-header {
+  padding: 15px;
+  /* text-align: center; */
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 460px;
+  }
+}
+
+.modal-lg {
+  max-width: 580px;
+}
+
+.modal-content {
+  border: none;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    margin: 4.75rem auto;
+  }
+}
+
+/* fix card-header border bug */
+
+.modal-body .card {
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+}
+
+/* === modals > pdf receipt modal === */
+
+#pdfReceiptModal .modal-lg {
+  max-width: 750px;
+}
+
+#pdfReceiptModal .modal-lg .modal-body {
+  height: auto !important;
+  padding: 1.25rem;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .modal-title {
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .table-receipt tr.net-amount {
+  border-top: 1px solid #333333b0;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .table-receipt tr.gross-amount {
+  border-top: 1px solid #333333b0;
+  border-bottom: 4px double #333333b0;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .table-receipt span {
+  display: block;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .table-receipt span > span {
+  display: inline;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .table-receipt .parking-fee-details {
+    margin-top: 15px;
+}
+
+#pdfReceiptModal .modal-lg .modal-body .table-receipt .parking-fee-details span {
+    font-size: 15px;
+}
+
+#pdfReceiptModal .table-receipt th:first-of-type,
+#pdfReceiptModal .table-receipt td:first-of-type {
+  width: 5%;
+}
+
+#pdfReceiptModal .table-receipt th:nth-of-type(2),
+#pdfReceiptModal .table-receipt td:nth-of-type(2) {
+  width: 75%;
+}
+
+#pdfReceiptModal .table-receipt th:last-of-type,
+#pdfReceiptModal .table-receipt td:nth-of-type(2) {
+  width: 20%;
+}
+
+/* === modals > error log modal === */
+
+#error-log-modal img#device_img {
+  /* border: 1px solid teal; */
+  width: 200px;
+  height: 200px;
+}
+
+/* === tables > new ui === */
+
+.card-table-blue {
+  border: 1px solid #0099d3;
+  border-bottom: none;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.table.table-blue {
+  margin: 0;
+}
+
+.table.table-blue thead tr {
+  background-color: #0099d3;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  padding: 10px 0px;
+  background-clip: padding-box;
+}
+
+.table.table-blue thead th {
+  border-bottom: none;
+}
+
+.table.table-blue tr {
+  border-radius: 0px;
+  border-bottom: 1px solid #0099d3;
+}
+
+.table.table-blue th {
+  vertical-align: middle;
+  font-size: 16px;
+  color: white;
+}
+
+.table.table-blue td {
+  vertical-align: middle;
+  font-size: 15px;
+  color: #333;
+}
+
+/* === tables > previous table ui === */
+
+.table-view {
+  padding: 0px;
+}
+
+.table-view .card-text {
+  font-size: 15px;
+}
+
+.table-view .card-header,
+.table-view .card-text {
+  padding: 10px 0px;
+}
+
+.table-view .card-header {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.table-view .card-header {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.table-view .card-text:hover {
+  opacity: 1;
+}
+
+.table-view .card-text {
+  border-radius: 0px;
+  border-bottom: 1px solid #0099d3;
+  border-left: 1px solid #0099d3;
+  border-right: 1px solid #0099d3;
+}
+
+.table-detail {
+  margin: 0;
+  font-size: 15px;
+}
+
+.table-row-detail {
+  margin-left: 10px;
+}
+
+.counter-view .table-row-detail {
+  margin-left: 10px;
+  margin-right: -10px;
+}
+
+.counter-view h6 {
+  margin: 0px;
+}
+
+/* === tables > subheading === */
+
+.subhead {
+  background-color: lightgray;
+  font-weight: 500;
+  font-size: 16px !important;
+  color: #333;
+}
+
+/* === tables > scrollable === */
+
+#valet_overview .table-scroll {
+  max-height: 227px;
+  overflow-y: scroll;
+}
+
+/* === charts > container elements === */
+
+.chart-header {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.chart-box {
+  border: 1px solid #D3D3D3;
+  border-radius: 10px;
+  background-color: white;
+  padding: 15px 10px 10px 10px;
+  /* margin-bottom: 30px; */
+}
+
+.barchart-box {
+  margin-top: 30px;
+  border: 1px solid #D3D3D3;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.barchart-box.report-chart {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+#bar-chart,
+.barchart-box {
+  display: block;
+}
+
+/* === charts > edits for pdf export === */
+
+/* align all graphs by normalizing margin + padding */
+
+.row.jspdf-graph {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.jspdf-graph .col-lg-12,
+.jspdf-graph .col-lg-5 {
+  padding: 0;
+}
+
+/* fix bug where left margin and left padding increases left margin on pdf export */
+
+.row.mb-4.jspdf-graph {
+  margin-left: 0;
+}
+
+.jspdf-graph>.col-lg-3.col-6:first-child,
+.jspdf-graph>.col-auto:first-child {
+  padding-left: 0;
+}
+
+/* === charts > progress bar === */
+
+.progress-box {
+  margin-top: 30px;
+}
+
+.progress {
+  font-size: 15px;
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.taken-spots {
+  background-color: #FF6384;
+}
+
+.free-spots {
+  background-color: #0099d3;
+}
+
+/* === charts > gauge indicator === */
+
+.gauge-val {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* === keymanager === */
+
+.keymanager.d-flex.row {
+  margin-left: -7.5px;
+}
+
+.position-inactive {
+  background-color: #D3D3D3;
+  float: left;
+  height: 60px;
+  width: 100%;
+  margin: 0 0 0px 0px;
+  font-size: 28px;
+  padding: 0 0 5px 0;
+  text-align: center;
+  color: #FFF;
+}
+
+/* === counter alerts === */
+
+.form-box {
+  padding-right: 30px;
+}
+
+#left,
+#right {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: white;  
+  height: 500px;
+  overflow-y: auto;
+}
+
+
+#form,#add-group-policy
+{
+    height:100%;
+}
+#left {
+  width: 40%;  
+  float: left;  
+  padding: 10px;
+}
+
+#right {
+  width: 45%;  
+  float: left;  
+  min-height: 5px;
+  padding: 10px;
+}
+
+#middle {
+  width: 10%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.draggable {
+  /* border: inset; */
+  margin-bottom: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  border: 1px solid #D3D3D3;
+  padding: 5px;
+}
+
+.alert-container {
+  /* background-color: #EFEFEF; */
+  background-color: #FFF;
+  /* border: 1px solid #0099d3; */
+  border: 1px solid #d3d3d3;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.txtCorrection {
+  width: 80px;
+}
+
+/* === carpark counters === */
+
+#secondary-carpark-counters-right p,
+#secondary-carpark-counters-left p {
+  margin-bottom: 0;
+}
+
+/* === add user role form === */
+
+form#test {
+  width: 100%;
+}
+
+input#u_rolecode {
+  padding: 2px;
+}
+
+/* === notification box === */
+
+/* add border radius on all 4 corners only when div is collapsed */
+
+.notification-box .card-header[aria-expanded="false"] {
+  border-radius: 0.25rem;
+}
+
+.notification-box .fa {
+  vertical-align: middle;
+}
+
+.notification-box #notification-icon {
+  margin-left: 10px;
+}
+
+/* === pagination === */
+
+.pagination.split-pagination .page-link {
+  border-radius: 5px !important;
+  margin-right: 10px;
+  padding: 8px 13px;
+}
+
+/* === payment transactions > button void === */
+
+.btn-void-trx {
+  margin-right: 10px;
+}
+.dot-indicator {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle
+}
+
+/*radio button in dynamic parking rates*/
+#add-rate-div input[type="radio"],
+.alert-container input[type="radio"],
+#containerCondition input[type="radio"] {
+  display: inline;
+  width: auto;
+}
+/*access whitelist parking zone*/
+.multiselect-container > li.disabled
+	{display:none;}
+
+/* active whitelist */
+
+#active-whitelists-table input {
+  width:100%;  
+  margin-left:0;
+}
+
+/* Box color*/
+.box-color-parking-fee{
+background-color:#0bc581;
+color:#ffffff;
+}
+
+.box-color-lost-fee{
+background-color:#36bea9;
+color:#ffffff;
+}
+
+.box-color-product-fee{
+background-color:#3cb767;
+color:#ffffff;
+}
+
+.box-color-discount-fee{
+background-color:#40c1e1;
+color:#ffffff;
+}
+
+.box-color{
+background-color:#3cb767;
+color:#ffffff;
+}
+
+/* === Data Tables === */
+
+.dataTables_length{
+  float:left;
+  width:200px;
+  height:30px;
+  
+  }
+  
+  .dataTables_length label{
+  width:100px;
+  height:30px;
+  float:left;
+  }
+  
+  .dataTables_length select{
+  float:left;
+  margin:-30px 50px 0 100px;
+  }
+.dataTables_filter{
+  float:right;
+}
+.dataTables_paginate{
+  float:right;  
+  margin:28px 0 0 0;
+}
+
+/* Dashboard */
+
+.chart-box .facility-name{
+    float:left;
+    width:100%;
+    height:auto;
+    border-bottom: 1px solid #CCC;
+    padding:0px 0px 10px 5px;
+    margin:0 0 25px 0;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.dashboard_last_updated{
+    margin:7px 0 0 0;
+    padding:5px;
+}
+
+
+
+.live_valet_in_box{
+  cursor: pointer;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

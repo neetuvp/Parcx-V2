@@ -1,0 +1,25 @@
+
+Date :2022-05-23 11:38:33 Request: {"stage":"1","bg":"bg-green","task":14}
+Date :2022-05-23 11:38:33 Response: {"stage":"1","bg":"bg-green","task":14}
+Date :2022-05-23 11:38:55 Request: {"stage":"1","bg":"bg-red","task":14}
+Date :2022-05-23 11:38:55 Response: {"stage":"1","bg":"bg-red","task":14}
+Date :2022-05-23 11:45:09 Request: {"stage_id":"1","status":"0","task":"12","customer_type":1}
+Date :2022-05-23 11:45:09 Response: {"stage_id":"1","status":"0","task":"12","customer_type":1}
+Date :2022-05-23 11:45:13 Request: {"stage_id":"1","status":"1","task":"12","customer_type":1}
+Date :2022-05-23 11:45:13 Response: {"stage_id":"1","status":"1","task":"12","customer_type":1}
+Date :2022-05-23 11:49:15 Request: {"stage":"1","bg":"bg-pink","task":14}
+Date :2022-05-23 11:49:15 Response: {"stage":"1","bg":"bg-pink","task":14}
+Date :2022-05-23 11:49:30 Request: {"stage":"1","bg":"bg-red","task":14}
+Date :2022-05-23 11:49:30 Response: {"stage":"1","bg":"bg-red","task":14}
+Date :2022-05-23 11:49:44 Request: {"stage":"2","bg":"bg-orange","task":14}
+Date :2022-05-23 11:49:44 Response: {"stage":"2","bg":"bg-orange","task":14}
+Date :2022-05-23 11:50:02 Request: {"stage":"2","bg":"bg-green","task":14}
+Date :2022-05-23 11:50:02 Response: {"stage":"2","bg":"bg-green","task":14}
+Date :2022-05-23 11:50:25 Request: {"stage":"10","bg":"bg-yellow","task":14}
+Date :2022-05-23 11:50:25 Response: {"stage":"10","bg":"bg-yellow","task":14}
+Date :2022-05-23 11:51:04 Request: {"stage":"10","bg":"bg-blue","task":14}
+Date :2022-05-23 11:51:04 Response: {"stage":"10","bg":"bg-blue","task":14}
+Date :2022-05-23 14:57:56 Request: {"stage_id":"1","status":"0","task":"12","customer_type":1}
+Date :2022-05-23 14:57:56 Response: {"stage_id":"1","status":"0","task":"12","customer_type":1}
+Date :2022-05-23 14:57:59 Request: {"stage_id":"1","status":"1","task":"12","customer_type":1}
+Date :2022-05-23 14:58:00 Response: {"stage_id":"1","status":"1","task":"12","customer_type":1}

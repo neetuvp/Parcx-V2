@@ -1,0 +1,17 @@
+
+Date :2022-05-17 14:13:37 Request: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-05-17 14:13:37 Response: {"stage_id":"1","schedule":"1","known_customer":0,"task":3}
+Date :2022-05-17 14:14:44 Request: {"stage_id":"1","schedule":"2","known_customer":0,"task":3}
+Date :2022-05-17 14:14:44 Response: {"stage_id":"1","schedule":"2","known_customer":0,"task":3}
+Date :2022-05-17 14:14:45 Request: {"stage_id":"1","schedule":"3","known_customer":0,"task":3}
+Date :2022-05-17 14:14:45 Response: {"stage_id":"1","schedule":"3","known_customer":0,"task":3}
+Date :2022-05-17 14:14:47 Request: {"stage_id":"1","schedule":"4","known_customer":0,"task":3}
+Date :2022-05-17 14:14:47 Response: {"stage_id":"1","schedule":"4","known_customer":0,"task":3}
+Date :2022-05-17 14:14:54 Request: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-05-17 14:14:54 Response: {"stage_id":"1","schedule":"1","known_customer":1,"task":3}
+Date :2022-05-17 14:15:07 Request: {"stage_id":"1","schedule":"2","known_customer":1,"task":3}
+Date :2022-05-17 14:15:07 Response: {"stage_id":"1","schedule":"2","known_customer":1,"task":3}
+Date :2022-05-17 14:15:08 Request: {"stage_id":"1","schedule":"3","known_customer":1,"task":3}
+Date :2022-05-17 14:15:08 Response: {"stage_id":"1","schedule":"3","known_customer":1,"task":3}
+Date :2022-05-17 14:15:09 Request: {"stage_id":"1","schedule":"4","known_customer":1,"task":3}
+Date :2022-05-17 14:15:09 Response: {"stage_id":"1","schedule":"4","known_customer":1,"task":3}

@@ -1,0 +1,9 @@
+1.Add Timepicker plugins(css and js files) to plugins folder
+2.Add the script and stylesheets to footer.php
+3.Add the ajax files -  video_upload.php and cms.php
+4.Add the content_management folder in modules folder - device_playlist.php,playlist_settings.php,video_upload.php
+5.Add the db tables: media_library,playlist_settings,device_playlist in parcx_server and  player_report in parcx_reporting
+6.Add category 12 for screens in device_category
+7.Add additional columns in system_devices table for screen settings
+8.Add the screen devices in the system_devices table
+9.Update the php.ini for upload size upto 200MB : upload_max_filesize = 200M  and post_max_size = 200M   
