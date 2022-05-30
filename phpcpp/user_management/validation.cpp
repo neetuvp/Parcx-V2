@@ -19,15 +19,7 @@ GeneralOperations gen;
 #define MINLENGTH "Minimum Length Required"
 #define CONSTRAINT "Invalid Character"
 
-void Validation::setx(int newx)
-{
-   myx = newx;
-}
 
-int Validation::getx()
-{
-    return myx;
-}
 string Validation::CurrentDateTimeValidation()
 {
     time_t now=time(NULL);	
