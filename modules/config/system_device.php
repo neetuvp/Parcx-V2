@@ -45,7 +45,8 @@ include('../../includes/sidebar.php');
                                 <div class="col form-group mb-4">
                                     <label for="">Device Category</label>
                                     <select name = "device_category" id ="device_category" class="form-control">
-                                        <option value = "1" selected>Entry</option>
+                                       <?php echo parcxV2Settings(array("task" => "59")); ?>      
+                                        <!--<option value = "1" selected>Entry</option>
                                         <option value = "2">Exit</option>
                                         <option value = "3">Cashier</option>
                                         <option value = "4">Auto Payment Machine</option>
@@ -55,7 +56,7 @@ include('../../includes/sidebar.php');
                                         <option value="8">Camera</option>
                                         <option value="9">Valet Handheld</option>
                                         <option value="10">Key/Podium Manager</option> 
-                                        <option value="11">Validator</option> 
+                                        <option value="11">Validator</option>--> 
                                     </select>
                                     <small class="form-text text-muted">Device category</small>
                                 </div>

@@ -2015,6 +2015,23 @@ string interfaceDropdownbyname(string type) {
     return html;
 }
 
+void deviceCategoryDropdown() {
+    try {
+        con = General.mysqlConnect(ServerDB);
+        stmt = con->createStatement();
+        res = stmt->executeQuery("select * from system_device_category");
+        while (res->next()) {
+            Php::out << "<option value='" << res->getString("id") << "'>" << res->getString("category_name") << "</option>" << std::endl;
+        }
+
+        delete res;
+        delete stmt;
+        delete con;
+    } catch (const std::exception& e) {
+        writeException("deviceCategoryDropdown", e.what());
+    }
+}
+
 Php::Value parcxV2Settings(Php::Parameters &params) {
     Php::Value data = params[0];
     int task = data["task"];
@@ -2135,6 +2152,8 @@ Php::Value parcxV2Settings(Php::Parameters &params) {
         case 57:parkingZoneDropdown(data);
             break;
         case 58:response = interfaceDropdownbyname("api");
+            break;
+        case 59:deviceCategoryDropdown();
             break;
     }
     return response;    
