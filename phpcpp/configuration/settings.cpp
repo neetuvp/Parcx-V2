@@ -1600,6 +1600,27 @@ void deviceDropdown(Php::Value json) {
     }
 }
 
+void deviceDropdownbyipaddress(Php::Value json) {
+    try {
+        string type=json["type"];
+        con = General.mysqlConnect(ServerDB);
+        stmt = con->createStatement();
+        if(type!="")
+            res = stmt->executeQuery("select * from system_devices where device_category in (" + type + ") order by device_number");
+        else
+            res = stmt->executeQuery("select * from system_devices order by device_number");
+        while (res->next()) {
+            Php::out << "<option value='" << res->getString("device_ip") << "'>" << res->getString("device_name") << "</option>" << std::endl;
+        }
+
+        delete res;
+        delete stmt;
+        delete con;
+    } catch (const std::exception& e) {
+        writeException("deviceDropdownbyipaddress", e.what());
+    }
+}
+
 void validatorDropdown() {
     try {
         con = General.mysqlConnect(ServerDB);
@@ -2154,6 +2175,8 @@ Php::Value parcxV2Settings(Php::Parameters &params) {
         case 58:response = interfaceDropdownbyname("api");
             break;
         case 59:deviceCategoryDropdown();
+            break;
+        case 60:deviceDropdownbyipaddress(data);
             break;
     }
     return response;    

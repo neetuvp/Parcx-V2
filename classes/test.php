@@ -204,7 +204,25 @@ class test
         }
         
     
-    
+    function send_camera_data_to_device($data)
+    {
+        
+        $request = $data;
+        $camera = $data["camera"];
+        $request["image"] =file_get_contents('scene.txt',true);
+        $request["plateimage"] =file_get_contents('crop.txt',true);
+       // echo "here".json_encode($request);
+        $curl_do = curl_init();
+        curl_setopt($curl_do, CURLOPT_URL,"http://10.195.15.205/Tabadul-API/MXCameraService.php?camera_id=".$camera);
+        curl_setopt($curl_do, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($curl_do, CURLOPT_TIMEOUT, 10);
+        curl_setopt($curl_do, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl_do, CURLOPT_POST, true);
+        curl_setopt($curl_do, CURLOPT_VERBOSE, 1);
+        curl_setopt($curl_do, CURLOPT_POSTFIELDS, json_encode($request));
+        $output = str_replace("'", "", curl_exec($curl_do));
+        echo $output;
+    }
     
     }
 ?>

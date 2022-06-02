@@ -1,4 +1,5 @@
 <?php 
+ini_set("display_errors",1);
 require_once('../../includes/common.php');
 include('../../classes/test.php');
 $obj=new test();
@@ -17,6 +18,10 @@ switch($task)
         break;
     case 3:
         $obj->plate_capture_test($data);
+        break;
+    case 4:
+        $obj->send_camera_data_to_device($data);
+        //echo "here";
         break;
    
     }
