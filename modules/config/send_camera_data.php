@@ -22,8 +22,8 @@ include('../../includes/sidebar.php');
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="">Device</label>
-                                <select id="device_number">                             
-                                    <?php echo parcxV2Settings(array("task" => "14", "type" => "1,2")); ?>
+                                <select id="device_ip">                             
+                                    <?php echo parcxV2Settings(array("task" => "60", "type" => "1,2")); ?>
                                 </select>
                             </div>                           
                              <div class="row ">				 
@@ -81,6 +81,7 @@ include('../../includes/footer.php');
         data["country"] = $("#country").val();
         data["category"]= "private";
         data["camera"]=camera;
+        data["ip"] = $("#device_ip").val();     
         var jsondata = JSON.stringify(data);
         console.log(jsondata)
         $.post("../../modules/ajax/send_to_device.php", jsondata, function (result) {    

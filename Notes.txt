@@ -1,1 +1,2 @@
 1.Recompiled configuration phpcpp module to add device dropdown by ipaddress
+2.Added camera simulator for Tabadul API-send_camera_data.php in config folder,ajax and classes folder

@@ -211,9 +211,12 @@ class test
         $camera = $data["camera"];
         $request["image"] =file_get_contents('scene.txt',true);
         $request["plateimage"] =file_get_contents('crop.txt',true);
+        $device_ip = $data["ip"];
        // echo "here".json_encode($request);
+	//$this->write_logs("camera_simulator","send_camera_data_to_device","Request:".json_encode($request));
         $curl_do = curl_init();
-        curl_setopt($curl_do, CURLOPT_URL,"http://10.195.15.205/Tabadul-API/MXCameraService.php?camera_id=".$camera);
+       // curl_setopt($curl_do, CURLOPT_URL,"http://10.195.15.205/Tabadul-API/MXCameraService.php?camera_id=".$camera);
+        curl_setopt($curl_do, CURLOPT_URL,"http://".$device_ip."/Tabadul-API/MXCameraService.php?camera_id=".$camera);
         curl_setopt($curl_do, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($curl_do, CURLOPT_TIMEOUT, 10);
         curl_setopt($curl_do, CURLOPT_RETURNTRANSFER, true);
@@ -221,7 +224,34 @@ class test
         curl_setopt($curl_do, CURLOPT_VERBOSE, 1);
         curl_setopt($curl_do, CURLOPT_POSTFIELDS, json_encode($request));
         $output = str_replace("'", "", curl_exec($curl_do));
-        echo $output;
+        if (curl_errno($curl_do)) 
+        {
+            $this->write_logs("camera_simulator","send_camera_data_to_device","Response:".curl_error($curl_do));
+            echo curl_error($curl_do);
+        }
+        else {
+            $this->write_logs("camera_simulator","send_camera_data_to_device","Response:".$output);
+            echo $output;
+        }
+	
+        
+    }
+
+    function write_logs($file_name, $function_name, $message) 
+        {
+        $log_file_path = "/opt/parcx/Logs/WebApplication/ApplicationLogs/".$file_name. date("d-m-Y") . "_log.log";
+        if (file_exists($log_file_path)) 
+            {
+            $myfile = fopen($log_file_path, 'a');
+            shell_exec('chmod -R 777 '.$log_file_path);            
+            } 
+        else 
+            {
+            $myfile = fopen($log_file_path, 'w');
+            shell_exec('chmod -R 777 '.$log_file_path);
+            }        
+        fwrite($myfile, date("d-m-Y H:i:s") . "\t" . $function_name . ":" . $message . "\r\n\n");
+        fclose($myfile);
     }
     
     }
